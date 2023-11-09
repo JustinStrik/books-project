@@ -35,6 +35,7 @@ class Book:
         # self.parent = null_book # no parent!
         self.invalid = False # when return to parent, check to see if there are two red in a row
         self.is_root = False
+        self.deficient = False
 
         # for visualization, just declaring values
         self.level = 0
@@ -132,18 +133,6 @@ class GatorLibrary:
         
 
     def print_book(self, book_id):
-#         BookID = <Book1 ID>
-# Title = "<Book1 Name>"
-# Author = "<Author1 Name"
-# Availability = "<Yes | No>"
-# BorrowedBy = <Patron Id | None>
-# Reservations = [patron1_id,patron2_id,....]
-# BookID = <Book2 ID>
-# Title = "<Book2 Name>"
-# Author = "<Author2 Name"
-# Availability = "<Yes | No>"
-# BorrowedBy = <Patron Id | None>
-# Reservations = [patron1_id,patron2_id,....]
         book = self.find_book(book_id)
         if book:
             print("BookID = " + str(book.book_id))
@@ -169,7 +158,33 @@ class GatorLibrary:
         pass
 
     def delete_book(self, book_id):
-        pass
+        # nothing in tree
+        if (self.root == null_book):
+            print("no books in the library, you cant delete anything")
+            return
+
+        self.root, successful_deletion, book_deleted = self.delete_book_recursive(self.root)
+        if (self.root.book_id == book_id):
+            self.root.red = False
+
+    def delete_book_recursive(self, current):
+        if (current == null_book):
+            return self.new_book, True, current
+        elif (self.new_book.book_id < current.book_id):
+            current.left = self.insert_book_recursive(current.left)
+        elif (self.new_book.book_id > current.book_id):
+            current.right = self.insert_book_recursive(current.right)
+
+        # check if red-black tree properties are violated
+        # are there two reds in a row
+        if (current.red and (current.left.red or current.right.red)):
+            current.invalid = True
+        
+        if (current.left.invalid or current.right.invalid):
+            current = insert_rotate(library,current)
+            current.invalid = False
+
+        return current # self.new_book
 
     def find_closest_book(self, target_id):
         pass
@@ -223,10 +238,6 @@ def main():
     display_tree(library.root)
     library.insert_book(1300, "RlR", "fug", True)
     display_tree(library.root)
-
-    library.print_book(1234)
-    display_tree(library.root)
-    pass
 
 if __name__ == "__main__":
     main()
