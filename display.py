@@ -32,7 +32,10 @@ def display_tree(root):
     # this_level.append(root)
     root.x = width/2
     root.y = 50
-    canvas.create_oval(root.x-10, root.y-10, root.x+10, root.y+10, fill="red")
+    if root.red:
+        canvas.create_oval(root.x-10, root.y-10, root.x+10, root.y+10, fill="red")
+    else:
+        canvas.create_oval(root.x-10, root.y-10, root.x+10, root.y+10, fill="grey")
     canvas.create_text(root.x, root.y, text=root.book_id)
 
     if root.left.book_id != -1:

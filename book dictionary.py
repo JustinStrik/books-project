@@ -1,7 +1,12 @@
 import heapq
 import time
+# draw_tree function defined in test.py
+#import test.py
+from display import display_tree
+from insertrotations import insert_rotate
 
-nullBook = None
+null_book = None
+# new_book = None
 class Book:
     # add function variables
     
@@ -24,12 +29,31 @@ class Book:
 
         # red-black tree properties
         self.red = True
-        self.left = nullBook
-        self.right = nullBook
+        self.left = null_book
+        self.right = null_book
         self.height = 0
-        self.parent = nullBook
+        # self.parent = null_book # no parent!
+        self.invalid = False # when return to parent, check to see if there are two red in a row
+        self.is_root = False
 
+        # for visualization, just declaring values
+        self.level = 0
+        self.x = 200
+        self.y = 100
 
+    def makeLeftChild(self, parent):
+        parent.left = self
+ 
+    def makeRightChild(self, parent):
+        parent.right = self
+
+    def update_coordinates(self, x, y):
+        self.x = x
+        self.y = y
+
+    def change_color(self):
+        self.red = not self.red
+        library.color_flip_count += 1
 
     def add_reservation(self, patron_id, priority):
         if len(self.reservation_heap) < 20:
@@ -46,21 +70,96 @@ class Book:
         else:
             return None
 
-#declare nullBook
-nullBook = Book(-1, "nullBook", "nullBook", False)
+#declare null_book
+null_book = Book(-1, "null_book", "null_book", False)
+null_book.red = False
+book_to_insert = null_book
+
 
 class GatorLibrary:
+    new_book = None
+
     def __init__(self):
-        self.root = nullBook
+        self.root = null_book
+        self.color_flip_count = 0
         pass
 
     def insert_book(self, book_id, book_name, author_name, availability):
-        pass
+        # current = self.root
+        self.new_book = Book(book_id, book_name, author_name, availability)
+
+        # nothing in tree
+        if (self.root == null_book):
+            self.root = self.new_book
+            self.root.red = False
+            self.root.is_root = True
+            return
+
+        self.root = self.insert_book_recursive(self.root)
+        if (self.root.book_id == book_id):
+            self.root.red = False
+
+    def insert_book_recursive(self, current):
+        if (current == null_book):
+            return self.new_book
+        elif (self.new_book.book_id < current.book_id):
+            current.left = self.insert_book_recursive(current.left)
+        elif (self.new_book.book_id > current.book_id):
+            current.right = self.insert_book_recursive(current.right)
+
+        # check if red-black tree properties are violated
+        # are there two reds in a row
+        if (current.red and (current.left.red or current.right.red)):
+            current.invalid = True
+        
+        if (current.left.invalid or current.right.invalid):
+            current = insert_rotate(library,current)
+            current.invalid = False
+
+        return current # self.new_book
+            
+    def find_book(self, book_id):
+        current = self.root
+        while (current != null_book):
+            if book_id == current.book_id:
+                return current
+            elif (book_id < current.book_id):
+                current = current.left
+            elif (book_id > current.book_id):
+                current = current.right
+        print("BookID not found in library.")
+        
+        
 
     def print_book(self, book_id):
-        pass
+#         BookID = <Book1 ID>
+# Title = "<Book1 Name>"
+# Author = "<Author1 Name"
+# Availability = "<Yes | No>"
+# BorrowedBy = <Patron Id | None>
+# Reservations = [patron1_id,patron2_id,....]
+# BookID = <Book2 ID>
+# Title = "<Book2 Name>"
+# Author = "<Author2 Name"
+# Availability = "<Yes | No>"
+# BorrowedBy = <Patron Id | None>
+# Reservations = [patron1_id,patron2_id,....]
+        book = self.find_book(book_id)
+        if book:
+            print("BookID = " + str(book.book_id))
+            print("Title = " + book.book_name)
+            print("Author = " + book.author_name)
+            print("Availability = " + str(book.availability))
+            print("BorrowedBy = " + str(book.borrowed_by))
+            print("Reservations = " + str(book.reservation_heap))
 
+    # print all books in range book_id1 to book_id2
     def print_books(self, book_id1, book_id2):
+        current = self.root
+
+        # inorder traversal of graph
+
+
         pass
 
     def borrow_book(self, patron_id, book_id, patron_priority):
@@ -80,8 +179,7 @@ class GatorLibrary:
 
     def execute_command(self, command):
         pass
-
-
+    
 def get_input():
 #     Input and Output Requirements:
 # ● Read input from a text file where input_filename is specified as a command-line argument.
@@ -103,19 +201,31 @@ def get_input():
     # get input file name from command line
     input_file_name = sys.argv[1]
 
-# main
+library = GatorLibrary() # only one library, so global because why not
+
 def main():
     # make new book
     #     def __init__(self, book_id, book_name, author_name, availability, borrowed_by=None):
 
-    library = GatorLibrary()
-    if (library.root == nullBook):
-        print("nullBook")
+    if (library.root == null_book):
+        print("null_book")
 
 
-    book1 = Book(1, 1234, "Harry Potter", "JK Rowling", True)
-    print(book1.book_id)
+    # book1 = Book(1 1234, "Harry Potter", "JK Rowling", True)
+    library.insert_book(1234, "Harry Potter", "JK Rowling", True)
+    library.insert_book(4567, "Harry Potter 2", "JK Dobbins", True)
+    library.insert_book(7890, "Harry Potter 3", "JK Rowling", True)
+    # display_tree(library.root)
+    library.insert_book(590, "Harry Potter 4", "JK Rowling", True)
+    library.insert_book(540, "lig book", "JK Rowling", True)
+    display_tree(library.root)
+    library.insert_book(595, "RL changer, B", "JK Rowling", True)
+
+    library.print_book(1234)
+    display_tree(library.root)
     pass
 
 if __name__ == "__main__":
     main()
+    
+
