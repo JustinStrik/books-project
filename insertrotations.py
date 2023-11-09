@@ -36,7 +36,8 @@ def LLr(tree, gp):
     gp.right.change_color()
     if not gp.is_root:
         gp.change_color() 
-
+        # requires continue rebalancing
+        # will happen automatically because its recursive
     return gp
 
 def RRr(tree, gp):

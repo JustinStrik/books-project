@@ -1,3 +1,5 @@
+from bookdictionary import null_book
+
 def delete_rotate(tree, node):
     left = node.left
     right = node.right
@@ -14,6 +16,7 @@ def delete_rotate(tree, node):
 
             
     if (right.deficient):
+        # check to see if degree 1 ?
         if (left.red):
             # RRn
             w_red_children = 0
@@ -195,4 +198,118 @@ def Rr2(tree, py):
 
     x.change_color() # now black and root of subtree
     py.right.deficient = False
+    return w
+
+# py is black
+def Lb0_case1(tree, py):
+    py.left.change_color()
+    py.left.deficient = False # left subtree isnt deficient
+    py.deficient = True # now, py is deficient
+    return py
+
+# py is red
+def Lb0_case2(tree, py):
+    py.left.change_color()
+    py.change_color()
+    py.left.deficient = False # left subtree isnt deficient
+    # no change to py deficiency
+    return py
+
+# right child of v is red
+def Lb1_case1(tree, py):
+    v = py.right
+
+    py.right = v.left
+    v.left = py
+
+    v.right.change_color() # no longer red
+    if py.red:
+        py.left.change_color() # ? only change color if red?
+
+    py.left.deficient = False # left subtree isnt deficient
+    return v
+
+# left child of v is red
+def Lb1_case2(tree, py):
+    # lr rotation
+    v = py.right
+    w = py.right.left
+    w.change_color()
+
+    # reassign w's children
+    v.left = w.right
+    py.right = w.left
+    
+    # make w root of subtree
+    w.right = v
+    w.left = py
+
+    py.left.deficient = False 
+    return w
+
+def Lb2(tree, py):
+
+    # lr rotation
+    v = py.right
+    w = py.right.left
+    if (py.red != w.red): #?
+        w.change_color() # now black
+
+    # reassign w's children
+    v.left = w.right
+    py.right = w.left
+    
+    # make w root of subtree
+    w.right = v
+    w.left = py
+
+    py.left.deficient = False 
+    return w
+
+# Rrn where n is the number of red children of v's right child w
+def Lr0(tree, py):
+    # LL rotation
+    v = py.right
+    v.change_color()
+
+    py.right = v.left
+    py.right.change_color()
+    v.left = py
+
+    py.left.deficient = False
+    return v
+
+# left node of w is red
+def Lr1_case1(tree, py):
+    # LR rotation
+    v = py.right
+    w = py.right.left
+
+    # reassign w's children
+    v.left = w.right
+    py.right = w.left
+
+    # make w root of subtree
+    w.right = v
+    w.left = py
+
+    py.left.deficient = False
+    return w
+
+# right node of w is red
+def Lr1_case2(tree, py):
+    # rotation
+    v = py.right
+    w = py.right.left
+    x = w.left # the red node
+
+    # reassign w's children
+    w.left = x.right
+    py.right = x.left
+
+    # make w root of subtree
+    x.right = v
+    x.left = py
+
+    py.left.deficient = False
     return w
