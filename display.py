@@ -63,7 +63,7 @@ def display_tree(root):
             if node.left.book_id != -1:
                 next_level.append(node.left)
                 # update coordinates
-                node.left.update_coordinates(node.x - 40, node.y + 100)
+                node.left.update_coordinates(node.x - 40 * level / 3, node.y + 100)
                 if node.left.red:
                     canvas.create_line(node.x, node.y, node.left.x, node.left.y, fill="red")
                 else:
@@ -71,7 +71,7 @@ def display_tree(root):
 
             if node.right.book_id != -1:
                 next_level.append(node.right)
-                node.right.update_coordinates(node.x + 40, node.y + 100)
+                node.right.update_coordinates(node.x + 40 * level / 3, node.y + 100)
                 if node.right.red:
                     canvas.create_line(node.x, node.y, node.right.x, node.right.y, fill="red")
                 else:
