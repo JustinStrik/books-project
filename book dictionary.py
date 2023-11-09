@@ -218,8 +218,11 @@ def main():
     # display_tree(library.root)
     library.insert_book(590, "Harry Potter 4", "JK Rowling", True)
     library.insert_book(540, "lig book", "JK Rowling", True)
-    display_tree(library.root)
     library.insert_book(595, "RL changer, B", "JK Rowling", True)
+    library.insert_book(1500, "rightest", "fug", True)
+    display_tree(library.root)
+    library.insert_book(1300, "RlR", "fug", True)
+    display_tree(library.root)
 
     library.print_book(1234)
     display_tree(library.root)
