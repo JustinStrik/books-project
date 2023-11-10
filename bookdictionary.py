@@ -8,9 +8,17 @@ from insertrotations import insert_rotate
 from reservationheap import ReservationHeap, ReservationNode
 
 null_book = None
+input_file = 'input.txt' # change to sys.arg, not hard code eventually !
 # make enum
 
 Function = Enum('Function', ['PrintBook', 'PrintBooks', 'InsertBook', 'BorrowBook', 'ReturnBook', 'DeleteBook', 'FindClosestBook', 'ColorFlipCount'])
+
+def output(text):
+    # output file named input_file (variable) + _ + output_file.txt
+    output_file = input_file.split('.')[0] + '_output.txt'
+    with open(output_file, 'a') as f:
+        f.write(text + '\n')
+    print(text) # for debugging
 
 # new_book = None
 class Book:
@@ -29,7 +37,7 @@ class Book:
         self.book_id = book_id # unique identifier
         self.book_name = book_name # string
         self.author_name = author_name # string
-        self.availability = availability  # boolean
+        self.availability = availability  # 'Yes' or 'No'
         self.borrowed_by = borrowed_by # patron_id
         self.reservation_heap = ReservationHeap() # priority queue - binary min heap
 
@@ -63,7 +71,7 @@ class Book:
         library.color_flip_count += 1
 
     def add_reservation(self, patron_id, patron_priority):
-        if len(self.reservation_heap) < 20:
+        if len(self.reservation_heap.heap) < 20:
             reservation_node = ReservationNode(self, patron_id, patron_priority)
             self.reservation_heap.insert(reservation_node)
         else:
@@ -137,18 +145,20 @@ class GatorLibrary:
             elif (book_id > current.book_id):
                 current = current.right
         print("BookID not found in library.")
+        output("BookID not found in library.")
         
         
 
     def print_book(self, book_id):
         book = self.find_book(book_id)
         if book:
-            print("BookID = " + str(book.book_id))
-            print("Title = " + book.book_name)
-            print("Author = " + book.author_name)
-            print("Availability = " + str(book.availability))
-            print("BorrowedBy = " + str(book.borrowed_by))
-            print("Reservations = " + str(book.reservation_heap))
+            output("BookID = " + str(book.book_id))
+            output("Title = " + book.book_name)
+            output("Author = " + book.author_name)
+            output("Availability = " + str(book.availability))
+            output("BorrowedBy = " + str(book.borrowed_by))
+            output("Reservations = " + str(book.reservation_heap))
+
 
     # print all books in range book_id1 to book_id2
     def print_books(self, book_id1, book_id2):
@@ -162,9 +172,10 @@ class GatorLibrary:
     def borrow_book(self, patron_id, book_id, patron_priority):
         book = self.find_book(book_id)
         if book:
-            if book.availability:
-                book.availability = False
+            if book.availability == 'Yes':
+                book.availability = 'No'
                 book.borrowed_by = patron_id
+                output("BookID " + str(book_id) + " Borrowed by Patron " + str(patron_id))
             else:
                 book.add_reservation(patron_id, patron_priority)
         
@@ -211,20 +222,6 @@ class GatorLibrary:
         pass
     
 def get_input():
-#     Input and Output Requirements:
-# ● Read input from a text file where input_filename is specified as a command-line argument.
-# ● All Output should be written to a text file having filename as concatenation of input_filename + “_” +
-# "output_file.txt".
-# (eg. inputFilename = ‘test1.txt’ , outputFilename = ‘test1_output_file.txt’)
-# ● The program should terminate when the operation encountered in the input file is Quit().
-# ● While Printing Reservation Heap, only print the PatronIDs as ordered in the Heap. ( Example 3)
-# Input Format
-# InsertBook(bookID, title, author, availability)
-# PrintBook(bookID)
-# PrintBooks(bookID1, bookID2)
-# BorrowBook(patronID, bookID, patronPriority)
-# ReturnBook(patronID, bookID)
-# Quit()
     # read command from file
     input_file = open("input.txt", "r")
 
@@ -245,35 +242,35 @@ def get_input():
         # 8. ColorFlipCount()
 
         if (function == "PrintBook"):
-            book_id = line.split('(')[1].split(')')[0]
-            input_commands.append(Function.PrintBook, book_id)
+            book_id = int(line.split('(')[1].split(')')[0])
+            input_commands.append([Function.PrintBook, book_id])
         elif (function == "PrintBooks"):
-            book_id1 = line.split('(')[1].split(',')[0]
-            book_id2 = line.split('(')[1].split(',')[1].split(')')[0]
-            input_commands.append(Function.PrintBooks, book_id1, book_id2)
+            book_id1 = int(line.split('(')[1].split(',')[0])
+            book_id2 = int(line.split('(')[1].split(',')[1].split(')')[0])
+            input_commands.append([Function.PrintBooks, book_id1, book_id2])
         elif (function == "InsertBook"):
-            book_id = line.split('(')[1].split(',')[0]
-            book_name = line.split('(')[1].split(',')[1]
-            author_name = line.split('(')[1].split(',')[2]
-            availability = line.split('(')[1].split(',')[3]
-            input_commands.append(Function.InsertBook, book_id, book_name, author_name, availability)
+            book_id = int(line.split('(')[1].split(',')[0])
+            book_name = line.split('(')[1].split(',')[1].split('\"')[1]
+            author_name = line.split('(')[1].split(',')[2].split('\"')[1]
+            availability = line.split('(')[1].split(',')[3].split(')')[0].split('\"')[1]
+            input_commands.append([Function.InsertBook, book_id, book_name, author_name, availability])
         elif (function == "BorrowBook"):
-            patron_id = line.split('(')[1].split(',')[0]
-            book_id = line.split('(')[1].split(',')[1]
-            patron_priority = line.split('(')[1].split(',')[2].split(')')[0]
-            input_commands.append(Function.BorrowBook, patron_id, book_id, patron_priority)
+            patron_id = int(line.split('(')[1].split(',')[0])
+            book_id = int(line.split('(')[1].split(',')[1])
+            patron_priority = int(line.split('(')[1].split(',')[2].split(')')[0])
+            input_commands.append([Function.BorrowBook, patron_id, book_id, patron_priority])
         elif (function == "ReturnBook"):
-            patron_id = line.split('(')[1].split(',')[0]
-            book_id = line.split('(')[1].split(',')[1].split(')')[0]
-            input_commands.append(Function.ReturnBook, patron_id, book_id)
+            patron_id = int(line.split('(')[1].split(',')[0])
+            book_id = int(line.split('(')[1].split(',')[1].split(')')[0])
+            input_commands.append([Function.ReturnBook, patron_id, book_id])
         elif (function == "DeleteBook"):
-            book_id = line.split('(')[1].split(')')[0]
-            input_commands.append(Function.DeleteBook, book_id)
+            book_id = int(line.split('(')[1].split(')')[0])
+            input_commands.append([Function.DeleteBook, book_id])
         elif (function == "FindClosestBook"):
-            target_id = line.split('(')[1].split(')')[0]
-            input_commands.append(Function.FindClosestBook, target_id)
+            target_id = int(line.split('(')[1].split(')')[0])
+            input_commands.append([Function.FindClosestBook, target_id])
         elif (function == "ColorFlipCount"):
-            input_commands.append(Function.ColorFlipCount)
+            input_commands.append([Function.ColorFlipCount])
 
     return input_commands
 
@@ -292,6 +289,26 @@ def main():
 
 
     input_commands = get_input()
+
+    for command in input_commands:
+        if (command[0] == Function.PrintBook):
+            library.print_book(command[1])
+        elif (command[0] == Function.PrintBooks):
+            library.print_books(command[1], command[2])
+        elif (command[0] == Function.InsertBook):
+            library.insert_book(command[1], command[2], command[3], command[4])
+        elif (command[0] == Function.BorrowBook):
+            library.borrow_book(command[1], command[2], command[3])
+        elif (command[0] == Function.ReturnBook):
+            library.return_book(command[1], command[2])
+        elif (command[0] == Function.DeleteBook):
+            library.delete_book(command[1])
+        elif (command[0] == Function.FindClosestBook):
+            library.find_closest_book(command[1])
+        elif (command[0] == Function.ColorFlipCount):
+            library.color_flip_count()
+            
+
 
     # book1 = Book(1 1234, "Harry Potter", "JK Rowling", True)
     library.insert_book(1234, "Harry Potter", "JK Rowling", True)
