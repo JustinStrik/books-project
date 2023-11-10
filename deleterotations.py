@@ -71,7 +71,7 @@ def delete_rotate(tree, node):
 
 # py is black
 def Rb0_case1(tree, py):
-    py.right.change_color()
+    py.left.change_color()
     py.right.deficient = False # right subtree isnt deficient
     py.deficient = True # now, py is deficient
     return py
@@ -202,7 +202,7 @@ def Rr2(tree, py):
 
 # py is black
 def Lb0_case1(tree, py):
-    py.left.change_color()
+    py.right.change_color()
     py.left.deficient = False # left subtree isnt deficient
     py.deficient = True # now, py is deficient
     return py
