@@ -3,4 +3,37 @@ Title = Book1
 Author = Author1
 Availability = Yes
 BorrowedBy = None
-Reservations = <reservationheap.ReservationHeap object at 0x105f15dd0>
+Reservations = []
+
+
+
+Book 1 Borrowed by Patron 101
+
+
+Book 1 Reserved by Patron 102
+
+
+BookID = 1
+Title = Book1
+Author = Author1
+Availability = No
+BorrowedBy = 101
+Reservations = [<reservationheap.ReservationNode object at 0x1042907d0>]
+
+
+
+BookID = 2
+Title = Book2
+Author = Author2
+Availability = Yes
+BorrowedBy = None
+Reservations = []
+
+
+
+Book 1 Returned by Patron 101
+
+
+Book 1 Allocated to Patron 102
+
+
