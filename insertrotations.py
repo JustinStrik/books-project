@@ -41,7 +41,7 @@ def LLr(tree, gp):
     return gp
 
 def RRr(tree, gp):
-    gp.rightt.change_color()
+    gp.right.change_color()
     gp.left.change_color()
     gp.change_color()
     return gp
