@@ -1,0 +1,6 @@
+BookID = 1
+Title = Book1
+Author = Author1
+Availability = Yes
+BorrowedBy = None
+Reservations = <reservationheap.ReservationHeap object at 0x105f15dd0>
