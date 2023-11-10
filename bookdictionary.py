@@ -1,11 +1,17 @@
 import heapq
 import time
+from enum import Enum
 # draw_tree function defined in test.py
 #import test.py
 from display import display_tree
 from insertrotations import insert_rotate
+from reservationheap import ReservationHeap, ReservationNode
 
 null_book = None
+# make enum
+
+Function = Enum('Function', ['PrintBook', 'PrintBooks', 'InsertBook', 'BorrowBook', 'ReturnBook', 'DeleteBook', 'FindClosestBook', 'ColorFlipCount'])
+
 # new_book = None
 class Book:
     # add function variables
@@ -25,7 +31,7 @@ class Book:
         self.author_name = author_name # string
         self.availability = availability  # boolean
         self.borrowed_by = borrowed_by # patron_id
-        self.reservation_heap = [] # priority queue - binary min heap
+        self.reservation_heap = ReservationHeap() # priority queue - binary min heap
 
         # red-black tree properties
         self.red = True
@@ -56,10 +62,12 @@ class Book:
         self.red = not self.red
         library.color_flip_count += 1
 
-    def add_reservation(self, patron_id, priority):
+    def add_reservation(self, patron_id, patron_priority):
         if len(self.reservation_heap) < 20:
-            timestamp = time.time()
-            heapq.heappush(self.reservation_heap, (priority, timestamp, patron_id))
+            reservation_node = ReservationNode(self, patron_id, patron_priority)
+            self.reservation_heap.insert(reservation_node)
+        else:
+            print("The waitlist is full!")
 
     def remove_reservation(self):
         if self.reservation_heap:
@@ -152,7 +160,14 @@ class GatorLibrary:
         pass
 
     def borrow_book(self, patron_id, book_id, patron_priority):
-        pass
+        book = self.find_book(book_id)
+        if book:
+            if book.availability:
+                book.availability = False
+                book.borrowed_by = patron_id
+            else:
+                book.add_reservation(patron_id, patron_priority)
+        
 
     def return_book(self, patron_id, book_id):
         pass
@@ -213,10 +228,60 @@ def get_input():
     # read command from file
     input_file = open("input.txt", "r")
 
+    # read each line of file
+    input_commands = []
+    for line in input_file:
+        # split line into list of words
+        function = line.split('(')[0]
+
+        # possible functions:
+        # 1. PrintBook(bookID)
+        # 2. PrintBooks(bookID1, bookID2)
+        # 3. InsertBook(bookID, bookName, authorName, availabilityStatus, borrowedBy, reservationHeap)
+        # 4. BorrowBook(patronID, bookID, patronPriority)
+        # 5. ReturnBook(patronID, bookID): 
+        # 6. DeleteBook(bookID)
+        # 7. FindClosestBook(targetID)
+        # 8. ColorFlipCount()
+
+        if (function == "PrintBook"):
+            book_id = line.split('(')[1].split(')')[0]
+            input_commands.append(Function.PrintBook, book_id)
+        elif (function == "PrintBooks"):
+            book_id1 = line.split('(')[1].split(',')[0]
+            book_id2 = line.split('(')[1].split(',')[1].split(')')[0]
+            input_commands.append(Function.PrintBooks, book_id1, book_id2)
+        elif (function == "InsertBook"):
+            book_id = line.split('(')[1].split(',')[0]
+            book_name = line.split('(')[1].split(',')[1]
+            author_name = line.split('(')[1].split(',')[2]
+            availability = line.split('(')[1].split(',')[3]
+            input_commands.append(Function.InsertBook, book_id, book_name, author_name, availability)
+        elif (function == "BorrowBook"):
+            patron_id = line.split('(')[1].split(',')[0]
+            book_id = line.split('(')[1].split(',')[1]
+            patron_priority = line.split('(')[1].split(',')[2].split(')')[0]
+            input_commands.append(Function.BorrowBook, patron_id, book_id, patron_priority)
+        elif (function == "ReturnBook"):
+            patron_id = line.split('(')[1].split(',')[0]
+            book_id = line.split('(')[1].split(',')[1].split(')')[0]
+            input_commands.append(Function.ReturnBook, patron_id, book_id)
+        elif (function == "DeleteBook"):
+            book_id = line.split('(')[1].split(')')[0]
+            input_commands.append(Function.DeleteBook, book_id)
+        elif (function == "FindClosestBook"):
+            target_id = line.split('(')[1].split(')')[0]
+            input_commands.append(Function.FindClosestBook, target_id)
+        elif (function == "ColorFlipCount"):
+            input_commands.append(Function.ColorFlipCount)
+
+    return input_commands
+
     # get input file name from command line
-    input_file_name = sys.argv[1]
+    # input_file_name = sys.argv[1]
 
 library = GatorLibrary() # only one library, so global because why not
+
 
 def main():
     # make new book
@@ -225,6 +290,8 @@ def main():
     if (library.root == null_book):
         print("null_book")
 
+
+    input_commands = get_input()
 
     # book1 = Book(1 1234, "Harry Potter", "JK Rowling", True)
     library.insert_book(1234, "Harry Potter", "JK Rowling", True)
