@@ -35,21 +35,29 @@ class ReservationHeap:
             pos = pos // 2
 
     def remove(self):
-        self.heap[0] = self.heap.pop() # remove last element and put it at the beginning
-        pos = 0
+        removed = self.heap[0]
+        if (len(self.heap) > 1):
+            self.heap[0] = self.heap.pop() # remove last element and put it at the beginning
+            pos = 0
 
-        while (pos < self.heap.__len__):
-            if (self.heap[pos] > self.get_right(pos)):
-                self.swap(pos, pos * 2)
-                break
-            elif (self.heap[pos] > self.get_right(pos + 1)):
-                self.swap(pos, pos * 2)
-                break
+            while (pos < self.heap.__len__):
+                if (self.heap[pos] > self.get_right(pos)):
+                    self.swap(pos, pos * 2)
+                    break
+                elif (self.heap[pos] > self.get_right(pos + 1)):
+                    self.swap(pos, pos * 2)
+                    break
 
-            if (pos == 0):
-                pos += 1
-            else:
-                pos = pos * 2
+                if (pos == 0):
+                    pos += 1
+                else:
+                    pos = pos * 2
+
+        return removed
+
+    # def print_reservations(self):
+    #     for reservation in self.heap:
+    #         print(reservation.patron_id, reservation.patron_priority)
 
             
 
