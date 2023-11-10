@@ -17,7 +17,7 @@ def output(text):
     # output file named input_file (variable) + _ + output_file.txt
     output_file = input_file.split('.')[0] + '_output.txt'
     with open(output_file, 'a') as f:
-        f.write(text + '\n')
+        f.write(text + '\n\n')
     print(text) # for debugging
 
 # new_book = None
@@ -78,8 +78,7 @@ class Book:
             print("The waitlist is full!")
 
     def remove_reservation(self):
-        if self.reservation_heap:
-            heapq.heappop(self.reservation_heap)
+        return self.reservation_heap.remove()
 
     def get_top_reservation(self):
         if self.reservation_heap:
@@ -145,29 +144,51 @@ class GatorLibrary:
             elif (book_id > current.book_id):
                 current = current.right
         print("BookID not found in library.")
-        output("BookID not found in library.")
+        output("BookID not found in library.\n")
         
         
 
     def print_book(self, book_id):
         book = self.find_book(book_id)
         if book:
-            output("BookID = " + str(book.book_id))
-            output("Title = " + book.book_name)
-            output("Author = " + book.author_name)
-            output("Availability = " + str(book.availability))
-            output("BorrowedBy = " + str(book.borrowed_by))
-            output("Reservations = " + str(book.reservation_heap))
+            # output("BookID = " + str(book.book_id))
+            # output("Title = " + book.book_name)
+            # output("Author = " + book.author_name)
+            # output("Availability = " + str(book.availability))
+            # output("BorrowedBy = " + str(book.borrowed_by))
+            # output("Reservations = " + str(book.reservation_heap.heap)) 
+            # # combine to one output
+            output("BookID = " + str(book.book_id) + "\n" +
+                "Title = " + book.book_name + "\n" +
+                "Author = " + book.author_name + "\n" +
+                "Availability = " + str(book.availability) + "\n" +
+                "BorrowedBy = " + str(book.borrowed_by) + "\n" +
+                "Reservations = " + str(book.reservation_heap.heap) + "\n\n")
+                   
+
+    # overload for recursive function
+    def print_found_book(self, book):
+            output("BookID = " + str(book.book_id) + "\n" +
+                "Title = " + book.book_name + "\n" +
+                "Author = " + book.author_name + "\n" +
+                "Availability = " + str(book.availability) + "\n" +
+                "BorrowedBy = " + str(book.borrowed_by) + "\n" +
+                "Reservations = " + str(book.reservation_heap.heap) + "\n\n")
 
 
     # print all books in range book_id1 to book_id2
-    def print_books(self, book_id1, book_id2):
-        current = self.root
-
-        # inorder traversal of graph
-
-
-        pass
+    # MAKE RECURSIVE
+    def print_books(self, book_id1, book_id2, current_node):
+        # will only go to left subtree if the book ID larger than the lower key
+        # that way, we do not traverse unnecessary nodes
+        if (current_node == null_book):
+            return
+        if (current_node.book_id > book_id1):
+            self.print_books(book_id1, book_id2, current_node.left)
+        if (current_node.book_id >= book_id1 and current_node.book_id <= book_id2):
+            self.print_found_book(current_node)
+        if (current_node.book_id < book_id2):
+            self.print_books(book_id1, book_id2, current_node.right)
 
     def borrow_book(self, patron_id, book_id, patron_priority):
         book = self.find_book(book_id)
@@ -175,13 +196,23 @@ class GatorLibrary:
             if book.availability == 'Yes':
                 book.availability = 'No'
                 book.borrowed_by = patron_id
-                output("BookID " + str(book_id) + " Borrowed by Patron " + str(patron_id))
+                output("Book " + str(book_id) + " Borrowed by Patron " + str(patron_id) + "\n")
             else:
+                output("Book " + str(book_id) + " Reserved by Patron " + str(patron_id) + "\n")
                 book.add_reservation(patron_id, patron_priority)
         
 
     def return_book(self, patron_id, book_id):
-        pass
+        book = self.find_book(book_id)
+        if book:
+            if book.borrowed_by == patron_id:
+                book.availability = 'Yes'
+                book.borrowed_by = None
+                output("Book " + str(book_id) + " Returned by Patron " + str(patron_id) + "\n")
+                next_person = book.remove_reservation()
+                output("Book " + str(book_id) + " Allocated to Patron " + str(next_person.patron_id) + "\n")
+            else:
+                output("Book " + str(book_id) + " Not Borrowed by Patron " + str(patron_id) + "\n")
 
     def delete_book(self, book_id):
         # nothing in tree
@@ -294,7 +325,7 @@ def main():
         if (command[0] == Function.PrintBook):
             library.print_book(command[1])
         elif (command[0] == Function.PrintBooks):
-            library.print_books(command[1], command[2])
+            library.print_books(command[1], command[2], library.root)
         elif (command[0] == Function.InsertBook):
             library.insert_book(command[1], command[2], command[3], command[4])
         elif (command[0] == Function.BorrowBook):
@@ -310,18 +341,18 @@ def main():
             
 
 
-    # book1 = Book(1 1234, "Harry Potter", "JK Rowling", True)
-    library.insert_book(1234, "Harry Potter", "JK Rowling", True)
-    library.insert_book(4567, "Harry Potter 2", "JK Dobbins", True)
-    library.insert_book(7890, "Harry Potter 3", "JK Rowling", True)
+    # # book1 = Book(1 1234, "Harry Potter", "JK Rowling", True)
+    # library.insert_book(1234, "Harry Potter", "JK Rowling", True)
+    # library.insert_book(4567, "Harry Potter 2", "JK Dobbins", True)
+    # library.insert_book(7890, "Harry Potter 3", "JK Rowling", True)
+    # # display_tree(library.root)
+    # library.insert_book(590, "Harry Potter 4", "JK Rowling", True)
+    # library.insert_book(540, "lig book", "JK Rowling", True)
+    # library.insert_book(595, "RL changer, B", "JK Rowling", True)
+    # library.insert_book(1500, "rightest", "fug", True)
     # display_tree(library.root)
-    library.insert_book(590, "Harry Potter 4", "JK Rowling", True)
-    library.insert_book(540, "lig book", "JK Rowling", True)
-    library.insert_book(595, "RL changer, B", "JK Rowling", True)
-    library.insert_book(1500, "rightest", "fug", True)
-    display_tree(library.root)
-    library.insert_book(1300, "RlR", "fug", True)
-    display_tree(library.root)
+    # library.insert_book(1300, "RlR", "fug", True)
+    # display_tree(library.root)
 
 if __name__ == "__main__":
     main()
