@@ -11,7 +11,7 @@ null_book = None
 input_file = 'input.txt' # change to sys.arg, not hard code eventually !
 # make enum
 
-Function = Enum('Function', ['PrintBook', 'PrintBooks', 'InsertBook', 'BorrowBook', 'ReturnBook', 'DeleteBook', 'FindClosestBook', 'ColorFlipCount'])
+Function = Enum('Function', ['PrintBook', 'PrintBooks', 'InsertBook', 'BorrowBook', 'ReturnBook', 'DeleteBook', 'FindClosestBook', 'ColorFlipCount', 'Quit'])
 
 def output(text):
     # output file named input_file (variable) + _ + output_file.txt
@@ -144,9 +144,18 @@ class GatorLibrary:
             elif (book_id > current.book_id):
                 current = current.right
         print("BookID not found in library.")
-        output("BookID not found in library.\n")
+        output("BookID not found in library.")
         
-        
+    # make surrounded by brackets and comma separated
+    def make_reservation_printable(self, reservations):
+        printable = "["
+        for reservation in reservations:
+            printable += str(reservation.patron_id)
+            if reservation != reservations[-1]:
+                printable += ", "
+
+        printable += "]"
+        return printable
 
     def print_book(self, book_id):
         book = self.find_book(book_id)
@@ -158,22 +167,25 @@ class GatorLibrary:
             # output("BorrowedBy = " + str(book.borrowed_by))
             # output("Reservations = " + str(book.reservation_heap.heap)) 
             # # combine to one output
+
+            reservations = self.make_reservation_printable(book.reservation_heap.heap)
             output("BookID = " + str(book.book_id) + "\n" +
-                "Title = " + book.book_name + "\n" +
-                "Author = " + book.author_name + "\n" +
+                "Title = \"" + book.book_name + "\"\n" +
+                "Author = \"" + book.author_name + "\"\n" +
                 "Availability = " + str(book.availability) + "\n" +
                 "BorrowedBy = " + str(book.borrowed_by) + "\n" +
-                "Reservations = " + str(book.reservation_heap.heap) + "\n\n")
+                "Reservations = " + reservations)
                    
 
     # overload for recursive function
     def print_found_book(self, book):
+            reservations = self.make_reservation_printable(book.reservation_heap.heap)
             output("BookID = " + str(book.book_id) + "\n" +
-                "Title = " + book.book_name + "\n" +
-                "Author = " + book.author_name + "\n" +
+                "Title = \"" + book.book_name + "\"\n" +
+                "Author = \"" + book.author_name + "\"\n" +
                 "Availability = " + str(book.availability) + "\n" +
                 "BorrowedBy = " + str(book.borrowed_by) + "\n" +
-                "Reservations = " + str(book.reservation_heap.heap) + "\n\n")
+                "Reservations = " + reservations)
 
 
     # print all books in range book_id1 to book_id2
@@ -302,6 +314,8 @@ def get_input():
             input_commands.append([Function.FindClosestBook, target_id])
         elif (function == "ColorFlipCount"):
             input_commands.append([Function.ColorFlipCount])
+        elif (function == "Quit"):
+            input_commands.append([Function.Quit])
 
     return input_commands
 
@@ -338,6 +352,8 @@ def main():
             library.find_closest_book(command[1])
         elif (command[0] == Function.ColorFlipCount):
             library.color_flip_count()
+        elif (command[0] == Function.Quit):
+            output("Program Terminated!!")
             
 
 
