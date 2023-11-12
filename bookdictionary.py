@@ -172,7 +172,7 @@ class GatorLibrary:
             output("BookID = " + str(book.book_id) + "\n" +
                 "Title = \"" + book.book_name + "\"\n" +
                 "Author = \"" + book.author_name + "\"\n" +
-                "Availability = " + str(book.availability) + "\n" +
+                "Availability = \"" + str(book.availability) + "\"\n" +
                 "BorrowedBy = " + str(book.borrowed_by) + "\n" +
                 "Reservations = " + reservations)
                    
@@ -183,7 +183,7 @@ class GatorLibrary:
             output("BookID = " + str(book.book_id) + "\n" +
                 "Title = \"" + book.book_name + "\"\n" +
                 "Author = \"" + book.author_name + "\"\n" +
-                "Availability = " + str(book.availability) + "\n" +
+                "Availability = \"" + str(book.availability) + "\"\n" +
                 "BorrowedBy = " + str(book.borrowed_by) + "\n" +
                 "Reservations = " + reservations)
 
@@ -208,9 +208,9 @@ class GatorLibrary:
             if book.availability == 'Yes':
                 book.availability = 'No'
                 book.borrowed_by = patron_id
-                output("Book " + str(book_id) + " Borrowed by Patron " + str(patron_id) + "\n")
+                output("Book " + str(book_id) + " Borrowed by Patron " + str(patron_id))
             else:
-                output("Book " + str(book_id) + " Reserved by Patron " + str(patron_id) + "\n")
+                output("Book " + str(book_id) + " Reserved by Patron " + str(patron_id))
                 book.add_reservation(patron_id, patron_priority)
         
 
@@ -220,11 +220,11 @@ class GatorLibrary:
             if book.borrowed_by == patron_id:
                 book.availability = 'Yes'
                 book.borrowed_by = None
-                output("Book " + str(book_id) + " Returned by Patron " + str(patron_id) + "\n")
+                output("Book " + str(book_id) + " Returned by Patron " + str(patron_id))
                 next_person = book.remove_reservation()
-                output("Book " + str(book_id) + " Allocated to Patron " + str(next_person.patron_id) + "\n")
+                output("Book " + str(book_id) + " Allocated to Patron " + str(next_person.patron_id))
             else:
-                output("Book " + str(book_id) + " Not Borrowed by Patron " + str(patron_id) + "\n")
+                output("Book " + str(book_id) + " Not Borrowed by Patron " + str(patron_id))
 
     def delete_book(self, book_id):
         # nothing in tree
