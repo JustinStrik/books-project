@@ -1,19 +1,8 @@
-from bookdictionary import null_book
+# from bookdictionary import null_book
 
 def delete_rotate(tree, node):
     left = node.left
     right = node.right
-    # if (left.deficient):
-    #     if (left.left.red):
-    #         if (right.red):
-    #             node = LLr(tree, node)
-    #         else:
-    #             node = LLb(tree, node)
-    #     elif not right.red:
-    #         node = LRb(tree, node)
-    #     else:
-    #         node = LRr(tree, node)
-
             
     if (right.deficient):
         # check to see if degree 1 ?

@@ -1,39 +1,129 @@
-BookID = 1
-Title = Book1
-Author = Author1
-Availability = Yes
+BookID = 48
+Title = "Data Structures and Algorithms"
+Author = "Sartaj Sahni"
+Availability = "Yes"
 BorrowedBy = None
 Reservations = []
 
+Book 48 Borrowed by Patron 120
 
+Book 101 Borrowed by Patron 132
 
-Book 1 Borrowed by Patron 101
+Book 48 Reserved by Patron 144
 
+Book 48 Reserved by Patron 140
 
-Book 1 Reserved by Patron 102
+Book 48 Reserved by Patron 142
 
+Book 12 Borrowed by Patron 138
 
-BookID = 1
-Title = Book1
-Author = Author1
-Availability = No
-BorrowedBy = 101
-Reservations = [<reservationheap.ReservationNode object at 0x1042907d0>]
+Book 12 Reserved by Patron 150
 
+Book 12 Reserved by Patron 162
 
+Book 48 Returned by Patron 120
 
-BookID = 2
-Title = Book2
-Author = Author2
-Availability = Yes
+BookID = 48
+Title = "Data Structures and Algorithms"
+Author = "Sartaj Sahni"
+Availability = "Yes"
 BorrowedBy = None
 Reservations = []
 
+Book 48 Borrowed by Patron 120
 
+Book 101 Borrowed by Patron 132
 
-Book 1 Returned by Patron 101
+Book 48 Reserved by Patron 144
 
+Book 48 Reserved by Patron 140
 
-Book 1 Allocated to Patron 102
+Book 48 Reserved by Patron 142
 
+Book 12 Borrowed by Patron 138
+
+Book 12 Reserved by Patron 150
+
+Book 12 Reserved by Patron 162
+
+Book 48 Returned by Patron 120
+
+BookID = 48
+Title = "Data Structures and Algorithms"
+Author = "Sartaj Sahni"
+Availability = "Yes"
+BorrowedBy = None
+Reservations = []
+
+Book 48 Borrowed by Patron 120
+
+Book 101 Borrowed by Patron 132
+
+Book 48 Reserved by Patron 144
+
+Book 48 Reserved by Patron 140
+
+Book 48 Reserved by Patron 142
+
+Book 12 Borrowed by Patron 138
+
+Book 12 Reserved by Patron 150
+
+Book 12 Reserved by Patron 162
+
+Book 48 Returned by Patron 120
+
+BookID = 48
+Title = "Data Structures and Algorithms"
+Author = "Sartaj Sahni"
+Availability = "Yes"
+BorrowedBy = None
+Reservations = []
+
+Book 48 Borrowed by Patron 120
+
+Book 101 Borrowed by Patron 132
+
+Book 48 Reserved by Patron 144
+
+Book 48 Reserved by Patron 140
+
+Book 48 Reserved by Patron 142
+
+Book 12 Borrowed by Patron 138
+
+Book 12 Reserved by Patron 150
+
+Book 12 Reserved by Patron 162
+
+Book 48 Returned by Patron 120
+
+Book 48 Allocated to Patron 142
+
+BookID = 48
+Title = "Data Structures and Algorithms"
+Author = "Sartaj Sahni"
+Availability = "Yes"
+BorrowedBy = None
+Reservations = []
+
+Book 48 Borrowed by Patron 120
+
+Book 101 Borrowed by Patron 132
+
+Book 48 Reserved by Patron 144
+
+Book 48 Reserved by Patron 140
+
+Book 48 Reserved by Patron 142
+
+Book 12 Borrowed by Patron 138
+
+Book 12 Reserved by Patron 150
+
+Book 12 Reserved by Patron 162
+
+Book 48 Returned by Patron 120
+
+Book 48 Allocated to Patron 142
 

@@ -18,9 +18,13 @@ class ReservationHeap:
         return self.heap[pos // 2] # double slash is integer division, so floor
     
     def get_left(self, pos):
+        if (pos * 2 >= len(self.heap)):
+            return None
         return self.heap[pos * 2]
     
     def get_right(self, pos):
+        if (pos * 2 + 1 >= len(self.heap)):
+            return None
         return self.heap[pos * 2 + 1]
     
     def swap(self, pos1, pos2):
@@ -40,13 +44,18 @@ class ReservationHeap:
             self.heap[0] = self.heap.pop() # remove last element and put it at the beginning
             pos = 0
 
-            while (pos < self.heap.__len__):
-                if (self.heap[pos] > self.get_right(pos)):
-                    self.swap(pos, pos * 2)
-                    break
-                elif (self.heap[pos] > self.get_right(pos + 1)):
-                    self.swap(pos, pos * 2)
-                    break
+            while (pos < len(self.heap)):
+                if (self.get_left(pos) != None):
+                    if (self.heap[pos].patron_priority > self.get_left(pos).patron_priority):
+                        self.swap(pos, pos * 2)
+                        pos *= 2
+                        break
+                if (self.get_right(pos) != None):
+                    if (self.heap[pos].patron_priority > self.get_right(pos).patron_priority):
+                        self.swap(pos, pos * 2 + 1)
+                        pos = pos * 2 + 1
+                        break
+                
 
                 if (pos == 0):
                     pos += 1

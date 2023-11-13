@@ -5,9 +5,10 @@ from enum import Enum
 #import test.py
 from display import display_tree
 from insertrotations import insert_rotate
+from deleterotations import delete_rotate
 from reservationheap import ReservationHeap, ReservationNode
 
-null_book = None
+null_book, null_deficient = None, None
 input_file = 'input.txt' # change to sys.arg, not hard code eventually !
 # make enum
 
@@ -68,7 +69,7 @@ class Book:
 
     def change_color(self):
         self.red = not self.red
-        library.color_flip_count += 1
+        # library.color_flip_count += 1 # dead code, since thats not how they want us to count
 
     def add_reservation(self, patron_id, patron_priority):
         if len(self.reservation_heap.heap) < 20:
@@ -91,9 +92,14 @@ null_book = Book(-1, "null_book", "null_book", False)
 null_book.red = False
 book_to_insert = null_book
 
+null_deficient = Book(-1, "null_book", "null_book", False)
+null_deficient.red, null_deficient.deficient = False, True
+
 
 class GatorLibrary:
     new_book = None
+    colors = dict()
+    color_flip_count = 0
 
     def __init__(self):
         self.root = null_book
@@ -143,7 +149,6 @@ class GatorLibrary:
                 current = current.left
             elif (book_id > current.book_id):
                 current = current.right
-        print("BookID not found in library.")
         output("BookID not found in library.")
         
     # make surrounded by brackets and comma separated
@@ -226,31 +231,121 @@ class GatorLibrary:
             else:
                 output("Book " + str(book_id) + " Not Borrowed by Patron " + str(patron_id))
 
-    def delete_book(self, book_id):
+    def delete_book(self, current, book_id):
         # nothing in tree
         if (self.root == null_book):
             print("no books in the library, you cant delete anything")
             return
+        elif (current == null_book):
+            return null_book
+        
+        # TEST TO SEE IF PARENTS PARENT CHANGES !!??
+        parent, is_left_child = null_book, False
 
-        self.root, successful_deletion, book_deleted = self.delete_book_recursive(self.root)
+        # while (current != null_book):
+        #     if book_id == current.book_id:
+        #         break
+        #     # return current
+        #     elif (book_id < current.book_id):
+        #         parent = current
+        #         current = current.left
+        #         is_left_child = True
+        #     elif (book_id > current.book_id):
+        #         parent = current
+        #         current = current.right
+        #         is_left_child = False 
+            # make recursive instead
+        
+        current.left = self.delete_book(current.left, book_id)
+        current.right = self.delete_book(current.right, book_id)
+
+        # no need to continue, all is good here
+        if (not current.left.deficient and not current.right.deficient and current.book_id != book_id):
+            return current
+        
+        if (current.book_id == book_id):
+            # is red leaf
+            if (current.left == null_book and current.right == null_book and current.red):
+                return null_book 
+            # is black leaf
+            elif (current.left == null_book and current.right == null_book and not current.red):
+                current = null_deficient
+                # delete book recursive
+                return
+            # is black degree 1
+            elif (current.left == null_book or current.right == null_book and not current.red):
+                if (current.left == null_book):
+                    current = current.right # does it change parent!!??
+                else:
+                    current = current.left
+
+                # if red, make black, done!
+                if (current.red):
+                    current.red = False
+                else:
+                    current.deficient = True
+
+                return current
+
+                # if (current.deficient):
+                #     # find deficiencies and rebuild tree from there
+                #     self.root = self.delete_book_recursive(self.root, book_id)
+
+                # cases:
+                # 1 black degree 2 node (replace with largest in left subtree)
+                # what after that? - make that deficient if black
+                # 2 black degree 1: its child becomes root of deficient subtree
+                # if child is red, make black
+                # 3 red leaf - just delete, nothing else
+                # 4 black leaf, that node becomes the deficient
+            # red/black degree 2
+            elif (current.left != null_book and current.right != null_book):
+                # find largest in left subtree
+                node, parent_ofthis = current.left, current
+                current_color = current.red
+                
+                # node used to iterate to find largset in subtree
+                while (node.right != null_book):
+                    node, parent_ofthis = node.right, node
+                parent_ofthis.right = null_book
+
+                # replace current with that
+                node.right, node.left = current.right, current.left
+                current = node # !! DOES THIS REPLACE FROM PARENT
+
+                # make that deficient if black
+                # delete that node
+                # if red, make black
+                # if black, make deficient
+                # if deficient, find deficiencies and rebuild tree from there
+                pass
+
+        display_tree(self.root)
+
+        if (current.left.deficient or current.right.deficient):
+            current = delete_rotate(library,current) # pass in parent
+
+        # why this here??!!
         if (self.root.book_id == book_id):
             self.root.red = False
 
-    def delete_book_recursive(self, current):
-        if (current == null_book):
-            return self.new_book, True, current
-        elif (self.new_book.book_id < current.book_id):
-            current.left = self.insert_book_recursive(current.left)
-        elif (self.new_book.book_id > current.book_id):
-            current.right = self.insert_book_recursive(current.right)
+        return current
 
-        # check if red-black tree properties are violated
-        # are there two reds in a row
-        if (current.red and (current.left.red or current.right.red)):
-            current.invalid = True
+    def delete_book_recursive(self, current, id):
+        # id is the ID of the deficient node
+
+        # you want to pass in the parent of the deficient node
+        # into the delete rotation function
+
+        # depth first
+        if (current == null_book):
+            return null_book
+        
+        current.left = self.delete_book_recursive(current.left)
+        current.right = self.delete_book_recursive(current.right)
         
         if (current.left.invalid or current.right.invalid):
-            current = insert_rotate(library,current)
+            current = delete_rotate(library,current) # pass in parent
             current.invalid = False
 
         return current # self.new_book
@@ -258,11 +353,34 @@ class GatorLibrary:
     def find_closest_book(self, target_id):
         pass
 
-    def color_flip_count(self):
-        pass
+    def get_color_flip_count(self):
+        return self.color_flip_count
 
     def execute_command(self, command):
         pass
+
+    # run before an operation
+    def store_colors(self, current):
+        # make an array with pairs of ID and re
+        if (current == null_book):
+            return
+        self.colors[current.book_id] = current.red
+        self.store_colors(current.left)
+        self.store_colors(current.right)
+    
+    # run after an operation
+    def count_color_changes(self, current):
+        if current == null_book:
+            return
+        
+        self.count_color_changes(current.left)
+        self.count_color_changes(current.right)
+
+        # if not in self.colors
+        if (self.colors[current.book_id] == None):
+            return # do nothing, new node can't change color
+        if (current.red != self.colors[current.book_id]):
+            self.color_flip_count += 1
     
 def get_input():
     # read command from file
@@ -293,9 +411,9 @@ def get_input():
             input_commands.append([Function.PrintBooks, book_id1, book_id2])
         elif (function == "InsertBook"):
             book_id = int(line.split('(')[1].split(',')[0])
-            book_name = line.split('(')[1].split(',')[1].split('\"')[1]
-            author_name = line.split('(')[1].split(',')[2].split('\"')[1]
-            availability = line.split('(')[1].split(',')[3].split(')')[0].split('\"')[1]
+            book_name = line.split('\"')[1]
+            author_name = line.split('\"')[3] # causes error when comma is in the name of book
+            availability = line.split('\"')[5]
             input_commands.append([Function.InsertBook, book_id, book_name, author_name, availability])
         elif (function == "BorrowBook"):
             patron_id = int(line.split('(')[1].split(',')[0])
@@ -341,17 +459,21 @@ def main():
         elif (command[0] == Function.PrintBooks):
             library.print_books(command[1], command[2], library.root)
         elif (command[0] == Function.InsertBook):
+            library.store_colors(library.root)
             library.insert_book(command[1], command[2], command[3], command[4])
+            library.count_color_changes(library.root)
         elif (command[0] == Function.BorrowBook):
             library.borrow_book(command[1], command[2], command[3])
         elif (command[0] == Function.ReturnBook):
             library.return_book(command[1], command[2])
         elif (command[0] == Function.DeleteBook):
+            library.store_colors(library.root)
             library.delete_book(command[1])
+            library.count_color_changes(library.root)
         elif (command[0] == Function.FindClosestBook):
             library.find_closest_book(command[1])
         elif (command[0] == Function.ColorFlipCount):
-            library.color_flip_count()
+            library.get_color_flip_count()
         elif (command[0] == Function.Quit):
             output("Program Terminated!!")
             
