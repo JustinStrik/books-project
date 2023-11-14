@@ -1,25 +1,25 @@
 # from bookdictionary import null_book
 
 def delete_rotate(tree, node):
-    left = node.left
-    right = node.right
+    left = node.get_left()
+    right = node.get_right()
             
     if (right.deficient):
         # check to see if degree 1 ?
         if (left.red):
             # RRn
             w_red_children = 0
-            w = left.right
+            w = left.get_right()
 
-            if (w.left.red):
+            if (w.get_left().red):
                 w_red_children += 1
-            if (w.right.red):
+            if (w.get_right().red):
                 w_red_children += 1
 
             if (w_red_children == 0):
                 node = Rr0(tree, node)
             elif (w_red_children == 1):
-                if (w.left.red):
+                if (w.get_left().red):
                     node = Rr1_case1(tree, node)
                 else: # right is red
                     node = Rr1_case2(tree, node)
@@ -29,9 +29,9 @@ def delete_rotate(tree, node):
             v = left
             v_red_children = 0
 
-            if (v.left.red):
+            if (v.get_left().red):
                 v_red_children += 1
-            if (v.right.red):
+            if (v.get_right().red):
                 v_red_children += 1
 
             if (v_red_children == 0):
@@ -41,7 +41,7 @@ def delete_rotate(tree, node):
                 else:
                     node = Rb0_case2(tree, node)
             elif (v_red_children == 1):
-                if (v.left.red):
+                if (v.get_left().red):
                     node = Rb1_case1(tree, node)
                 else:
                     node = Rb1_case2(tree, node)
@@ -53,15 +53,15 @@ def delete_rotate(tree, node):
             w_red_children = 0
             w = right.left
 
-            if (w.left.red):
+            if (w.get_left().red):
                 w_red_children += 1
-            if (w.right.red):
+            if (w.get_right().red):
                 w_red_children += 1
 
             if (w_red_children == 0):
                 node = Lr0(tree, node)
             elif (w_red_children == 1):
-                if (w.left.red):
+                if (w.get_left().red):
                     node = Lr1_case1(tree, node)
                 else:
                     node = Lr1_case2(tree, node)
@@ -71,9 +71,9 @@ def delete_rotate(tree, node):
             v = right
             v_red_children = 0
         
-            if (v.left.red):
+            if (v.get_left().red):
                 v_red_children += 1
-            if (v.right.red):
+            if (v.get_right().red):
                 v_red_children += 1
 
             if (v_red_children == 0):
@@ -83,7 +83,7 @@ def delete_rotate(tree, node):
                 else:
                     node = Lb0_case2(tree, node)
             elif (v_red_children == 1):
-                if (v.right.red):
+                if (v.get_right().red):
                     node = Lb1_case1(tree, node)
                 else:
                     node = Lb1_case2(tree, node)
@@ -118,13 +118,13 @@ def Rb0_case2(tree, py):
 
 # left child of v is red
 def Rb1_case1(tree, py):
-    v = py.left
+    v = py.get_left()
     v.red = py.red
 
     if py.red:
         py.change_color() # ? only change color if red?
 
-    py.left = v.right
+    py.left = v.get_right()
     v.right = py
 
     v.left.change_color() # no longer red
@@ -136,15 +136,15 @@ def Rb1_case1(tree, py):
 # right child of v is red
 def Rb1_case2(tree, py):
     # lr rotation
-    v = py.left
+    v = py.get_left()
     v.red = py.red
 
-    w = py.left.right
+    w = py.get_left().get_right()
     w.change_color()
 
     # reassign w's children
-    v.right = w.left
-    py.left = w.right
+    v.right = w.get_left()
+    py.left = w.get_right()
     
     # make w root of subtree
     w.left = v
@@ -155,14 +155,14 @@ def Rb1_case2(tree, py):
 
 def Rb2(tree, py):
     # lr rotation
-    v = py.left
-    w = py.left.right
+    v = py.get_left()
+    w = py.get_left().get_right()
     if (py.red != w.red): #?
         w.change_color() # now black
 
     # reassign w's children
-    v.right = w.left
-    py.left = w.right
+    v.right = w.get_left()
+    py.left = w.get_right()
     
     # make w root of subtree
     w.left = v
@@ -174,10 +174,10 @@ def Rb2(tree, py):
 # Rrn where n is the number of red children of v's right child w
 def Rr0(tree, py):
     # LL rotation
-    v = py.left
+    v = py.get_left()
     v.change_color()
 
-    py.left = v.right
+    py.left = v.get_right()
     py.left.change_color()
     v.right = py
 
@@ -187,12 +187,12 @@ def Rr0(tree, py):
 # left node of w is red
 def Rr1_case1(tree, py):
     # LR rotation
-    v = py.left
-    w = py.left.right
+    v = py.get_left()
+    w = py.get_left().get_right()
 
     # reassign w's children
-    v.right = w.left
-    py.left = w.right
+    v.right = w.get_left()
+    py.left = w.get_right()
 
     # make w root of subtree
     w.left = v
@@ -204,13 +204,13 @@ def Rr1_case1(tree, py):
 # right node of w is red
 def Rr1_case2(tree, py):
     # rotation
-    v = py.left
-    w = py.left.right
-    x = w.right # the red node
+    v = py.get_left()
+    w = py.get_left().get_right()
+    x = w.get_right() # the red node
 
     # reassign w's children
-    w.right = x.left
-    py.left = x.right
+    w.right = x.get_left()
+    py.left = x.get_right()
 
     # make w root of subtree
     x.left = v
@@ -221,13 +221,13 @@ def Rr1_case2(tree, py):
 
 def Rr2(tree, py):
     # LR rotation
-    v = py.left
-    w = py.left.right
-    x = w.right # the red node
+    v = py.get_left()
+    w = py.get_left().get_right()
+    x = w.get_right() # the red node
 
     # reassign w's children
-    w.right = x.left
-    py.left = x.right
+    w.right = x.get_left()
+    py.left = x.get_right()
 
     # make w root of subtree
     x.left = v
@@ -254,13 +254,13 @@ def Lb0_case2(tree, py):
 
 # right child of v is red
 def Lb1_case1(tree, py):
-    v = py.right
+    v = py.get_right()
     v.red = py.red
 
     if py.red:
         py.left.change_color() # ? only change color if red?
 
-    py.right = v.left
+    py.right = v.get_left()
     v.left = py
 
     v.right.change_color() # no longer red
@@ -271,15 +271,15 @@ def Lb1_case1(tree, py):
 # left child of v is red
 def Lb1_case2(tree, py):
     # lr rotation
-    v = py.right
+    v = py.get_right()
     v.red = py.red
 
-    w = py.right.left
+    w = py.get_right().get_left()
     w.change_color()
 
     # reassign w's children
-    v.left = w.right
-    py.right = w.left
+    v.left = w.get_right()
+    py.right = w.get_left()
     
     # make w root of subtree
     w.right = v
@@ -291,14 +291,14 @@ def Lb1_case2(tree, py):
 def Lb2(tree, py):
 
     # lr rotation
-    v = py.right
-    w = py.right.left
+    v = py.get_right()
+    w = py.get_right().get_left()
     if (py.red != w.red): #?
         w.change_color() # now black
 
     # reassign w's children
-    v.left = w.right
-    py.right = w.left
+    v.left = w.get_right()
+    py.right = w.get_left()
     
     # make w root of subtree
     w.right = v
@@ -310,10 +310,10 @@ def Lb2(tree, py):
 # Rrn where n is the number of red children of v's right child w
 def Lr0(tree, py):
     # LL rotation
-    v = py.right
+    v = py.get_right()
     v.change_color()
 
-    py.right = v.left
+    py.right = v.get_left()
     py.right.change_color()
     v.left = py
 
@@ -323,12 +323,12 @@ def Lr0(tree, py):
 # left node of w is red
 def Lr1_case1(tree, py):
     # LR rotation
-    v = py.right
-    w = py.right.left
+    v = py.get_right()
+    w = py.get_right().get_left()
 
     # reassign w's children
-    v.left = w.right
-    py.right = w.left
+    v.left = w.get_right()
+    py.right = w.get_left()
 
     # make w root of subtree
     w.right = v
@@ -340,13 +340,13 @@ def Lr1_case1(tree, py):
 # right node of w is red
 def Lr1_case2(tree, py):
     # rotation
-    v = py.right
-    w = py.right.left
-    x = w.left # the red node
+    v = py.get_right()
+    w = py.get_right().get_left()
+    x = w.get_left() # the red node
 
     # reassign w's children
-    w.left = x.right
-    py.right = x.left
+    w.left = x.get_right()
+    py.right = x.get_left()
 
     # make w root of subtree
     x.right = v
@@ -357,13 +357,13 @@ def Lr1_case2(tree, py):
 
 def Lr2(tree, py):
     # LR rotation
-    v = py.right
-    w = py.right.left
-    x = w.left # the red node
+    v = py.get_right()
+    w = py.get_right().get_left()
+    x = w.get_left() # the red node
 
     # reassign w's children
-    w.left = x.right
-    py.right = x.left
+    w.left = x.get_right()
+    py.right = x.get_left()
 
     # make w root of subtree
     x.right = v

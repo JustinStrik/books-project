@@ -1,659 +1,346 @@
-BookID not found in library.
+changes: 0
 
-Book 5 Reserved by Patron 101
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 5 Reserved by Patron 101
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 3 Reserved by Patron 101
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 12 is no longer available.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID = 3
-Title = "The Great Gatsby"
-Author = "Mark Johnson"
-Availability = "yes”);
-"
-BorrowedBy = None
-Reservations = [101]
+changes: 0
 
-BookID = 5
-Title = "The Secret Garden"
-Author = "Jane Smith"
-Availability = "yes”);
-"
-BorrowedBy = None
-Reservations = [101, 101]
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 3 is no longer available. Reservations made by patrons 101
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 5 is no longer available. Reservations made by patrons 101, 101
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 22 Reserved by Patron 104
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 22 Reserved by Patron 171
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 22 Reserved by Patron 103
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Color Flip Count = 6
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 94 Reserved by Patron 171
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 22 Not Borrowed by Patron 104
+changes: 0
 
-BookID not found in library.
+Book 1 is no longer available
 
-Book 50 Reserved by Patron 132
+Book 2 Borrowed by Patron 102
 
-BookID not found in library.
+Book 3 Borrowed by Patron 103
 
-Book 10 Reserved by Patron 103
+Book 4 Borrowed by Patron 104
 
-BookID not found in library.
+Book 5 Borrowed by Patron 105
 
-BookID not found in library.
+Book 1 is no longer available
 
-Book 72 Reserved by Patron 109
+Book 1 is no longer available
 
-BookID not found in library.
+Book 2 Reserved by Patron 107
 
-Book 50 Reserved by Patron 101
+Book 3 Reserved by Patron 108
 
-BookID not found in library.
+Book 4 Reserved by Patron 109
 
-Book 94 is no longer available. Reservations made by patrons 171
+Book 5 Reserved by Patron 110
 
-BookID not found in library.
+Book 2 Returned by Patron 102
 
-Book 22 Reserved by Patron 105
+Book 2 Allotted to Patron 107
 
-BookID not found in library.
+Book 2 Borrowed by Patron 107
+
+Book -1 is no longer available.
+
+changes: 0
+
+changes: 0
+
+changes: 0
+
+changes: 0
+
+changes: 0
+
+changes: 0
+
+changes: 0
+
+changes: 0
+
+changes: 0
 
 BookID = 10
-Title = "The Hobbit"
-Author = "J.R.R. Tolkien"
-Availability = "yes”)
-"
-BorrowedBy = None
-Reservations = [103]
-
-BookID = 22
-Title = "The Alchemist"
-Author = "Paul Coelho"
-Availability = "yes”)
-"
-BorrowedBy = None
-Reservations = [171, 105, 104, 103]
-
-BookID = 28
-Title = "Lord of the Flies"
-Author = "William Golding"
-Availability = "yes"
+Title = "Book10"
+Author = "Author10"
+Availability = "Yes"
 BorrowedBy = None
 Reservations = []
 
-BookID = 50
-Title = "The Catcher in the Rye"
-Author = "Michael Brown"
-Availability = "yes”)
-"
-BorrowedBy = None
-Reservations = [101, 132]
+changes: 0
 
-BookID = 72
-Title = "Brave New World"
-Author = "Aldous Huxley"
-Availability = "yes"
-BorrowedBy = None
-Reservations = [109]
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID = 28
-Title = "Lord of the Flies"
-Author = "William Golding"
-Availability = "yes"
-BorrowedBy = None
-Reservations = []
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 22 Not Borrowed by Patron 171
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 28 Reserved by Patron 171
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 50 is no longer available. Reservations made by patrons 101, 132
+Book 3 Returned by Patron 103
 
-BookID not found in library.
+Book 3 Allotted to Patron 108
 
-Color Flip Count = 13
+Book 11 Borrowed by Patron 112
 
-BookID not found in library.
+Book 11 is no longer available.
 
-Book 22 Reserved by Patron 107
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 10 Not Borrowed by Patron 103
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 10 Reserved by Patron 121
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 5 Reserved by Patron 101
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+Color Flip Count = 23
 
-BookID not found in library.
+changes: 0
 
-Book 5 Reserved by Patron 101
+changes: 1
 
-BookID not found in library.
+changes: 1
 
-Book 3 Reserved by Patron 101
+changes: 1
 
-BookID not found in library.
+changes: 1
 
-Book 12 is no longer available.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID = 3
-Title = "The Great Gatsby"
-Author = "Mark Johnson"
-Availability = "yes”);
-"
-BorrowedBy = None
-Reservations = [101]
+changes: 1
 
-BookID = 5
-Title = "The Secret Garden"
-Author = "Jane Smith"
-Availability = "yes”);
-"
-BorrowedBy = None
-Reservations = [101, 101]
+changes: 1
 
-BookID not found in library.
+changes: 0
 
-Book 3 is no longer available. Reservations made by patrons 101
+changes: 0
 
-BookID not found in library.
+changes: 1
 
-Book 5 is no longer available. Reservations made by patrons 101, 101
+changes: 1
 
-BookID not found in library.
+changes: 1
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+changes: 1
 
-Book 22 Reserved by Patron 104
+changes: 1
 
-BookID not found in library.
+changes: 0
 
-Book 22 Reserved by Patron 171
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 22 Reserved by Patron 103
+changes: 0
 
-BookID not found in library.
+changes: 1
 
-BookID not found in library.
+changes: 1
 
-BookID not found in library.
+changes: 1
 
-BookID not found in library.
+changes: 1
 
-Color Flip Count = 6
+changes: 1
 
-BookID not found in library.
+changes: 0
 
-Book 94 Reserved by Patron 171
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 22 Not Borrowed by Patron 104
+changes: 0
 
-BookID not found in library.
+changes: 1
 
-Book 50 Reserved by Patron 132
+changes: 1
 
-BookID not found in library.
+changes: 0
 
-Book 10 Reserved by Patron 103
+changes: 0
 
-BookID not found in library.
+Book 1 is no longer available
 
-BookID not found in library.
+Book 2 Borrowed by Patron 102
 
-Book 72 Reserved by Patron 109
+Book 3 Borrowed by Patron 103
 
-BookID not found in library.
+Book 4 Borrowed by Patron 104
 
-Book 50 Reserved by Patron 101
+Book 5 Borrowed by Patron 105
 
-BookID not found in library.
+Book 1 is no longer available
 
-Book 94 is no longer available. Reservations made by patrons 171
+Book 1 is no longer available
 
-BookID not found in library.
+Book 2 Reserved by Patron 107
 
-Book 22 Reserved by Patron 105
+Book 3 Reserved by Patron 108
 
-BookID not found in library.
+Book 4 Reserved by Patron 109
+
+Book 5 Reserved by Patron 110
+
+Book 2 Returned by Patron 102
+
+Book 2 Allotted to Patron 107
+
+Book 2 Borrowed by Patron 107
+
+Book -1 is no longer available.
+
+changes: 0
+
+changes: 0
+
+changes: 0
+
+changes: 0
+
+changes: 0
+
+changes: 0
+
+changes: 0
+
+changes: 0
+
+changes: 0
 
 BookID = 10
-Title = "The Hobbit"
-Author = "J.R.R. Tolkien"
-Availability = "yes”)
-"
-BorrowedBy = None
-Reservations = [103]
-
-BookID = 22
-Title = "The Alchemist"
-Author = "Paul Coelho"
-Availability = "yes”)
-"
-BorrowedBy = None
-Reservations = [171, 105, 104, 103]
-
-BookID = 28
-Title = "Lord of the Flies"
-Author = "William Golding"
-Availability = "yes"
+Title = "Book10"
+Author = "Author10"
+Availability = "Yes"
 BorrowedBy = None
 Reservations = []
 
-BookID = 50
-Title = "The Catcher in the Rye"
-Author = "Michael Brown"
-Availability = "yes”)
-"
-BorrowedBy = None
-Reservations = [101, 132]
+changes: 0
 
-BookID = 72
-Title = "Brave New World"
-Author = "Aldous Huxley"
-Availability = "yes"
-BorrowedBy = None
-Reservations = [109]
+changes: 0
 
-BookID not found in library.
+changes: 1
 
-BookID = 28
-Title = "Lord of the Flies"
-Author = "William Golding"
-Availability = "yes"
-BorrowedBy = None
-Reservations = []
+changes: 0
 
-BookID not found in library.
+changes: 1
 
-Book 22 Not Borrowed by Patron 171
+changes: 1
 
-BookID not found in library.
+changes: 1
 
-Book 28 Reserved by Patron 171
+changes: 1
 
-BookID not found in library.
+changes: 0
 
-Book 50 is no longer available. Reservations made by patrons 101, 132
+Book 3 Returned by Patron 103
 
-BookID not found in library.
+Book 3 Allotted to Patron 108
 
-Color Flip Count = 13
+Book 11 Borrowed by Patron 112
 
-BookID not found in library.
+Book 11 is no longer available.
 
-Book 22 Reserved by Patron 107
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 10 Not Borrowed by Patron 103
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 10 Reserved by Patron 121
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-Book 5 Reserved by Patron 101
+changes: 0
 
-BookID not found in library.
+changes: 0
 
-BookID not found in library.
-
-BookID not found in library.
-
-Book 5 Reserved by Patron 101
-
-BookID not found in library.
-
-Book 3 Reserved by Patron 101
-
-BookID not found in library.
-
-Book 12 is no longer available.
-
-BookID not found in library.
-
-BookID = 3
-Title = "The Great Gatsby"
-Author = "Mark Johnson"
-Availability = "yes”);
-"
-BorrowedBy = None
-Reservations = [101]
-
-BookID = 5
-Title = "The Secret Garden"
-Author = "Jane Smith"
-Availability = "yes”);
-"
-BorrowedBy = None
-Reservations = [101, 101]
-
-BookID not found in library.
-
-Book 3 is no longer available. Reservations made by patrons 101
-
-BookID not found in library.
-
-Book 5 is no longer available. Reservations made by patrons 101, 101
-
-BookID not found in library.
-
-Book 5 Reserved by Patron 101
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-Book 5 Reserved by Patron 101
-
-BookID not found in library.
-
-Book 3 Reserved by Patron 101
-
-BookID not found in library.
-
-Book 12 is no longer available.
-
-BookID not found in library.
-
-BookID = 3
-Title = "The Great Gatsby"
-Author = "Mark Johnson"
-Availability = "yes”);
-"
-BorrowedBy = None
-Reservations = [101]
-
-BookID = 5
-Title = "The Secret Garden"
-Author = "Jane Smith"
-Availability = "yes”);
-"
-BorrowedBy = None
-Reservations = [101, 101]
-
-BookID not found in library.
-
-Book 3 is no longer available. Reservations made by patrons 101
-
-BookID not found in library.
-
-Book 5 is no longer available. Reservations made by patrons 101, 101
-
-BookID not found in library.
-
-Book 5 Reserved by Patron 101
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-Book 5 Reserved by Patron 101
-
-BookID not found in library.
-
-Book 3 Reserved by Patron 101
-
-BookID not found in library.
-
-Book 12 is no longer available.
-
-BookID not found in library.
-
-BookID = 3
-Title = "The Great Gatsby"
-Author = "Mark Johnson"
-Availability = "yes”);
-"
-BorrowedBy = None
-Reservations = [101]
-
-BookID = 5
-Title = "The Secret Garden"
-Author = "Jane Smith"
-Availability = "yes”);
-"
-BorrowedBy = None
-Reservations = [101, 101]
-
-BookID not found in library.
-
-Book 3 is no longer available. Reservations made by patrons 101
-
-BookID not found in library.
-
-Book 5 is no longer available. Reservations made by patrons 101, 101
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-Book 22 Reserved by Patron 104
-
-BookID not found in library.
-
-Book 22 Reserved by Patron 171
-
-BookID not found in library.
-
-Book 22 Reserved by Patron 103
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-Color Flip Count = 6
-
-BookID not found in library.
-
-Book 94 Reserved by Patron 171
-
-BookID not found in library.
-
-Book 22 Not Borrowed by Patron 104
-
-BookID not found in library.
-
-Book 50 Reserved by Patron 132
-
-BookID not found in library.
-
-Book 10 Reserved by Patron 103
-
-BookID not found in library.
-
-BookID not found in library.
-
-Book 72 Reserved by Patron 109
-
-BookID not found in library.
-
-Book 50 Reserved by Patron 101
-
-BookID not found in library.
-
-Book 94 is no longer available. Reservations made by patrons 171
-
-BookID not found in library.
-
-Book 22 Reserved by Patron 105
-
-BookID not found in library.
-
-BookID = 10
-Title = "The Hobbit"
-Author = "J.R.R. Tolkien"
-Availability = "yes”)
-"
-BorrowedBy = None
-Reservations = [103]
-
-BookID = 22
-Title = "The Alchemist"
-Author = "Paul Coelho"
-Availability = "yes”)
-"
-BorrowedBy = None
-Reservations = [171, 105, 104, 103]
-
-BookID = 28
-Title = "Lord of the Flies"
-Author = "William Golding"
-Availability = "yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 50
-Title = "The Catcher in the Rye"
-Author = "Michael Brown"
-Availability = "yes”)
-"
-BorrowedBy = None
-Reservations = [101, 132]
-
-BookID = 72
-Title = "Brave New World"
-Author = "Aldous Huxley"
-Availability = "yes"
-BorrowedBy = None
-Reservations = [109]
-
-BookID not found in library.
-
-BookID = 28
-Title = "Lord of the Flies"
-Author = "William Golding"
-Availability = "yes"
-BorrowedBy = None
-Reservations = []
-
-BookID not found in library.
-
-Book 22 Not Borrowed by Patron 171
-
-BookID not found in library.
-
-Book 28 Reserved by Patron 171
-
-BookID not found in library.
-
-Book 50 is no longer available. Reservations made by patrons 101, 132
-
-BookID not found in library.
-
-Color Flip Count = 13
-
-BookID not found in library.
-
-Book 22 Reserved by Patron 107
-
-BookID not found in library.
-
-Book 10 Not Borrowed by Patron 103
-
-BookID not found in library.
-
-Book 10 Reserved by Patron 121
-
-BookID not found in library.
+Color Flip Count = 23
 
