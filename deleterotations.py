@@ -45,8 +45,51 @@ def delete_rotate(tree, node):
                     node = Rb1_case1(tree, node)
                 else:
                     node = Rb1_case2(tree, node)
-            elif (v.red_children == 2):
+            elif (v_red_children == 2):
                 node = Rb2(tree, node)
+    else: # right subtree is not deficient, left must be (only reason this function is called)
+        if (right.red):
+            # RLn
+            w_red_children = 0
+            w = right.left
+
+            if (w.left.red):
+                w_red_children += 1
+            if (w.right.red):
+                w_red_children += 1
+
+            if (w_red_children == 0):
+                node = Lr0(tree, node)
+            elif (w_red_children == 1):
+                if (w.left.red):
+                    node = Lr1_case1(tree, node)
+                else:
+                    node = Lr1_case2(tree, node)
+            else: # both children are red
+                node = Lr2(tree, node)
+        else: # right is black
+            v = right
+            v_red_children = 0
+        
+            if (v.left.red):
+                v_red_children += 1
+            if (v.right.red):
+                v_red_children += 1
+
+            if (v_red_children == 0):
+                if (not node.red):
+                    node = Lb0_case1(tree, node)
+                    node.deficient = True
+                else:
+                    node = Lb0_case2(tree, node)
+            elif (v_red_children == 1):
+                if (v.right.red):
+                    node = Lb1_case1(tree, node)
+                else:
+                    node = Lb1_case2(tree, node)
+            elif (v_red_children == 2):
+                node = Lb2(tree, node)
+
 
 
     left.deficient = False
@@ -300,5 +343,23 @@ def Lr1_case2(tree, py):
     x.right = v
     x.left = py
 
+    py.left.deficient = False
+    return w
+
+def Lr2(tree, py):
+    # LR rotation
+    v = py.right
+    w = py.right.left
+    x = w.left # the red node
+
+    # reassign w's children
+    w.left = x.right
+    py.right = x.left
+
+    # make w root of subtree
+    x.right = v
+    x.left = py
+
+    x.change_color() # now black and root of subtree
     py.left.deficient = False
     return w

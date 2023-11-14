@@ -9,12 +9,12 @@ def check_tree(root, test_root):
     # have the same values (red, book_id, valid)
 
     # inorder traversal
-    if (root == null_book):
-        if (test_root != null_book):
+    if (root.get_null()):
+        if (not test_root.get_null()):
             raise AssertionError("Expected null: " + str(root.book_id) + "\nActual: " + str(test_root.book_id))
         return
-    elif (test_root == null_book):
-        if (root != null_book):
+    elif (test_root.get_null()):
+        if (not root.get_null()):
             raise AssertionError("Expected: " + str(root.book_id) + "\nActual: " + str(test_root.book_id))
         return
 
