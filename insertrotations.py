@@ -32,18 +32,21 @@ def insert_rotate(tree, node):
 
 # declare functions for all rotations
 def LLr(tree, gp):
-    gp.left.change_color()
-    gp.right.change_color()
     if not gp.is_root:
         gp.change_color() 
+    gp.left.change_color()
+    gp.right.change_color()
+    
         # requires continue rebalancing
         # will happen automatically because its recursive
     return gp
 
 def RRr(tree, gp):
+    if not gp.is_root:
+        gp.change_color()
     gp.right.change_color()
     gp.left.change_color()
-    gp.change_color()
+    
     return gp
 
 def LLb(tree, gp):
@@ -120,7 +123,8 @@ def RLb(tree, gp):
 
 def RLr(tree, gp):
     # no movements, change all colors
-    gp.change_color()
+    if (not gp.is_root):
+        gp.change_color()
     gp.right.change_color()
     gp.left.change_color()
     # gp.right.left.change_color() # remains red
@@ -128,7 +132,8 @@ def RLr(tree, gp):
 
 def LRr(tree, gp):
     # no movements, change all colors
-    gp.change_color()
+    if (not gp.is_root):
+        gp.change_color()
     gp.left.change_color()
     gp.right.change_color()
     # gp.left.right.change_color() # remains red

@@ -37,7 +37,7 @@ def delete_rotate(tree, node):
             if (v_red_children == 0):
                 if (not node.red):
                     node = Rb0_case1(tree, node)
-                    node.deficient = True
+                    node.deficient = True # already done in function
                 else:
                     node = Rb0_case2(tree, node)
             elif (v_red_children == 1):
@@ -119,13 +119,16 @@ def Rb0_case2(tree, py):
 # left child of v is red
 def Rb1_case1(tree, py):
     v = py.left
+    v.red = py.red
+
+    if py.red:
+        py.change_color() # ? only change color if red?
 
     py.left = v.right
     v.right = py
 
     v.left.change_color() # no longer red
-    if py.red:
-        py.right.change_color() # ? only change color if red?
+
 
     py.right.deficient = False # right subtree isnt deficient
     return v
@@ -134,6 +137,8 @@ def Rb1_case1(tree, py):
 def Rb1_case2(tree, py):
     # lr rotation
     v = py.left
+    v.red = py.red
+
     w = py.left.right
     w.change_color()
 
@@ -250,13 +255,15 @@ def Lb0_case2(tree, py):
 # right child of v is red
 def Lb1_case1(tree, py):
     v = py.right
+    v.red = py.red
+
+    if py.red:
+        py.left.change_color() # ? only change color if red?
 
     py.right = v.left
     v.left = py
 
     v.right.change_color() # no longer red
-    if py.red:
-        py.left.change_color() # ? only change color if red?
 
     py.left.deficient = False # left subtree isnt deficient
     return v
@@ -265,6 +272,8 @@ def Lb1_case1(tree, py):
 def Lb1_case2(tree, py):
     # lr rotation
     v = py.right
+    v.red = py.red
+
     w = py.right.left
     w.change_color()
 

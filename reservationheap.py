@@ -39,6 +39,9 @@ class ReservationHeap:
             pos = pos // 2
 
     def remove(self):
+        if (len(self.heap) == 0):
+            return None
+
         removed = self.heap[0]
         if (len(self.heap) > 1):
             self.heap[0] = self.heap.pop() # remove last element and put it at the beginning

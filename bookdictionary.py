@@ -72,6 +72,18 @@ class Book:
     def makeRightChild(self, parent):
         parent.right = self
 
+    def get_left(self):
+        if (self.left == None):
+            return make_null_book()
+        else:
+            return self.left
+        
+    def get_right(self):
+        if (self.right == None):
+            return make_null_book()
+        else:
+            return self.right
+    
     def update_coordinates(self, x, y):
         self.x = x
         self.y = y
@@ -257,7 +269,8 @@ class GatorLibrary:
                 book.borrowed_by = None
                 output("Book " + str(book_id) + " Returned by Patron " + str(patron_id))
                 next_person = book.remove_reservation()
-                output("Book " + str(book_id) + " Allotted to Patron " + str(next_person.patron_id))
+                if (next_person):
+                    output("Book " + str(book_id) + " Allotted to Patron " + str(next_person.patron_id))
             else:
                 output("Book " + str(book_id) + " Not Borrowed by Patron " + str(patron_id))
 
@@ -267,7 +280,7 @@ class GatorLibrary:
             print("no books in the library, you cant delete anything")
             return
         elif (current.get_null()):
-            return make_null_book()
+            return current
         
         # TEST TO SEE IF PARENTS PARENT CHANGES !!??
         parent, is_left_child = make_null_book, False
@@ -318,7 +331,7 @@ class GatorLibrary:
                 return current
             
             # is red degree 1
-            elif (current.left.get_null() or current.right.get_null() and current.red):
+            elif ((current.left.get_null() or current.right.get_null()) and current.red):
                 # child must be black, just combine and all good
                 if (current.left.get_null()):
                     current = current.right
@@ -327,7 +340,7 @@ class GatorLibrary:
                 return current
                 
             # is black degree 1
-            elif (current.left.get_null() or current.right.get_null() and not current.red):
+            elif ((current.left.get_null() or current.right.get_null()) and not current.red):
                 if (current.left.get_null()):
                     current = current.right # does it change parent!!??
                 else:
@@ -521,6 +534,8 @@ def get_input():
             input_commands.append([Function.ColorFlipCount])
         elif (function == "Quit"):
             input_commands.append([Function.Quit])
+            break
+        
 
     return input_commands
 
@@ -542,6 +557,11 @@ def main():
 
     for command in input_commands:
         print("\n")
+        print(str(command[0]) + " ")
+        if (len(command) > 1):
+            print(command[1])
+            if (command[1] == 25):
+                display_tree(library.root)
         if (command[0] == Function.PrintBook):
             library.print_book(command[1])
         elif (command[0] == Function.PrintBooks):
@@ -555,16 +575,16 @@ def main():
         elif (command[0] == Function.ReturnBook):
             library.return_book(command[1], command[2])
         elif (command[0] == Function.DeleteBook):
-            if (command[1] == 210):
-                print("")
-                display_tree(library.root)
-                print("")
+            # if (command[1] == 210):
+            #     print("")
+            #     display_tree(library.root)
+            #     print("")
 
             print("delete " + str(command[1]))
             library.store_colors(library.root)
             library.root = library.delete_book(library.root, command[1])
             library.print_deletion_message()
-            display_tree(library.root)
+            # display_tree(library.root)
             library.count_color_changes(library.root)
         elif (command[0] == Function.FindClosestBook):
             closest_book = library.find_closest_book(command[1])
@@ -573,8 +593,6 @@ def main():
             library.get_color_flip_count()
         elif (command[0] == Function.Quit):
             output("Program Terminated!!")
-        print(command[0])
-
         if (command[0] == Function.InsertBook or command[0] == Function.DeleteBook):
             if (command[0] == Function.InsertBook):
                 print("insert " + str(command[1]))
@@ -582,6 +600,10 @@ def main():
                 print("delete " + str(command[1]))
                 # display_tree(library.root)
                 print("")
+            if command[1] == 25:
+                print("yo")
+            display_tree(library.root)
+            #display_tree(library.root)
         if (library.find_book(6)):
             print("why left no exist")
             left_error = library.find_book(6).left

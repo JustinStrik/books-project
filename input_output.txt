@@ -1,3141 +1,659 @@
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-Book 48 Borrowed by Patron 120
+Book 5 Reserved by Patron 101
 
-Book 101 Borrowed by Patron 132
+BookID not found in library.
 
-Book 48 Reserved by Patron 144
+BookID not found in library.
 
-Book 48 Reserved by Patron 140
+BookID not found in library.
 
-Book 48 Reserved by Patron 142
+Book 5 Reserved by Patron 101
 
-Book 12 Borrowed by Patron 138
+BookID not found in library.
 
-Book 12 Reserved by Patron 150
+Book 3 Reserved by Patron 101
 
-Book 12 Reserved by Patron 162
+BookID not found in library.
 
-Book 48 Returned by Patron 120
+Book 12 is no longer available.
 
-Book 48 Allotted to Patron 142
+BookID not found in library.
 
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
+BookID = 3
+Title = "The Great Gatsby"
+Author = "Mark Johnson"
+Availability = "yes”);
+"
 BorrowedBy = None
-Reservations = []
+Reservations = [101]
 
-Book 12 is no longer available. Reservations made by patrons 162, 150
+BookID = 5
+Title = "The Secret Garden"
+Author = "Jane Smith"
+Availability = "yes”);
+"
+BorrowedBy = None
+Reservations = [101, 101]
 
-Color Flip Count = 8
+BookID not found in library.
 
-Book 73 Borrowed by Patron 111
+Book 3 is no longer available. Reservations made by patrons 101
 
-Book 73 Reserved by Patron 52
+BookID not found in library.
 
-Book 25 Borrowed by Patron 153
+Book 5 is no longer available. Reservations made by patrons 101, 101
 
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
+BookID not found in library.
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
+BookID not found in library.
 
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-Book 25 Reserved by Patron 171
+Book 22 Reserved by Patron 104
 
-Book 132 Borrowed by Patron 2
+BookID not found in library.
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
+Book 22 Reserved by Patron 171
 
-Book 101 Reserved by Patron 18
+BookID not found in library.
 
-Book 210 Borrowed by Patron 210
+Book 22 Reserved by Patron 103
 
-Book 73 Reserved by Patron 43
+BookID not found in library.
 
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
+BookID not found in library.
 
-Book 210 Reserved by Patron 34
+BookID not found in library.
 
-Color Flip Count = 19
+BookID not found in library.
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+Color Flip Count = 6
+
+BookID not found in library.
 
-Book 48 Borrowed by Patron 120
+Book 94 Reserved by Patron 171
 
-Book 101 Borrowed by Patron 132
+BookID not found in library.
 
-Book 48 Reserved by Patron 144
+Book 22 Not Borrowed by Patron 104
 
-Book 48 Reserved by Patron 140
+BookID not found in library.
 
-Book 48 Reserved by Patron 142
+Book 50 Reserved by Patron 132
 
-Book 12 Borrowed by Patron 138
+BookID not found in library.
 
-Book 12 Reserved by Patron 150
+Book 10 Reserved by Patron 103
 
-Book 12 Reserved by Patron 162
+BookID not found in library.
 
-Book 48 Returned by Patron 120
+BookID not found in library.
 
-Book 48 Allotted to Patron 142
+Book 72 Reserved by Patron 109
 
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-Book 12 is no longer available. Reservations made by patrons 162, 150
+Book 50 Reserved by Patron 101
 
-Color Flip Count = 8
+BookID not found in library.
 
-Book 73 Borrowed by Patron 111
+Book 94 is no longer available. Reservations made by patrons 171
 
-Book 73 Reserved by Patron 52
+BookID not found in library.
 
-Book 25 Borrowed by Patron 153
+Book 22 Reserved by Patron 105
 
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
+BookID not found in library.
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
+BookID = 10
+Title = "The Hobbit"
+Author = "J.R.R. Tolkien"
+Availability = "yes”)
+"
 BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
+Reservations = [103]
 
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
+BookID = 22
+Title = "The Alchemist"
+Author = "Paul Coelho"
+Availability = "yes”)
+"
 BorrowedBy = None
-Reservations = []
+Reservations = [171, 105, 104, 103]
 
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
+BookID = 28
+Title = "Lord of the Flies"
+Author = "William Golding"
+Availability = "yes"
 BorrowedBy = None
 Reservations = []
 
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
+BookID = 50
+Title = "The Catcher in the Rye"
+Author = "Michael Brown"
+Availability = "yes”)
+"
 BorrowedBy = None
-Reservations = []
+Reservations = [101, 132]
 
-Book 25 Reserved by Patron 171
+BookID = 72
+Title = "Brave New World"
+Author = "Aldous Huxley"
+Availability = "yes"
+BorrowedBy = None
+Reservations = [109]
 
-Book 132 Borrowed by Patron 2
+BookID not found in library.
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
+BookID = 28
+Title = "Lord of the Flies"
+Author = "William Golding"
+Availability = "yes"
 BorrowedBy = None
-Reservations = [140, 144]
+Reservations = []
 
-Book 101 Reserved by Patron 18
+BookID not found in library.
 
-Book 210 Borrowed by Patron 210
+Book 22 Not Borrowed by Patron 171
 
-Book 73 Reserved by Patron 43
+BookID not found in library.
 
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
+Book 28 Reserved by Patron 171
 
-Book 210 Reserved by Patron 34
+BookID not found in library.
+
+Book 50 is no longer available. Reservations made by patrons 101, 132
 
-Color Flip Count = 19
+BookID not found in library.
 
-Book 125 is no longer available.
+Color Flip Count = 13
 
-Book 115 is no longer available.
+BookID not found in library.
 
-Book 115 is no longer available.
+Book 22 Reserved by Patron 107
 
-Color Flip Count = 20
+BookID not found in library.
 
-Book 25 is no longer available. Reservations made by patrons 171
+Book 10 Not Borrowed by Patron 103
 
-Book 80 is no longer available.
+BookID not found in library.
 
-Color Flip Count = 20
+Book 10 Reserved by Patron 121
 
-Program Terminated!!
+BookID not found in library.
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-Book 48 Borrowed by Patron 120
+Book 5 Reserved by Patron 101
 
-Book 101 Borrowed by Patron 132
+BookID not found in library.
 
-Book 48 Reserved by Patron 144
+BookID not found in library.
 
-Book 48 Reserved by Patron 140
+BookID not found in library.
 
-Book 48 Reserved by Patron 142
+Book 5 Reserved by Patron 101
 
-Book 12 Borrowed by Patron 138
+BookID not found in library.
 
-Book 12 Reserved by Patron 150
+Book 3 Reserved by Patron 101
 
-Book 12 Reserved by Patron 162
+BookID not found in library.
 
-Book 48 Returned by Patron 120
+Book 12 is no longer available.
 
-Book 48 Allotted to Patron 142
+BookID not found in library.
 
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
+BookID = 3
+Title = "The Great Gatsby"
+Author = "Mark Johnson"
+Availability = "yes”);
+"
 BorrowedBy = None
-Reservations = []
-
-Book 12 is no longer available. Reservations made by patrons 162, 150
+Reservations = [101]
 
-Color Flip Count = 8
+BookID = 5
+Title = "The Secret Garden"
+Author = "Jane Smith"
+Availability = "yes”);
+"
+BorrowedBy = None
+Reservations = [101, 101]
 
-Book 73 Borrowed by Patron 111
+BookID not found in library.
 
-Book 73 Reserved by Patron 52
+Book 3 is no longer available. Reservations made by patrons 101
 
-Book 25 Borrowed by Patron 153
+BookID not found in library.
 
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
+Book 5 is no longer available. Reservations made by patrons 101, 101
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
+BookID not found in library.
 
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-Book 25 Reserved by Patron 171
+BookID not found in library.
 
-Book 132 Borrowed by Patron 2
+Book 22 Reserved by Patron 104
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
+BookID not found in library.
 
-Book 101 Reserved by Patron 18
+Book 22 Reserved by Patron 171
 
-Book 210 Borrowed by Patron 210
+BookID not found in library.
 
-Book 73 Reserved by Patron 43
+Book 22 Reserved by Patron 103
 
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
+BookID not found in library.
 
-Book 210 Reserved by Patron 34
+BookID not found in library.
 
-Color Flip Count = 19
+BookID not found in library.
 
-Book 125 is no longer available.
+BookID not found in library.
 
-Book 115 is no longer available.
+Color Flip Count = 6
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-Book 48 Borrowed by Patron 120
+Book 94 Reserved by Patron 171
 
-Book 101 Borrowed by Patron 132
+BookID not found in library.
 
-Book 48 Reserved by Patron 144
+Book 22 Not Borrowed by Patron 104
 
-Book 48 Reserved by Patron 140
+BookID not found in library.
 
-Book 48 Reserved by Patron 142
+Book 50 Reserved by Patron 132
 
-Book 12 Borrowed by Patron 138
+BookID not found in library.
 
-Book 12 Reserved by Patron 150
+Book 10 Reserved by Patron 103
 
-Book 12 Reserved by Patron 162
+BookID not found in library.
 
-Book 48 Returned by Patron 120
+BookID not found in library.
 
-Book 48 Allotted to Patron 142
+Book 72 Reserved by Patron 109
 
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-Book 12 is no longer available. Reservations made by patrons 162, 150
+Book 50 Reserved by Patron 101
 
-Color Flip Count = 8
+BookID not found in library.
 
-Book 73 Borrowed by Patron 111
+Book 94 is no longer available. Reservations made by patrons 171
 
-Book 73 Reserved by Patron 52
+BookID not found in library.
 
-Book 25 Borrowed by Patron 153
+Book 22 Reserved by Patron 105
 
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
+BookID not found in library.
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
+BookID = 10
+Title = "The Hobbit"
+Author = "J.R.R. Tolkien"
+Availability = "yes”)
+"
 BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
+Reservations = [103]
 
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
+BookID = 22
+Title = "The Alchemist"
+Author = "Paul Coelho"
+Availability = "yes”)
+"
 BorrowedBy = None
-Reservations = []
+Reservations = [171, 105, 104, 103]
 
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
+BookID = 28
+Title = "Lord of the Flies"
+Author = "William Golding"
+Availability = "yes"
 BorrowedBy = None
 Reservations = []
 
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
+BookID = 50
+Title = "The Catcher in the Rye"
+Author = "Michael Brown"
+Availability = "yes”)
+"
 BorrowedBy = None
-Reservations = []
+Reservations = [101, 132]
 
-Book 25 Reserved by Patron 171
+BookID = 72
+Title = "Brave New World"
+Author = "Aldous Huxley"
+Availability = "yes"
+BorrowedBy = None
+Reservations = [109]
 
-Book 132 Borrowed by Patron 2
+BookID not found in library.
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
+BookID = 28
+Title = "Lord of the Flies"
+Author = "William Golding"
+Availability = "yes"
 BorrowedBy = None
-Reservations = [140, 144]
+Reservations = []
 
-Book 101 Reserved by Patron 18
+BookID not found in library.
 
-Book 210 Borrowed by Patron 210
+Book 22 Not Borrowed by Patron 171
 
-Book 73 Reserved by Patron 43
+BookID not found in library.
 
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
+Book 28 Reserved by Patron 171
 
-Book 210 Reserved by Patron 34
+BookID not found in library.
 
-Color Flip Count = 19
+Book 50 is no longer available. Reservations made by patrons 101, 132
 
-Book 125 is no longer available.
+BookID not found in library.
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+Color Flip Count = 13
 
-Book 48 Borrowed by Patron 120
+BookID not found in library.
 
-Book 101 Borrowed by Patron 132
+Book 22 Reserved by Patron 107
 
-Book 48 Reserved by Patron 144
+BookID not found in library.
 
-Book 48 Reserved by Patron 140
+Book 10 Not Borrowed by Patron 103
 
-Book 48 Reserved by Patron 142
+BookID not found in library.
 
-Book 12 Borrowed by Patron 138
+Book 10 Reserved by Patron 121
 
-Book 12 Reserved by Patron 150
+BookID not found in library.
 
-Book 12 Reserved by Patron 162
+BookID not found in library.
 
-Book 48 Returned by Patron 120
+Book 5 Reserved by Patron 101
 
-Book 48 Allotted to Patron 142
+BookID not found in library.
 
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-Book 12 is no longer available. Reservations made by patrons 162, 150
+BookID not found in library.
 
-Color Flip Count = 8
+Book 5 Reserved by Patron 101
 
-Book 73 Borrowed by Patron 111
+BookID not found in library.
 
-Book 73 Reserved by Patron 52
+Book 3 Reserved by Patron 101
 
-Book 25 Borrowed by Patron 153
+BookID not found in library.
 
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
+Book 12 is no longer available.
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
+BookID not found in library.
 
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
+BookID = 3
+Title = "The Great Gatsby"
+Author = "Mark Johnson"
+Availability = "yes”);
+"
 BorrowedBy = None
-Reservations = []
+Reservations = [101]
 
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
+BookID = 5
+Title = "The Secret Garden"
+Author = "Jane Smith"
+Availability = "yes”);
+"
 BorrowedBy = None
-Reservations = []
+Reservations = [101, 101]
 
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-Book 25 Reserved by Patron 171
+Book 3 is no longer available. Reservations made by patrons 101
 
-Book 132 Borrowed by Patron 2
+BookID not found in library.
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
+Book 5 is no longer available. Reservations made by patrons 101, 101
 
-Book 101 Reserved by Patron 18
+BookID not found in library.
 
-Book 210 Borrowed by Patron 210
+Book 5 Reserved by Patron 101
 
-Book 73 Reserved by Patron 43
+BookID not found in library.
 
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
+BookID not found in library.
 
-Book 210 Reserved by Patron 34
+BookID not found in library.
 
-Color Flip Count = 19
+Book 5 Reserved by Patron 101
 
-Book 125 is no longer available.
+BookID not found in library.
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+Book 3 Reserved by Patron 101
 
-Book 48 Borrowed by Patron 120
+BookID not found in library.
 
-Book 101 Borrowed by Patron 132
+Book 12 is no longer available.
 
-Book 48 Reserved by Patron 144
+BookID not found in library.
 
-Book 48 Reserved by Patron 140
+BookID = 3
+Title = "The Great Gatsby"
+Author = "Mark Johnson"
+Availability = "yes”);
+"
+BorrowedBy = None
+Reservations = [101]
 
-Book 48 Reserved by Patron 142
+BookID = 5
+Title = "The Secret Garden"
+Author = "Jane Smith"
+Availability = "yes”);
+"
+BorrowedBy = None
+Reservations = [101, 101]
 
-Book 12 Borrowed by Patron 138
+BookID not found in library.
 
-Book 12 Reserved by Patron 150
+Book 3 is no longer available. Reservations made by patrons 101
 
-Book 12 Reserved by Patron 162
+BookID not found in library.
 
-Book 48 Returned by Patron 120
+Book 5 is no longer available. Reservations made by patrons 101, 101
 
-Book 48 Allotted to Patron 142
+BookID not found in library.
 
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+Book 5 Reserved by Patron 101
 
-Book 12 is no longer available. Reservations made by patrons 162, 150
+BookID not found in library.
 
-Color Flip Count = 8
+BookID not found in library.
 
-Book 73 Borrowed by Patron 111
+BookID not found in library.
 
-Book 73 Reserved by Patron 52
+Book 5 Reserved by Patron 101
 
-Book 25 Borrowed by Patron 153
+BookID not found in library.
 
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
+Book 3 Reserved by Patron 101
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
+BookID not found in library.
 
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+Book 12 is no longer available.
 
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
+BookID = 3
+Title = "The Great Gatsby"
+Author = "Mark Johnson"
+Availability = "yes”);
+"
 BorrowedBy = None
-Reservations = []
-
-Book 25 Reserved by Patron 171
+Reservations = [101]
 
-Book 132 Borrowed by Patron 2
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
+BookID = 5
+Title = "The Secret Garden"
+Author = "Jane Smith"
+Availability = "yes”);
+"
 BorrowedBy = None
-Reservations = [140, 144]
+Reservations = [101, 101]
 
-Book 101 Reserved by Patron 18
+BookID not found in library.
 
-Book 210 Borrowed by Patron 210
+Book 3 is no longer available. Reservations made by patrons 101
 
-Book 73 Reserved by Patron 43
+BookID not found in library.
 
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
+Book 5 is no longer available. Reservations made by patrons 101, 101
 
-Book 210 Reserved by Patron 34
+BookID not found in library.
 
-Color Flip Count = 19
+BookID not found in library.
 
-Book 125 is no longer available.
+BookID not found in library.
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-Book 48 Borrowed by Patron 120
+BookID not found in library.
 
-Book 101 Borrowed by Patron 132
+Book 22 Reserved by Patron 104
 
-Book 48 Reserved by Patron 144
+BookID not found in library.
 
-Book 48 Reserved by Patron 140
+Book 22 Reserved by Patron 171
 
-Book 48 Reserved by Patron 142
+BookID not found in library.
 
-Book 12 Borrowed by Patron 138
+Book 22 Reserved by Patron 103
 
-Book 12 Reserved by Patron 150
+BookID not found in library.
 
-Book 12 Reserved by Patron 162
+BookID not found in library.
 
-Book 48 Returned by Patron 120
+BookID not found in library.
 
-Book 48 Allotted to Patron 142
+BookID not found in library.
 
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+Color Flip Count = 6
 
-Book 12 is no longer available. Reservations made by patrons 162, 150
+BookID not found in library.
 
-Color Flip Count = 8
+Book 94 Reserved by Patron 171
 
-Book 73 Borrowed by Patron 111
+BookID not found in library.
 
-Book 73 Reserved by Patron 52
+Book 22 Not Borrowed by Patron 104
 
-Book 25 Borrowed by Patron 153
+BookID not found in library.
 
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
+Book 50 Reserved by Patron 132
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
+BookID not found in library.
 
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+Book 10 Reserved by Patron 103
 
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-Book 25 Reserved by Patron 171
+Book 72 Reserved by Patron 109
 
-Book 132 Borrowed by Patron 2
+BookID not found in library.
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
+Book 50 Reserved by Patron 101
 
-Book 101 Reserved by Patron 18
+BookID not found in library.
 
-Book 210 Borrowed by Patron 210
+Book 94 is no longer available. Reservations made by patrons 171
 
-Book 73 Reserved by Patron 43
+BookID not found in library.
 
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
+Book 22 Reserved by Patron 105
 
-Book 210 Reserved by Patron 34
+BookID not found in library.
 
-Color Flip Count = 19
+BookID = 10
+Title = "The Hobbit"
+Author = "J.R.R. Tolkien"
+Availability = "yes”)
+"
+BorrowedBy = None
+Reservations = [103]
 
-Book 125 is no longer available.
+BookID = 22
+Title = "The Alchemist"
+Author = "Paul Coelho"
+Availability = "yes”)
+"
+BorrowedBy = None
+Reservations = [171, 105, 104, 103]
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
+BookID = 28
+Title = "Lord of the Flies"
+Author = "William Golding"
+Availability = "yes"
 BorrowedBy = None
 Reservations = []
-
-Book 48 Borrowed by Patron 120
-
-Book 101 Borrowed by Patron 132
-
-Book 48 Reserved by Patron 144
-
-Book 48 Reserved by Patron 140
 
-Book 48 Reserved by Patron 142
-
-Book 12 Borrowed by Patron 138
-
-Book 12 Reserved by Patron 150
-
-Book 12 Reserved by Patron 162
+BookID = 50
+Title = "The Catcher in the Rye"
+Author = "Michael Brown"
+Availability = "yes”)
+"
+BorrowedBy = None
+Reservations = [101, 132]
 
-Book 48 Returned by Patron 120
+BookID = 72
+Title = "Brave New World"
+Author = "Aldous Huxley"
+Availability = "yes"
+BorrowedBy = None
+Reservations = [109]
 
-Book 48 Allotted to Patron 142
+BookID not found in library.
 
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
+BookID = 28
+Title = "Lord of the Flies"
+Author = "William Golding"
+Availability = "yes"
 BorrowedBy = None
 Reservations = []
-
-Book 12 is no longer available. Reservations made by patrons 162, 150
-
-Color Flip Count = 8
 
-Book 73 Borrowed by Patron 111
+BookID not found in library.
 
-Book 73 Reserved by Patron 52
+Book 22 Not Borrowed by Patron 171
 
-Book 25 Borrowed by Patron 153
+BookID not found in library.
 
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
+Book 28 Reserved by Patron 171
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
+BookID not found in library.
 
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+Book 50 is no longer available. Reservations made by patrons 101, 132
 
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+BookID not found in library.
 
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
+Color Flip Count = 13
 
-Book 25 Reserved by Patron 171
+BookID not found in library.
 
-Book 132 Borrowed by Patron 2
+Book 22 Reserved by Patron 107
 
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
+BookID not found in library.
 
-Book 101 Reserved by Patron 18
+Book 10 Not Borrowed by Patron 103
 
-Book 210 Borrowed by Patron 210
+BookID not found in library.
 
-Book 73 Reserved by Patron 43
+Book 10 Reserved by Patron 121
 
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
-
-Book 210 Reserved by Patron 34
-
-Color Flip Count = 19
-
-Book 125 is no longer available.
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Borrowed by Patron 120
-
-Book 101 Borrowed by Patron 132
-
-Book 48 Reserved by Patron 144
-
-Book 48 Reserved by Patron 140
-
-Book 48 Reserved by Patron 142
-
-Book 12 Borrowed by Patron 138
-
-Book 12 Reserved by Patron 150
-
-Book 12 Reserved by Patron 162
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 12 is no longer available. Reservations made by patrons 162, 150
-
-Color Flip Count = 8
-
-Book 73 Borrowed by Patron 111
-
-Book 73 Reserved by Patron 52
-
-Book 25 Borrowed by Patron 153
-
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
-
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 25 Reserved by Patron 171
-
-Book 132 Borrowed by Patron 2
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-Book 101 Reserved by Patron 18
-
-Book 210 Borrowed by Patron 210
-
-Book 73 Reserved by Patron 43
-
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
-
-Book 210 Reserved by Patron 34
-
-Color Flip Count = 19
-
-Book 125 is no longer available.
-
-Book 115 is no longer available.
-
-Book 210 is no longer available. Reservations made by patrons 34
-
-Color Flip Count = 21
-
-Book 25 is no longer available. Reservations made by patrons 171
-
-Book 80 is no longer available.
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Borrowed by Patron 120
-
-Book 101 Borrowed by Patron 132
-
-Book 48 Reserved by Patron 144
-
-Book 48 Reserved by Patron 140
-
-Book 48 Reserved by Patron 142
-
-Book 12 Borrowed by Patron 138
-
-Book 12 Reserved by Patron 150
-
-Book 12 Reserved by Patron 162
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 12 is no longer available. Reservations made by patrons 162, 150
-
-Color Flip Count = 8
-
-Book 73 Borrowed by Patron 111
-
-Book 73 Reserved by Patron 52
-
-Book 25 Borrowed by Patron 153
-
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
-
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 25 Reserved by Patron 171
-
-Book 132 Borrowed by Patron 2
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-Book 101 Reserved by Patron 18
-
-Book 210 Borrowed by Patron 210
-
-Book 73 Reserved by Patron 43
-
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
-
-Book 210 Reserved by Patron 34
-
-Color Flip Count = 19
-
-Book 125 is no longer available.
-
-Book 115 is no longer available.
-
-Book 210 is no longer available. Reservations made by patrons 34
-
-Color Flip Count = 21
-
-Book 25 is no longer available. Reservations made by patrons 171
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Borrowed by Patron 120
-
-Book 101 Borrowed by Patron 132
-
-Book 48 Reserved by Patron 144
-
-Book 48 Reserved by Patron 140
-
-Book 48 Reserved by Patron 142
-
-Book 12 Borrowed by Patron 138
-
-Book 12 Reserved by Patron 150
-
-Book 12 Reserved by Patron 162
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 12 is no longer available. Reservations made by patrons 162, 150
-
-Color Flip Count = 8
-
-Book 73 Borrowed by Patron 111
-
-Book 73 Reserved by Patron 52
-
-Book 25 Borrowed by Patron 153
-
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
-
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 25 Reserved by Patron 171
-
-Book 132 Borrowed by Patron 2
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-Book 101 Reserved by Patron 18
-
-Book 210 Borrowed by Patron 210
-
-Book 73 Reserved by Patron 43
-
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
-
-Book 210 Reserved by Patron 34
-
-Color Flip Count = 19
-
-Book 125 is no longer available.
-
-Book 115 is no longer available.
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Borrowed by Patron 120
-
-Book 101 Borrowed by Patron 132
-
-Book 48 Reserved by Patron 144
-
-Book 48 Reserved by Patron 140
-
-Book 48 Reserved by Patron 142
-
-Book 12 Borrowed by Patron 138
-
-Book 12 Reserved by Patron 150
-
-Book 12 Reserved by Patron 162
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 12 is no longer available. Reservations made by patrons 162, 150
-
-Color Flip Count = 8
-
-Book 73 Borrowed by Patron 111
-
-Book 73 Reserved by Patron 52
-
-Book 25 Borrowed by Patron 153
-
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
-
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 25 Reserved by Patron 171
-
-Book 132 Borrowed by Patron 2
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-Book 101 Reserved by Patron 18
-
-Book 210 Borrowed by Patron 210
-
-Book 73 Reserved by Patron 43
-
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
-
-Book 210 Reserved by Patron 34
-
-Color Flip Count = 19
-
-Book 125 is no longer available.
-
-Book 115 is no longer available.
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Borrowed by Patron 120
-
-Book 101 Borrowed by Patron 132
-
-Book 48 Reserved by Patron 144
-
-Book 48 Reserved by Patron 140
-
-Book 48 Reserved by Patron 142
-
-Book 12 Borrowed by Patron 138
-
-Book 12 Reserved by Patron 150
-
-Book 12 Reserved by Patron 162
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 12 is no longer available. Reservations made by patrons 162, 150
-
-Color Flip Count = 8
-
-Book 73 Borrowed by Patron 111
-
-Book 73 Reserved by Patron 52
-
-Book 25 Borrowed by Patron 153
-
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
-
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 25 Reserved by Patron 171
-
-Book 132 Borrowed by Patron 2
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-Book 101 Reserved by Patron 18
-
-Book 210 Borrowed by Patron 210
-
-Book 73 Reserved by Patron 43
-
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
-
-Book 210 Reserved by Patron 34
-
-Color Flip Count = 19
-
-Book 125 is no longer available.
-
-Book 115 is no longer available.
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Borrowed by Patron 120
-
-Book 101 Borrowed by Patron 132
-
-Book 48 Reserved by Patron 144
-
-Book 48 Reserved by Patron 140
-
-Book 48 Reserved by Patron 142
-
-Book 12 Borrowed by Patron 138
-
-Book 12 Reserved by Patron 150
-
-Book 12 Reserved by Patron 162
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Borrowed by Patron 120
-
-Book 101 Borrowed by Patron 132
-
-Book 48 Reserved by Patron 144
-
-Book 48 Reserved by Patron 140
-
-Book 48 Reserved by Patron 142
-
-Book 12 Borrowed by Patron 138
-
-Book 12 Reserved by Patron 150
-
-Book 12 Reserved by Patron 162
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Borrowed by Patron 120
-
-Book 101 Borrowed by Patron 132
-
-Book 48 Reserved by Patron 144
-
-Book 48 Reserved by Patron 140
-
-Book 48 Reserved by Patron 142
-
-Book 12 Borrowed by Patron 138
-
-Book 12 Reserved by Patron 150
-
-Book 12 Reserved by Patron 162
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Borrowed by Patron 120
-
-Book 101 Borrowed by Patron 132
-
-Book 48 Reserved by Patron 144
-
-Book 48 Reserved by Patron 140
-
-Book 48 Reserved by Patron 142
-
-Book 12 Borrowed by Patron 138
-
-Book 12 Reserved by Patron 150
-
-Book 12 Reserved by Patron 162
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Borrowed by Patron 120
-
-Book 101 Borrowed by Patron 132
-
-Book 48 Reserved by Patron 144
-
-Book 48 Reserved by Patron 140
-
-Book 48 Reserved by Patron 142
-
-Book 12 Borrowed by Patron 138
-
-Book 12 Reserved by Patron 150
-
-Book 12 Reserved by Patron 162
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Borrowed by Patron 120
-
-Book 101 Borrowed by Patron 132
-
-Book 48 Reserved by Patron 144
-
-Book 48 Reserved by Patron 140
-
-Book 48 Reserved by Patron 142
-
-Book 12 Borrowed by Patron 138
-
-Book 12 Reserved by Patron 150
-
-Book 12 Reserved by Patron 162
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Borrowed by Patron 120
-
-Book 101 Borrowed by Patron 132
-
-Book 48 Reserved by Patron 144
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-Book 48 Borrowed by Patron 120
-
-BookID not found in library.
-
-Book 101 Borrowed by Patron 132
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 144
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 140
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-Book 48 Borrowed by Patron 120
-
-BookID not found in library.
-
-Book 101 Borrowed by Patron 132
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 144
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 140
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 142
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Borrowed by Patron 138
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Reserved by Patron 150
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Reserved by Patron 162
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-Book 48 Borrowed by Patron 120
-
-BookID not found in library.
-
-Book 101 Borrowed by Patron 132
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 144
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 140
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 142
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Borrowed by Patron 138
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Reserved by Patron 150
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Reserved by Patron 162
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-Book 48 Borrowed by Patron 120
-
-BookID not found in library.
-
-Book 101 Borrowed by Patron 132
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 144
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 140
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 142
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Borrowed by Patron 138
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Reserved by Patron 150
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Reserved by Patron 162
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-Book 48 Borrowed by Patron 120
-
-BookID not found in library.
-
-Book 101 Borrowed by Patron 132
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 144
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 140
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 142
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Borrowed by Patron 138
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Reserved by Patron 150
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Reserved by Patron 162
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-Book 48 Borrowed by Patron 120
-
-BookID not found in library.
-
-Book 101 Borrowed by Patron 132
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 144
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 140
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 142
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Borrowed by Patron 138
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Reserved by Patron 150
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Reserved by Patron 162
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 is no longer available. Reservations made by patrons 162, 150
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Color Flip Count = 8
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 73 Borrowed by Patron 111
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 73 Reserved by Patron 52
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 25 Borrowed by Patron 153
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
-
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 25 Reserved by Patron 171
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 132 Borrowed by Patron 2
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 101 Reserved by Patron 18
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 210 Borrowed by Patron 210
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 73 Reserved by Patron 43
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = 4
-Title = "Design Patterns: Elements of Reusable Object-Oriented Software"
-Author = "Erich Gamma"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 4
-Title = "Design Patterns: Elements of Reusable Object-Oriented Software"
-Author = "Erich Gamma"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 210 Reserved by Patron 34
-
-BookID = 4
-Title = "Design Patterns: Elements of Reusable Object-Oriented Software"
-Author = "Erich Gamma"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 4
-Title = "Design Patterns: Elements of Reusable Object-Oriented Software"
-Author = "Erich Gamma"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Color Flip Count = 19
-
-BookID = 4
-Title = "Design Patterns: Elements of Reusable Object-Oriented Software"
-Author = "Erich Gamma"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 125 is no longer available.
-
-BookID = 4
-Title = "Design Patterns: Elements of Reusable Object-Oriented Software"
-Author = "Erich Gamma"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 115 is no longer available.
-
-BookID = 4
-Title = "Design Patterns: Elements of Reusable Object-Oriented Software"
-Author = "Erich Gamma"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID not found in library.
-
-BookID not found in library.
-
-BookID not found in library.
-
-Book 48 Borrowed by Patron 120
-
-BookID not found in library.
-
-Book 101 Borrowed by Patron 132
-
-BookID not found in library.
-
-BookID not found in library.
-
 BookID not found in library.
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 144
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 140
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Reserved by Patron 142
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Borrowed by Patron 138
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Reserved by Patron 150
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 Reserved by Patron 162
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 48 Returned by Patron 120
-
-Book 48 Allotted to Patron 142
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = 6
-Title = "Database Management Systems"
-Author = "Raghu Ramakrishnan"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 12 is no longer available. Reservations made by patrons 162, 150
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Color Flip Count = 8
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 73 Borrowed by Patron 111
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 73 Reserved by Patron 52
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 25 Borrowed by Patron 153
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = 25
-Title = "Computer Networks"
-Author = "Andrew S. Tanenbaum"
-Availability = "No"
-BorrowedBy = 153
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = 73
-Title = "Introduction to the Theory of Computation"
-Author = "Michael Sipser"
-Availability = "No"
-BorrowedBy = 111
-Reservations = [52]
-
-BookID = 101
-Title = "Introduction to Algorithms"
-Author = "Thomas H. Cormen"
-Availability = "No"
-BorrowedBy = 132
-Reservations = []
-
-BookID = 115
-Title = "Operating Systems: Internals and Design Principles"
-Author = "William Stallings"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 125
-Title = "Computer Organization and Design"
-Author = "David A. Patterson"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 132
-Title = "Operating System Concepts"
-Author = "Abraham Silberschatz"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 25 Reserved by Patron 171
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 132 Borrowed by Patron 2
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = 48
-Title = "Data Structures and Algorithms"
-Author = "Sartaj Sahni"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = [140, 144]
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 101 Reserved by Patron 18
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 210 Borrowed by Patron 210
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-Book 73 Reserved by Patron 43
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = 210
-Title = "Machine Learning: A Probabilistic Perspective"
-Author = "Kevin P. Murphy"
-Availability = "No"
-BorrowedBy = 210
-Reservations = []
-
-BookID = -1
-Title = "null_book"
-Author = "null_book"
-Availability = "False"
-BorrowedBy = None
-Reservations = []
-
-BookID = 4
-Title = "Design Patterns: Elements of Reusable Object-Oriented Software"
-Author = "Erich Gamma"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 4
-Title = "Design Patterns: Elements of Reusable Object-Oriented Software"
-Author = "Erich Gamma"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 210 Reserved by Patron 34
-
-BookID = 4
-Title = "Design Patterns: Elements of Reusable Object-Oriented Software"
-Author = "Erich Gamma"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-BookID = 4
-Title = "Design Patterns: Elements of Reusable Object-Oriented Software"
-Author = "Erich Gamma"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Color Flip Count = 19
-
-BookID = 4
-Title = "Design Patterns: Elements of Reusable Object-Oriented Software"
-Author = "Erich Gamma"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 125 is no longer available.
-
-BookID = 4
-Title = "Design Patterns: Elements of Reusable Object-Oriented Software"
-Author = "Erich Gamma"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 115 is no longer available.
-
-BookID = 4
-Title = "Design Patterns: Elements of Reusable Object-Oriented Software"
-Author = "Erich Gamma"
-Availability = "Yes"
-BorrowedBy = None
-Reservations = []
-
-Book 210 is no longer available. Reservations made by patrons 34
 

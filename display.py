@@ -16,6 +16,9 @@ import os
 
 def display_tree(root):
 
+    if (root.get_null()):
+        return
+    
     this_level = []
     next_level = []
     level = 0
