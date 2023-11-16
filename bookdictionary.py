@@ -228,9 +228,10 @@ class GatorLibrary:
     def print_deletion_message(self):
         msg = "Book " + str(self.deleted_book.book_id) + " is no longer available."
         if (self.deleted_book.reservation_heap.heap):
-            msg += " Reservations made by patrons " + str(self.deleted_book.reservation_heap.heap[0].patron_id)
+            msg += " Reservations made by Patrons " + str(self.deleted_book.reservation_heap.heap[0].patron_id)
             for reservation in self.deleted_book.reservation_heap.heap[1:]:
                 msg += ", " + str(reservation.patron_id)
+            msg += " have been cancelled."
 
         output(msg)
 
@@ -284,6 +285,7 @@ class GatorLibrary:
         
         # TEST TO SEE IF PARENTS PARENT CHANGES !!??
         parent, is_left_child = make_null_book, False
+        self.deleted_book = make_null_book()
 
         # while (not current.get_null()):
         #     if book_id == current.book_id:
@@ -302,17 +304,17 @@ class GatorLibrary:
         # if (book_id == 125):
         #     print("yo")
         #     display_tree(self.root)
-        #     print("")
-        if (book_id == 210):
-            print("yo")
+            # print("")
+        # if (book_id == 210):
+        #     print("yo")
             # display_tree(self.root)
         
 
         current.left = self.delete_book(current.get_left(), book_id)
         current.right = self.delete_book(current.get_right(), book_id)
 
-        if (current.book_id == 6):
-            print("check null err")
+        # if (current.book_id == 6):
+        #     print("check null err")
 
         # no need to continue, all is good here
         if (not current.get_left().deficient and not current.get_right().deficient and current.book_id != book_id):
@@ -413,12 +415,12 @@ class GatorLibrary:
         if (self.root.book_id == book_id):
             self.root.red = False
 
-        if (current.deficient):
-            # find deficiencies and rebuild tree from there
-            # self.root = self.delete_book_recursive(self.root, book_id)
-            print("deficient")
-        if (current == None):
-            print("none")
+        # if (current.deficient):
+        #     # find deficiencies and rebuild tree from there
+        #     # self.root = self.delete_book_recursive(self.root, book_id)
+        #     print("deficient")
+        # if (current == None):
+        #     print("none")
         return current
 
     def find_closest_book(self, target_id):
@@ -484,8 +486,6 @@ class GatorLibrary:
             self.color_flip_count += 1
             changes += 1
 
-        output("changes: " + str(changes))
-        
     
 def get_input():
     # read command from file
@@ -496,16 +496,6 @@ def get_input():
     for line in input_file:
         # split line into list of words
         function = line.split('(')[0]
-
-        # possible functions:
-        # 1. PrintBook(bookID)
-        # 2. PrintBooks(bookID1, bookID2)
-        # 3. InsertBook(bookID, bookName, authorName, availabilityStatus, borrowedBy, reservationHeap)
-        # 4. BorrowBook(patronID, bookID, patronPriority)
-        # 5. ReturnBook(patronID, bookID): 
-        # 6. DeleteBook(bookID)
-        # 7. FindClosestBook(targetID)
-        # 8. ColorFlipCount()
 
         if (function == "PrintBook"):
             book_id = int(line.split('(')[1].split(')')[0])
@@ -554,19 +544,16 @@ def main():
     # make new book
     #     def __init__(self, book_id, book_name, author_name, availability, borrowed_by=None):
 
-    if (library.root.get_null()):
-        print("null_book")
-
 
     input_commands = get_input()
 
     for command in input_commands:
-        print("\n")
-        print(str(command[0]) + " ")
-        if (len(command) > 1):
-            print(command[1])
-            if (command[1] == 25):
-                display_tree(library.root)
+        # print("\n")
+        # print(str(command[0]) + " ")
+        # if (len(command) > 1):
+        #     print(command[1])
+        #     if (command[1] == 25):
+        #         display_tree(library.root)
         if (command[0] == Function.PrintBook):
             library.print_book(command[1])
         elif (command[0] == Function.PrintBooks):
@@ -580,12 +567,7 @@ def main():
         elif (command[0] == Function.ReturnBook):
             library.return_book(command[1], command[2])
         elif (command[0] == Function.DeleteBook):
-            # if (command[1] == 210):
-            #     print("")
-            #     display_tree(library.root)
-            #     print("")
-
-            print("delete " + str(command[1]))
+            # print("delete " + str(command[1]))
             library.store_colors(library.root)
             library.root = library.delete_book(library.root, command[1])
             library.print_deletion_message()
@@ -598,15 +580,15 @@ def main():
             library.get_color_flip_count()
         elif (command[0] == Function.Quit):
             output("Program Terminated!!")
-        if (command[0] == Function.InsertBook or command[0] == Function.DeleteBook):
-            if (command[0] == Function.InsertBook):
-                print("insert " + str(command[1]))
-            else:
-                print("delete " + str(command[1]))
-                # display_tree(library.root)
-                print("")
-            if command[1] == 25:
-                print("yo")
+        # if (command[0] == Function.InsertBook or command[0] == Function.DeleteBook):
+        #     if (command[0] == Function.InsertBook):
+        #         print("insert " + str(command[1]))
+        #     else:
+        #         print("delete " + str(command[1]))
+        #         # display_tree(library.root)
+        #         print("")
+        #     if command[1] == 25:
+        #         print("yo")
             # display_tree(library.root)
             #display_tree(library.root)
         # if (library.find_book(6)):
@@ -614,22 +596,6 @@ def main():
         #     left_error = library.find_book(6).get_left()
         #     library.print_found_book(left_error)
         
-        
-            
-
-
-    # # book1 = Book(1 1234, "Harry Potter", "JK Rowling", True, False)
-    # library.insert_book(1234, "Harry Potter", "JK Rowling", True)
-    # library.insert_book(4567, "Harry Potter 2", "JK Dobbins", True)
-    # library.insert_book(7890, "Harry Potter 3", "JK Rowling", True)
-    # # display_tree(library.root)
-    # library.insert_book(590, "Harry Potter 4", "JK Rowling", True)
-    # library.insert_book(540, "lig book", "JK Rowling", True)
-    # library.insert_book(595, "RL changer, B", "JK Rowling", True)
-    # library.insert_book(1500, "rightest", "fug", True)
-    # display_tree(library.root)
-    # library.insert_book(1300, "RlR", "fug", True)
-    # display_tree(library.root)
 
 if __name__ == "__main__":
     main()
