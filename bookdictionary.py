@@ -41,8 +41,6 @@ class Book:
         self.borrowed_by = None # patron_id
         self.reservation_heap = ReservationHeap() # priority queue - binary min heap
 
-        if (book_id == 6):
-            print("why left no exist")
 
         # red-black tree properties
         self.red = True
@@ -182,7 +180,7 @@ class GatorLibrary:
                 current = current.get_left()
             elif (book_id > current.book_id):
                 current = current.get_right()
-        output("Book " + str(book_id) + " is no longer available")
+        output("Book " + str(book_id) + " not found in the library")
         
     # make surrounded by brackets and comma separated
     def make_reservation_printable(self, reservations):
@@ -226,12 +224,20 @@ class GatorLibrary:
                 "Reservations = " + reservations)
             
     def print_deletion_message(self):
-        msg = "Book " + str(self.deleted_book.book_id) + " is no longer available."
+        msg = "Book " + str(self.deleted_book.book_id) + " is no longer available"
         if (self.deleted_book.reservation_heap.heap):
-            msg += " Reservations made by Patrons " + str(self.deleted_book.reservation_heap.heap[0].patron_id)
+            if (len(self.deleted_book.reservation_heap.heap) == 1):
+                msg +=  ". Reservation made by Patron " + str(self.deleted_book.reservation_heap.heap[0].patron_id)
+                msg += " has been cancelled!"
+                output(msg)
+                return
+
+            # add period because not after available, only before reservations.
+            # weird
+            msg += ". Reservations made by Patrons " + str(self.deleted_book.reservation_heap.heap[0].patron_id)
             for reservation in self.deleted_book.reservation_heap.heap[1:]:
                 msg += ", " + str(reservation.patron_id)
-            msg += " have been cancelled."
+            msg += " have been cancelled!"
 
         output(msg)
 
@@ -256,9 +262,9 @@ class GatorLibrary:
             if book.availability == 'Yes':
                 book.availability = 'No'
                 book.borrowed_by = patron_id
-                output("Book " + str(book_id) + " Borrowed by Patron " + str(patron_id))
+                output("Book " + str(book_id) + " borrowed by patron " + str(patron_id))
             else:
-                output("Book " + str(book_id) + " Reserved by Patron " + str(patron_id))
+                output("Book " + str(book_id) + " Reserved by patron " + str(patron_id))
                 book.add_reservation(patron_id, patron_priority)
         
 
@@ -268,12 +274,14 @@ class GatorLibrary:
             if book.borrowed_by == patron_id:
                 book.availability = 'Yes'
                 book.borrowed_by = None
-                output("Book " + str(book_id) + " Returned by Patron " + str(patron_id))
+                output("Book " + str(book_id) + " returned by Patron " + str(patron_id))
                 next_person = book.remove_reservation()
                 if (next_person):
-                    output("Book " + str(book_id) + " Allotted to Patron " + str(next_person.patron_id))
+                    book.availability = 'No'
+                    book.borrowed_by = next_person.patron_id
+                    output("Book " + str(book_id) + " allotted to Patron " + str(next_person.patron_id))
             else:
-                output("Book " + str(book_id) + " Not Borrowed by Patron " + str(patron_id))
+                output("Book " + str(book_id) + " Not borrowed by Patron " + str(patron_id))
 
     def delete_book(self, current, book_id):
         # nothing in tree
@@ -284,8 +292,7 @@ class GatorLibrary:
             return current
         
         # TEST TO SEE IF PARENTS PARENT CHANGES !!??
-        parent, is_left_child = make_null_book, False
-        self.deleted_book = make_null_book()
+        # parent, is_left_child = make_null_book, False
 
         # while (not current.get_null()):
         #     if book_id == current.book_id:
@@ -450,7 +457,7 @@ class GatorLibrary:
             return closest_left
 
     def get_color_flip_count(self):
-        output("Color Flip Count = " + str(self.color_flip_count))
+        output("Color Flip Count: " + str(self.color_flip_count))
 
     def execute_command(self, command):
         pass
@@ -548,12 +555,9 @@ def main():
     input_commands = get_input()
 
     for command in input_commands:
-        # print("\n")
-        # print(str(command[0]) + " ")
-        # if (len(command) > 1):
-        #     print(command[1])
-        #     if (command[1] == 25):
-        #         display_tree(library.root)
+        for arg in command:
+            print(arg, end=", ")
+        print("\n")
         if (command[0] == Function.PrintBook):
             library.print_book(command[1])
         elif (command[0] == Function.PrintBooks):
@@ -569,6 +573,7 @@ def main():
         elif (command[0] == Function.DeleteBook):
             # print("delete " + str(command[1]))
             library.store_colors(library.root)
+            library.deleted_book = make_null_book()
             library.root = library.delete_book(library.root, command[1])
             library.print_deletion_message()
             # display_tree(library.root)
