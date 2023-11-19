@@ -308,21 +308,66 @@ class TestInsertions(unittest.TestCase):
         # display_tree(new_tree.root)
         check_tree(checking_tree.root, new_tree.root)
     
-    # def test_LLr1(self):
-    #     new_tree = GatorLibrary()
-    #     new_tree.root = make_LL_insert_tree()
-    #     new_tree.root.right.red = False
+    def test_LRb1(self):
+        # z has x and d, x has a and y, y has b and c
+        new_tree = GatorLibrary()
+        a = Book(1, "a", "a", True, False)
+        b = Book(3, "b", "b", True, False)
+        c = Book(5, "c", "c", True, False)
+        d = Book(7, "d", "d", True, False)
+        z = Book(6, "z", "z", True, False)
+        y = Book(4, "y", "y", True, False)
+        x = Book(2, "x", "x", True, False)
+        make_all_black([a,b,c,d,z])
 
-    #     new_tree.root = LLr(new_tree, new_tree.root)
-    #     checking_tree = make_LL_insert_tree()
-    #     display_tree(checking_tree)
-    #     checking_tree.right.red = False
-    #     checking_tree.left.red = False
+        z.right, z.left = d, x
+        y.right, y.left = c, b
+        x.right, x.left = y, a
 
-    #     display_tree(checking_tree)
-    #     display_tree(new_tree.root)
-        
-    #     self.assert_(check_tree(checking_tree, new_tree.root))
+        z.is_root = True
+        new_tree.root = z
+
+        # display_tree(new_tree.root)
+        new_tree.root = LRb(new_tree, new_tree.root)
+        # display_tree(new_tree.root)
+
+        c_tree = GatorLibrary()
+        c_tree.root = make_y_root_check_tree()
+        # display_tree(c_tree.root)
+        check_tree(c_tree.root, new_tree.root)
+
+    # LRb not root
+    def test_LRb2(self):
+        # z has x and d, x has a and y, y has b and c
+        new_tree = GatorLibrary()
+        a = Book(1, "a", "a", True, False)
+        # b = Book(3, "b", "b", True, False)
+        # c = Book(5, "c", "c", True, False)
+        d = Book(7, "d", "d", True, False)
+        z = Book(6, "z", "z", True, False)
+        # y = Book(4, "y", "y", True, False)
+        x = Book(2, "x", "x", True, False)
+        r = Book(8, "r", "r", True, False)
+        make_all_black([a,d,z,r])
+
+        z.right, z.left = d, x
+        # y.right, y.left = c, b
+        x.right = a
+        r.left, r.right = z, r
+
+        r.is_root = True
+        new_tree.root = r
+
+        # display_tree(new_tree.root)
+        display_tree(r)
+        new_tree.insert_book(4, "y", "y", True)
+        display_tree(new_tree.root)
+        # display_tree(new_tree.root)
+
+        c_tree = GatorLibrary()
+        # c_tree.root = make_y_root_check_tree()
+        # display_tree(c_tree.root)
+        check_tree(c_tree.root, new_tree.root)
 
     def test_store_reds0(self):
         new_tree = GatorLibrary()
