@@ -1,8 +1,11 @@
+from time import *
+
 class ReservationNode:
     def __init__(self, book, patron_id, patron_priority):
         self.book = book
         self.patron_id = patron_id
         self.patron_priority = patron_priority
+        self.time = time()
 
     def add_child(self, node):
         self.children.append(node)
@@ -47,16 +50,36 @@ class ReservationHeap:
             self.heap[0] = self.heap.pop() # remove last element and put it at the beginning
             pos = 0
 
-            while (pos < len(self.heap)):
+            done_heapifying = False
+            while (pos < len(self.heap) or not done_heapifying):
+
                 if (self.get_left(pos) != None):
                     if (self.heap[pos].patron_priority > self.get_left(pos).patron_priority):
                         self.swap(pos, pos * 2)
                         pos *= 2
-                        break
+                        continue
+                    # if they're equal, break the tie with their time
+                    elif (self.heap[pos].patron_priority == self.get_left(pos).patron_priority):
+                        # frst come first serve priority for time
+                        # so if the current node's time is greater than the left node's time, swap
+                        if (self.heap[pos].time > self.get_left(pos).time):
+                            self.swap(pos, pos * 2)
+                            pos *= 2
+                            continue
+
                 if (self.get_right(pos) != None):
                     if (self.heap[pos].patron_priority > self.get_right(pos).patron_priority):
                         self.swap(pos, pos * 2 + 1)
                         pos = pos * 2 + 1
+                        continue
+                    # if they're equal, break the tie with their time
+                    elif (self.heap[pos].patron_priority == self.get_right(pos).patron_priority):
+                        if (self.heap[pos].time > self.get_right(pos).time):
+                            self.swap(pos, pos * 2 + 1)
+                            pos = pos * 2 + 1
+                            continue
+                    else:
+                        done_heapifying = True
                         break
                 
 

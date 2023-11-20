@@ -1,22 +1,10 @@
-Book 2 borrowed by patron 102
+Book 1 Borrowed by Patron 101
 
-Book 3 borrowed by patron 103
+Book 1 Reserved by Patron 102
 
-Book 4 borrowed by patron 104
+Book 1 Reserved by Patron 106
 
-Book 5 borrowed by patron 105
+Book 1 Reserved by Patron 505
 
-Book 2 returned by Patron 102
-
-Book 3 returned by Patron 103
-
-Book 4 returned by Patron 104
-
-Book 5 returned by Patron 105
-
-Book 6 borrowed by patron 101
-
-Book 7 borrowed by patron 102
-
-Book 8 borrowed by patron 103
+Book 1 Returned by Patron 101
 

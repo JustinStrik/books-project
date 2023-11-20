@@ -1,9 +1,7 @@
-import heapq
-import time
 from enum import Enum
 # draw_tree function defined in test.py
 #import test.py
-from display import display_tree
+# from display import display_tree
 from insertrotations import insert_rotate
 from deleterotations import delete_rotate
 from reservationheap import ReservationHeap, ReservationNode
@@ -99,12 +97,6 @@ class Book:
 
     def remove_reservation(self):
         return self.reservation_heap.remove()
-
-    def get_top_reservation(self):
-        if self.reservation_heap:
-            return heapq.nsmallest(1, self.reservation_heap)[0]
-        else:
-            return None
         
     def get_null(self):
         return self.null
@@ -262,9 +254,9 @@ class GatorLibrary:
             if book.availability == 'Yes':
                 book.availability = 'No'
                 book.borrowed_by = patron_id
-                output("Book " + str(book_id) + " borrowed by patron " + str(patron_id))
+                output("Book " + str(book_id) + " Borrowed by Patron " + str(patron_id))
             else:
-                output("Book " + str(book_id) + " Reserved by patron " + str(patron_id))
+                output("Book " + str(book_id) + " Reserved by Patron " + str(patron_id))
                 book.add_reservation(patron_id, patron_priority)
         
 
@@ -274,14 +266,14 @@ class GatorLibrary:
             if book.borrowed_by == patron_id:
                 book.availability = 'Yes'
                 book.borrowed_by = None
-                output("Book " + str(book_id) + " returned by Patron " + str(patron_id))
+                output("Book " + str(book_id) + " Returned by Patron " + str(patron_id))
                 next_person = book.remove_reservation()
                 if (next_person):
                     book.availability = 'No'
                     book.borrowed_by = next_person.patron_id
-                    output("Book " + str(book_id) + " allotted to Patron " + str(next_person.patron_id))
+                    output("Book " + str(book_id) + " Allotted to Patron " + str(next_person.patron_id))
             else:
-                output("Book " + str(book_id) + " Not borrowed by Patron " + str(patron_id))
+                output("Book " + str(book_id) + " Not Borrowed by Patron " + str(patron_id))
 
     def delete_book(self, current, book_id):
         # nothing in tree
