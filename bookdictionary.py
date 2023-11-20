@@ -427,20 +427,62 @@ class GatorLibrary:
             return -1
         
         self.closest = self.root
-        return self.find_closest_book_recursive(self.root, target_id)
+        books = self.find_closest_book_recursive(self.root, target_id)
+
+        # if there is a tie for lowest distance, return the book with the lowest book_id
+        if (len(books) == 1):
+            self.print_found_book(books[0])
+        elif (len(books) == 2):
+            if (books[0].book_id - target_id < books[1].book_id - target_id):
+                self.print_found_book(books[0])
+            elif (abs(books[0].book_id - target_id) == abs(books[1].book_id - target_id)):
+                self.print_found_book(books[0])
+                self.print_found_book(books[1])
+            else:
+                self.print_found_book(books[1])
+        else:  # length is 3
+            if (abs(books[0].book_id - target_id) < abs(books[1].book_id - target_id) and abs(books[0].book_id - target_id) < abs(books[2].book_id - target_id)):
+                self.print_found_book(books[0])
+            elif (abs(books[1].book_id - target_id) < abs(books[0].book_id - target_id) and abs(books[1].book_id - target_id) < abs(books[2].book_id - target_id)):
+                self.print_found_book(books[1])
+            elif (abs(books[2].book_id - target_id) < abs(books[0].book_id - target_id) and abs(books[2].book_id - target_id) < abs(books[1].book_id - target_id)):
+                self.print_found_book(books[2])
+            # print larger ones first, since thats what is in the example 3
+            elif (abs(books[0].book_id - target_id) == abs(books[1].book_id - target_id) and abs(books[0].book_id - target_id) < abs(books[2].book_id - target_id)):
+                self.print_found_book(books[1])
+                self.print_found_book(books[0])
+            elif (abs(books[0].book_id - target_id) == abs(books[2].book_id - target_id) and abs(books[0].book_id - target_id) < abs(books[1].book_id - target_id)):
+                self.print_found_book(books[2])
+                self.print_found_book(books[0])
+            elif (abs(books[1].book_id - target_id) == abs(books[2].book_id - target_id) and abs(books[1].book_id - target_id) < abs(books[0].book_id - target_id)):
+                self.print_found_book(books[2])
+                self.print_found_book(books[1])
+     
     
-    def find_closest_book_recursive(self, current, target_id):
+    def find_closest_book_recursive(self, current, target_id, original=True):
+        # original is to check if we are at the first call
         
         # set to infinity
         distance_left, distance_right = float('inf'), float('inf')
         if (not current.get_left().get_null()):
-            closest_left = self.find_closest_book_recursive(current.get_left(), target_id)
+            closest_left = self.find_closest_book_recursive(current.get_left(), target_id, False)
             distance_left = abs(closest_left.book_id - target_id)
         if (not current.get_right().get_null()):
-            closest_right = self.find_closest_book_recursive(current.get_right(), target_id)
+            closest_right = self.find_closest_book_recursive(current.get_right(), target_id, False)
             distance_right = abs(closest_right.book_id - target_id)
         current_distance = abs(current.book_id - target_id)
         
+        if (original):
+            # return all non-null books
+            books = []
+            if (not closest_left.get_null()):
+                books.append(closest_left)
+            if (not closest_right.get_null()):
+                books.append(closest_right)
+            if (not current.get_null()):
+                books.append(current)
+            return books
+            
         if (current_distance < distance_right and current_distance < distance_left):
             return current
         elif (distance_right < distance_left):
@@ -571,8 +613,7 @@ def main():
             # display_tree(library.root)
             library.count_color_changes(library.root)
         elif (command[0] == Function.FindClosestBook):
-            closest_book = library.find_closest_book(command[1])
-            library.print_found_book(closest_book)
+            library.find_closest_book(command[1]) # includes print
         elif (command[0] == Function.ColorFlipCount):
             library.get_color_flip_count()
         elif (command[0] == Function.Quit):
