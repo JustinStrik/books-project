@@ -447,16 +447,16 @@ class GatorLibrary:
                 self.print_found_book(books[1])
             elif (abs(books[2].book_id - target_id) < abs(books[0].book_id - target_id) and abs(books[2].book_id - target_id) < abs(books[1].book_id - target_id)):
                 self.print_found_book(books[2])
-            # print larger ones first, since thats what is in the example 3
+            # print smallest ones first, since thats what is in the example 3
             elif (abs(books[0].book_id - target_id) == abs(books[1].book_id - target_id) and abs(books[0].book_id - target_id) < abs(books[2].book_id - target_id)):
-                self.print_found_book(books[1])
                 self.print_found_book(books[0])
+                self.print_found_book(books[1])
             elif (abs(books[0].book_id - target_id) == abs(books[2].book_id - target_id) and abs(books[0].book_id - target_id) < abs(books[1].book_id - target_id)):
-                self.print_found_book(books[2])
                 self.print_found_book(books[0])
-            elif (abs(books[1].book_id - target_id) == abs(books[2].book_id - target_id) and abs(books[1].book_id - target_id) < abs(books[0].book_id - target_id)):
                 self.print_found_book(books[2])
+            elif (abs(books[1].book_id - target_id) == abs(books[2].book_id - target_id) and abs(books[1].book_id - target_id) < abs(books[0].book_id - target_id)):
                 self.print_found_book(books[1])
+                self.print_found_book(books[2])
      
     
     def find_closest_book_recursive(self, current, target_id, original=True):
