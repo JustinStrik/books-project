@@ -1,4 +1,5 @@
 from enum import Enum
+from sys import argv
 # draw_tree function defined in test.py
 #import test.py
 # from display import display_tree
@@ -528,9 +529,9 @@ class GatorLibrary:
             changes += 1
 
     
-def get_input():
+def get_input(filename):
     # read command from file
-    input_file = open("input.txt", "r")
+    input_file = open(filename, "r")
 
     # read each line of file
     input_commands = []
@@ -586,7 +587,7 @@ def main():
     #     def __init__(self, book_id, book_name, author_name, availability, borrowed_by=None):
 
 
-    input_commands = get_input()
+    input_commands = get_input(argv[1])
 
     for command in input_commands:
         for arg in command:

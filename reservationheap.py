@@ -96,7 +96,7 @@ class ReservationHeap:
             pos = 0
 
             done_heapifying = False
-            while (pos < len(self.heap) or not done_heapifying):
+            while (pos < len(self.heap) and not done_heapifying):
                 # if the left child is less than the right child, swap with the left child
                 # if the right child is less than the left child, swap with the right child
                 # check for nulls
