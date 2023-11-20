@@ -10,6 +10,16 @@ class ReservationNode:
     def add_child(self, node):
         self.children.append(node)
 
+def move_left(pos):
+    if (pos == 0):
+        return 1
+    return pos * 2
+
+def move_right(pos):
+    if (pos == 0):
+        return 2
+    return pos * 2 + 1
+    
 class ReservationHeap:
     heap = []
     def __init__(self):
@@ -18,26 +28,60 @@ class ReservationHeap:
 
     # takes in position in heap array
     def get_parent(self, pos):
+        if (pos == 0):
+            return None
+        elif (pos == 2):
+            return self.heap[0]
+        
         return self.heap[pos // 2] # double slash is integer division, so floor
     
     def get_left(self, pos):
         if (pos * 2 >= len(self.heap)):
             return None
+        
+        elif (pos == 0):
+            if (len(self.heap) == 1):
+                return None
+            return self.heap[1]
+        
         return self.heap[pos * 2]
     
     def get_right(self, pos):
         if (pos * 2 + 1 >= len(self.heap)):
             return None
+        
+        elif (pos == 0):
+            if (len(self.heap) < 3):
+                return None
+            return self.heap[2]
+        
         return self.heap[pos * 2 + 1]
     
     def swap(self, pos1, pos2):
+        # if 0,0, swap 0 and 1
+        # if 0,1, swap 0 and 2 since 0 multiplied by 2 is 0
+        if (pos1 == 0):
+            if (pos2 == 1):
+                pos2 = 2
+            else:
+                pos2 = 1
+
         self.heap[pos1], self.heap[pos2] = self.heap[pos2], self.heap[pos1]
 
     def insert(self, reservation_node):
         self.heap.append(reservation_node)
 
         pos = len(self.heap) - 1
-        while (pos > 0 and reservation_node.patron_priority < self.get_parent(pos).patron_priority):
+        # time shouldnt matter on an insert since it will always be the most recent
+        while (pos > 0 and reservation_node.patron_priority <= self.get_parent(pos).patron_priority):
+            # if equal, check to see if the time is less
+            if (reservation_node.patron_priority == self.get_parent(pos).patron_priority):
+                if (reservation_node.time < self.get_parent(pos).time):
+                    self.swap(pos, pos // 2)
+                    pos = pos // 2
+                    continue
+                else:
+                    break
             self.swap(pos, pos // 2)
             pos = pos // 2
 
@@ -56,7 +100,7 @@ class ReservationHeap:
                 if (self.get_left(pos) != None):
                     if (self.heap[pos].patron_priority > self.get_left(pos).patron_priority):
                         self.swap(pos, pos * 2)
-                        pos *= 2
+                        pos = move_left(pos)
                         continue
                     # if they're equal, break the tie with their time
                     elif (self.heap[pos].patron_priority == self.get_left(pos).patron_priority):
@@ -64,23 +108,26 @@ class ReservationHeap:
                         # so if the current node's time is greater than the left node's time, swap
                         if (self.heap[pos].time > self.get_left(pos).time):
                             self.swap(pos, pos * 2)
-                            pos *= 2
+                            pos = move_left(pos)
                             continue
 
-                if (self.get_right(pos) != None):
+                elif (self.get_right(pos) != None):
                     if (self.heap[pos].patron_priority > self.get_right(pos).patron_priority):
                         self.swap(pos, pos * 2 + 1)
-                        pos = pos * 2 + 1
+                        pos = move_right(pos)
                         continue
                     # if they're equal, break the tie with their time
                     elif (self.heap[pos].patron_priority == self.get_right(pos).patron_priority):
                         if (self.heap[pos].time > self.get_right(pos).time):
                             self.swap(pos, pos * 2 + 1)
-                            pos = pos * 2 + 1
+                            pos = move_right(pos)
                             continue
                     else:
                         done_heapifying = True
                         break
+                else:
+                    done_heapifying = True
+                    break
                 
 
                 if (pos == 0):
