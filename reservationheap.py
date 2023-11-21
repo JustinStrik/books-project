@@ -72,37 +72,71 @@ class ReservationHeap:
 
             done_heapifying = False
             while (pos < len(self.heap) and not done_heapifying):
-                # if the left child is less than the right child, swap with the left child
+                # if the left child priority is less than the right child, swap with the left child when less than the parent
                 # if the right child is less than the left child, swap with the right child
                 # check for nulls
-
                 if (self.get_left(pos) != None and self.get_right(pos) != None):
                     if (self.get_left(pos).patron_priority < self.get_right(pos).patron_priority):
+                        # if parent is greater than left child, swap
                         if (self.heap[pos].patron_priority > self.get_left(pos).patron_priority):
                             self.swap(pos, pos * 2 + 1)
                             pos = move_left(pos)
                             continue
+                        # if equal, break the tie with their time
                         elif (self.heap[pos].patron_priority == self.get_left(pos).patron_priority):
                             if (self.heap[pos].time > self.get_left(pos).time):
                                 self.swap(pos, pos * 2 + 1)
                                 pos = move_left(pos)
                                 continue
+                        # if the lesser (left, in this case) child is greater than the parent, then stop heapifying
                         else:
                             done_heapifying = True
                             break
-                    else:
+                    # if the right child is less than the left child, try and swap with the right child
+                    elif (self.get_left(pos).patron_priority > self.get_right(pos).patron_priority):
                         if (self.heap[pos].patron_priority > self.get_right(pos).patron_priority):
                             self.swap(pos, pos * 2 + 2)
                             pos = move_right(pos)
                             continue
                         elif (self.heap[pos].patron_priority == self.get_right(pos).patron_priority):
+                            # if was inserted after child, then swap with the right child
                             if (self.heap[pos].time > self.get_right(pos).time):
                                 self.swap(pos, pos * 2 + 2)
                                 pos = move_right(pos)
                                 continue
                         else:
+                            # if the lesser (right, in this case) child is greater than the parent, then stop heapifying pls
                             done_heapifying = True
                             break
+                    else: # if they're equal
+                        if (self.get_left(pos).time < self.get_right(pos).time):
+                            if (self.heap[pos].patron_priority > self.get_left(pos).patron_priority):
+                                self.swap(pos, pos * 2 + 1)
+                                pos = move_left(pos)
+                                continue
+                            elif (self.heap[pos].patron_priority == self.get_left(pos).patron_priority):
+                                if (self.heap[pos].time > self.get_left(pos).time):
+                                    self.swap(pos, pos * 2 + 1)
+                                    pos = move_left(pos)
+                                    continue
+                            else:
+                                done_heapifying = True
+                                break
+                        else:
+                            if (self.heap[pos].patron_priority > self.get_right(pos).patron_priority):
+                                self.swap(pos, pos * 2 + 2)
+                                pos = move_right(pos)
+                                continue
+                            elif (self.heap[pos].patron_priority == self.get_right(pos).patron_priority):
+                                if (self.heap[pos].time > self.get_right(pos).time):
+                                    self.swap(pos, pos * 2 + 2)
+                                    pos = move_right(pos)
+                                    continue
+                            else:
+                                done_heapifying = True
+                                break
+                            
+                # the first if checks if they're both null.    
                 # its possible for left to not be null, but its not possible for right and NOT left to be null
                 elif (self.get_left(pos) != None): 
                     if (self.heap[pos].patron_priority > self.get_left(pos).patron_priority):
@@ -117,38 +151,6 @@ class ReservationHeap:
                     else:
                         done_heapifying = True
                         break
-
-                # if (self.get_left(pos) != None):
-                #     if (self.heap[pos].patron_priority > self.get_left(pos).patron_priority):
-                #         self.swap(pos, pos * 2)
-                #         pos = move_left(pos)
-                #         continue
-                #     # if they're equal, break the tie with their time
-                #     elif (self.heap[pos].patron_priority == self.get_left(pos).patron_priority):
-                #         # frst come first serve priority for time
-                #         # so if the current node's time is greater than the left node's time, swap
-                #         if (self.heap[pos].time > self.get_left(pos).time):
-                #             self.swap(pos, pos * 2)
-                #             pos = move_left(pos)
-                #             continue
-
-                # elif (self.get_right(pos) != None):
-                #     if (self.heap[pos].patron_priority > self.get_right(pos).patron_priority):
-                #         self.swap(pos, pos * 2 + 1)
-                #         pos = move_right(pos)
-                #         continue
-                #     # if they're equal, break the tie with their time
-                #     elif (self.heap[pos].patron_priority == self.get_right(pos).patron_priority):
-                #         if (self.heap[pos].time > self.get_right(pos).time):
-                #             self.swap(pos, pos * 2 + 1)
-                #             pos = move_right(pos)
-                #             continue
-                #     else:
-                #         done_heapifying = True
-                #         break
-                # else:
-                #     done_heapifying = True
-                #     break
                 
 
                 done_heapifying = True # if here, then did not break and is done heapifying
