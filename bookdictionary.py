@@ -7,31 +7,17 @@ from insertrotations import insert_rotate
 from deleterotations import delete_rotate
 from reservationheap import ReservationHeap, ReservationNode
 
-input_file_name = '' # change to sys.arg, not hard code eventually !
+input_file_name = '' # global variable for input file name, sys.argv[1] in main
 closest_more_book, closest_less_book = None, None # used for closest book function
-# make enum
 
 Function = Enum('Function', ['PrintBook', 'PrintBooks', 'InsertBook', 'BorrowBook', 'ReturnBook', 'DeleteBook', 'FindClosestBook', 'ColorFlipCount', 'Quit'])
 
 def output(text):
-    # output file named input_file (variable) + _ + output_file.txt
     output_file = input_file_name.split('.')[0] + '_output.txt'
     with open(output_file, 'a') as f:
         f.write(text + '\n\n')
-    # print(text) # for debugging
 
-# new_book = None
 class Book:
-    # add function variables
-    
-# Note*:
-# - Assume that each waitlist is limited to 20.
-# - While taking timestamps, ensure the precision is high enough.
-# The system should support the following operations:
-# 1. PrintBook(bookID): Print information about a specific book identified by its unique bookID (e.g.,
-# title, author, availability status).
-# Note*: If not found, Print “BookID not found in the Library”
-# 2. PrintBooks(bookID1, bookID2): Print information about all books with bookIDs in the range
 
     def __init__(self, book_id, book_name, author_name, availability, null):
         self.book_id = book_id # unique identifier
@@ -53,22 +39,15 @@ class Book:
             self.right = make_null_book()
 
         self.height = 0
-        # self.parent = null_book # no parent!
         self.invalid = False # when return to parent, check to see if there are two red in a row
         self.is_root = False
         self.deficient = False
         self.null = null
 
-        # for visualization, just declaring values
+        # for visualization debugging, just declaring values
         self.level = 0
         self.x = 200
         self.y = 100
-
-    def makeLeftChild(self, parent):
-        parent.left = self
- 
-    def makeRightChild(self, parent):
-        parent.right = self
 
     def get_left(self):
         if (self.left == None):
@@ -114,13 +93,11 @@ def make_null_deficient_book():
     null_deficient.red, null_deficient.deficient = False, True
     return null_deficient
 
-
-
 class GatorLibrary:
     new_book = None
-    colors = dict()
-    color_flip_count = 0
-    deleted_book = make_null_book()
+    colors = dict() # dictionary of book_id and color, for counting color changes
+    color_flip_count = 0 # for counting color changes continuously
+    deleted_book = make_null_book() # just init, will be changed before deletion to refrest
 
     def __init__(self):
         self.root = make_null_book()
@@ -143,6 +120,8 @@ class GatorLibrary:
             self.root.red = False
 
     def insert_book_recursive(self, current):
+
+        # new book belongs in this subtree, so return it as the child of the parent
         if (current.get_null()):
             return self.new_book
         elif (self.new_book.book_id < current.book_id):
@@ -155,11 +134,12 @@ class GatorLibrary:
         if (current.red and (current.get_left().red or current.get_right().red)):
             current.invalid = True
         
+        # check if child is invalid, that way we have access to the grandparent and can rotate
         if (current.get_left().invalid or current.get_right().invalid):
             current = insert_rotate(library,current)
             current.invalid = False
 
-        return current # self.new_book
+        return current 
             
     def find_book(self, book_id):
         current = self.root
@@ -172,7 +152,7 @@ class GatorLibrary:
                 current = current.get_right()
         output("Book " + str(book_id) + " not found in the library")
         
-    # make surrounded by brackets and comma separated
+    # make surrounded by brackets and comma separated, self explanatory, [1, 2, 3...]
     def make_reservation_printable(self, reservations):
         printable = "["
         for reservation in reservations:
@@ -186,24 +166,15 @@ class GatorLibrary:
     def print_book(self, book_id):
         book = self.find_book(book_id)
         if book:
-            # output("BookID = " + str(book.book_id))
-            # output("Title = " + book.book_name)
-            # output("Author = " + book.author_name)
-            # output("Availability = " + str(book.availability))
-            # output("BorrowedBy = " + str(book.borrowed_by))
-            # output("Reservations = " + str(book.reservation_heap.heap)) 
-            # # combine to one output
-
             reservations = self.make_reservation_printable(book.reservation_heap.heap)
             output("BookID = " + str(book.book_id) + "\n" +
                 "Title = \"" + book.book_name + "\"\n" +
                 "Author = \"" + book.author_name + "\"\n" +
                 "Availability = \"" + str(book.availability) + "\"\n" +
                 "BorrowedBy = " + str(book.borrowed_by) + "\n" +
-                "Reservations = " + reservations)
-                   
+                "Reservations = " + reservations) 
 
-    # overload for recursive function
+    # print a book that you already have a reference to
     def print_found_book(self, book):
             reservations = self.make_reservation_printable(book.reservation_heap.heap)
             output("BookID = " + str(book.book_id) + "\n" +
@@ -222,7 +193,7 @@ class GatorLibrary:
                 output(msg)
                 return
 
-            # add period because not after available, only before reservations.
+            # add period because not after available, only before reservations. in the test cases.
             # weird
             msg += ". Reservations made by Patrons " + str(self.deleted_book.reservation_heap.heap[0].patron_id)
             for reservation in self.deleted_book.reservation_heap.heap[1:]:
@@ -233,7 +204,6 @@ class GatorLibrary:
 
 
     # print all books in range book_id1 to book_id2
-    # MAKE RECURSIVE
     def print_books(self, book_id1, book_id2, current_node):
         # will only go to left subtree if the book ID larger than the lower key
         # that way, we do not traverse unnecessary nodes
@@ -256,22 +226,22 @@ class GatorLibrary:
             else:
                 output("Book " + str(book_id) + " Reserved by Patron " + str(patron_id))
                 book.add_reservation(patron_id, patron_priority)
-        
 
     def return_book(self, patron_id, book_id):
         book = self.find_book(book_id)
+        # ensure that the book exists is borrowed by the patron
         if book:
             if book.borrowed_by == patron_id:
                 book.availability = 'Yes'
                 book.borrowed_by = None
                 output("Book " + str(book_id) + " Returned by Patron " + str(patron_id))
-                next_person = book.remove_reservation()
+                next_person = book.remove_reservation() # returns the next person in the queue, also heapifies
                 if (next_person):
-                    book.availability = 'No'
+                    book.availability = 'No' # only if there is a next person
                     book.borrowed_by = next_person.patron_id
                     output("Book " + str(book_id) + " Allotted to Patron " + str(next_person.patron_id))
             else:
-                output("Book " + str(book_id) + " Not Borrowed by Patron " + str(patron_id))
+                output("Book " + str(book_id) + " Not Borrowed by Patron " + str(patron_id)) # shouldnt run, only for bad input
 
     def delete_book(self, current, book_id):
         # nothing in tree
@@ -281,10 +251,11 @@ class GatorLibrary:
         elif (current.get_null()):
             return current
 
+        # recursive depth-first calls
         current.left = self.delete_book(current.get_left(), book_id)
         current.right = self.delete_book(current.get_right(), book_id)
 
-        # no need to continue, all is good here
+        # no need to continue, all is good here if no children are deficient
         if (not current.get_left().deficient and not current.get_right().deficient and current.book_id != book_id):
             return current
         
@@ -295,14 +266,12 @@ class GatorLibrary:
                 return make_null_book() 
             # is black leaf
             elif (current.get_left().get_null() and current.get_right().get_null() and not current.red):
-                
-                current = make_null_deficient_book()
-                # delete book recursive
+                current = make_null_deficient_book() # deleting black leaf makes it deficient
                 return current
             
             # is red degree 1
             elif ((current.get_left().get_null() or current.get_right().get_null()) and current.red):
-                # child must be black, just combine and all good
+                # child must be black, just combine and all is well
                 if (current.get_left().get_null()):
                     current = current.get_right()
                 else:
@@ -311,8 +280,9 @@ class GatorLibrary:
                 
             # is black degree 1
             elif ((current.get_left().get_null() or current.get_right().get_null()) and not current.red):
+                # get a child, preferably left
                 if (current.get_left().get_null()):
-                    current = current.get_right() # does it change parent!!??
+                    current = current.get_right()
                 else:
                     current = current.get_left()
 
@@ -320,37 +290,37 @@ class GatorLibrary:
                 if (current.red):
                     current.red = False
                 else:
+                    # if black, make deficient
                     current.deficient = True
 
                 return current
 
                 # cases:
                 # 1 black degree 2 node (replace with largest in left subtree)
-                # what after that? - make that deficient if black
+                # pretend like deleted that one
                 # 2 black degree 1: its child becomes root of deficient subtree
                 # if child is red, make black
                 # 3 red leaf - just delete, nothing else
                 # 4 black leaf, that node becomes the deficient
+
             # red/black degree 2
             elif (not current.get_left().get_null() and not current.get_right().get_null()):
                 # find largest in left subtree
-                node, parent_ofthis = current.get_left(), current
-                current_color = parent_ofthis.red
+                node, parent_of_node = current.get_left(), current
+                current_color = parent_of_node.red
                 
-                # display_tree(self.root)
-
                 # node used to iterate to find largset in subtree
                 while (not node.get_right().get_null()):
-                    node, parent_ofthis = node.get_right(), node
+                    node, parent_of_node = node.get_right(), node
 
                 # if unchanged
                 if (node == current.get_left()):
                     current.left = make_null_book()
                 # is a different node, know if replace it with deficient or null
                 elif (not node.red):
-                    parent_ofthis.left = make_null_deficient_book()
+                    parent_of_node.left = make_null_deficient_book()
                 else:
-                    parent_ofthis.left = make_null_book()
+                    parent_of_node.left = make_null_book()
                     
                 # replace current with the values of the largest in left subtree
                 node.right, node.left = current.get_right(), current.left
@@ -363,11 +333,11 @@ class GatorLibrary:
 
                 current = node # returns to be parents child
                 
-
+        # check if child is deficient, that way we have access to the necessary parents and can rotate
         if (current.get_left().deficient or current.get_right().deficient):
             current = delete_rotate(library,current) # pass in parent
 
-        # why this here??!!
+        # just in case the root comes out red, which it shouldnt, ever, especially in my robust code, but just in case :)
         if (self.root.book_id == book_id):
             self.root.red = False
 
@@ -377,6 +347,7 @@ class GatorLibrary:
         if (self.root.get_null()):
             return -1
         
+        # global variables for closest books, make easier to track than returning a list recursively
         global closest_less_book
         global closest_more_book
         closest_less_book = make_null_book()
@@ -399,15 +370,15 @@ class GatorLibrary:
                 self.print_found_book(books[1])
      
     
-    def find_closest_book_recursive(self, current, target_id, original=True):
+    def find_closest_book_recursive(self, current, target_id):
         # original is to check if we are at the first call
         
         global closest_less_book
         global closest_more_book
         if (not current.get_left().get_null()):
-            self.find_closest_book_recursive(current.get_left(), target_id, False)
+            self.find_closest_book_recursive(current.get_left(), target_id)
         if (not current.get_right().get_null()):
-            self.find_closest_book_recursive(current.get_right(), target_id, False)
+            self.find_closest_book_recursive(current.get_right(), target_id)
         current_distance = abs(current.book_id - target_id)
             
         if (current.book_id >= target_id):
@@ -421,10 +392,7 @@ class GatorLibrary:
     def get_color_flip_count(self):
         output("Color Flip Count: " + str(self.color_flip_count))
 
-    def execute_command(self, command):
-        pass
-
-    # run before an operation
+    # run before an operation to store the colors of the nodes
     def store_colors(self, current):
         # make an array with pairs of ID and re
         if (current.get_null()):
@@ -433,10 +401,8 @@ class GatorLibrary:
         self.store_colors(current.get_left())
         self.store_colors(current.get_right())
     
-    # run after an operation
+    # run after an operation to count the color changes of the nodes upon insertion or deletion
     def count_color_changes(self, current):
-        # for debugging
-        changes = 0
         if current.get_null():
             return
         
@@ -453,7 +419,6 @@ class GatorLibrary:
 
         if (current.red != self.colors[current.book_id]):
             self.color_flip_count += 1
-            changes += 1
 
     
 def get_input(filename):
@@ -476,8 +441,8 @@ def get_input(filename):
         elif (function == "InsertBook"):
             book_id = int(line.split('(')[1].split(',')[0])
             book_name = line.split('\"')[1]
-            author_name = line.split('\"')[3] # causes error when comma is in the name of book
-            availability = line.split('\"')[5]
+            author_name = line.split('\"')[3] # causes error when comma is in the name of book, so use quotes
+            availability = line.split('\"')[5] # lucky there was a test case with a comma in the name of the book
             input_commands.append([Function.InsertBook, book_id, book_name, author_name, availability])
         elif (function == "BorrowBook"):
             patron_id = int(line.split('(')[1].split(',')[0])
@@ -504,7 +469,7 @@ def get_input(filename):
     return input_commands
 
 
-library = GatorLibrary() # only one library, so global because why not
+library = GatorLibrary() # only one library, so global variable
 
 
 def main():
@@ -536,14 +501,10 @@ def main():
         elif (command[0] == Function.ReturnBook):
             library.return_book(command[1], command[2])
         elif (command[0] == Function.DeleteBook):
-            # print("delete " + str(command[1]))
             library.store_colors(library.root)
             library.deleted_book = make_null_book()
-            # display_tree(library.root)
             library.root = library.delete_book(library.root, command[1])
-            # display_tree(library.root)
             library.print_deletion_message()
-            # display_tree(library.root)
             library.count_color_changes(library.root)
         elif (command[0] == Function.FindClosestBook):
             library.find_closest_book(command[1]) # includes print
@@ -551,21 +512,6 @@ def main():
             library.get_color_flip_count()
         elif (command[0] == Function.Quit):
             output("Program Terminated!!")
-        # if (command[0] == Function.InsertBook or command[0] == Function.DeleteBook):
-        #     if (command[0] == Function.InsertBook):
-        #         print("insert " + str(command[1]))
-        #     else:
-        #         print("delete " + str(command[1]))
-        #         # display_tree(library.root)
-        #         print("")
-        #     if command[1] == 25:
-        #         print("yo")
-            # display_tree(library.root)
-            #display_tree(library.root)
-        # if (library.find_book(6)):
-        #     print("why left no exist")
-        #     left_error = library.find_book(6).get_left()
-        #     library.print_found_book(left_error)
         
 
 if __name__ == "__main__":
