@@ -1,4 +1,4 @@
-def delete_rotate(tree, node):
+def delete_rotate(node):
     left = node.get_left()
     right = node.get_right()
     
@@ -15,14 +15,14 @@ def delete_rotate(tree, node):
                 w_red_children += 1
 
             if (w_red_children == 0):
-                node = Rr0(tree, node)
+                node = Rr0(node)
             elif (w_red_children == 1):
                 if (w.get_left().red):
-                    node = Rr1_case1(tree, node)
+                    node = Rr1_case1(node)
                 else: # right is red
-                    node = Rr1_case2(tree, node)
+                    node = Rr1_case2(node)
             else: # both children are red
-                node = Rr2(tree, node)
+                node = Rr2(node)
         else: # left is black
             v = left
             v_red_children = 0
@@ -34,17 +34,17 @@ def delete_rotate(tree, node):
 
             if (v_red_children == 0):
                 if (not node.red):
-                    node = Rb0_case1(tree, node)
+                    node = Rb0_case1(node)
                     node.deficient = True # already done in function
                 else:
-                    node = Rb0_case2(tree, node)
+                    node = Rb0_case2(node)
             elif (v_red_children == 1):
                 if (v.get_left().red):
-                    node = Rb1_case1(tree, node)
+                    node = Rb1_case1(node)
                 else:
-                    node = Rb1_case2(tree, node)
+                    node = Rb1_case2(node)
             elif (v_red_children == 2):
-                node = Rb2(tree, node)
+                node = Rb2(node)
     else: # right subtree is not deficient, left must be (only reason this function is called)
         if (right.red):
             # RLn
@@ -57,14 +57,14 @@ def delete_rotate(tree, node):
                 w_red_children += 1
 
             if (w_red_children == 0):
-                node = Lr0(tree, node)
+                node = Lr0(node)
             elif (w_red_children == 1):
                 if (w.get_left().red):
-                    node = Lr1_case1(tree, node)
+                    node = Lr1_case1(node)
                 else:
-                    node = Lr1_case2(tree, node)
+                    node = Lr1_case2(node)
             else: # both children are red
-                node = Lr2(tree, node)
+                node = Lr2(node)
         else: # right is black
             v = right
             v_red_children = 0
@@ -76,17 +76,17 @@ def delete_rotate(tree, node):
 
             if (v_red_children == 0):
                 if (not node.red):
-                    node = Lb0_case1(tree, node)
+                    node = Lb0_case1(node)
                     node.deficient = True
                 else:
-                    node = Lb0_case2(tree, node)
+                    node = Lb0_case2(node)
             elif (v_red_children == 1):
                 if (v.get_right().red):
-                    node = Lb1_case1(tree, node)
+                    node = Lb1_case1(node)
                 else:
-                    node = Lb1_case2(tree, node)
+                    node = Lb1_case2(node)
             elif (v_red_children == 2):
-                node = Lb2(tree, node)
+                node = Lb2(node)
 
 
 
@@ -100,14 +100,14 @@ def delete_rotate(tree, node):
 # v has 1 red child => n = 1.
 
 # py is black
-def Rb0_case1(tree, py):
+def Rb0_case1(py):
     py.left.change_color()
     py.right.deficient = False # right subtree isnt deficient
     py.deficient = True # now, py is deficient
     return py
 
 # py is red
-def Rb0_case2(tree, py):
+def Rb0_case2(py):
     py.right.change_color()
     py.change_color()
     py.right.deficient = False # right subtree isnt deficient
@@ -115,7 +115,7 @@ def Rb0_case2(tree, py):
     return py
 
 # left child of v is red
-def Rb1_case1(tree, py):
+def Rb1_case1(py):
     v = py.get_left()
     v.red = py.red
 
@@ -132,7 +132,7 @@ def Rb1_case1(tree, py):
     return v
 
 # right child of v is red
-def Rb1_case2(tree, py):
+def Rb1_case2(py):
     # lr rotation
     v = py.get_left()
     v.red = py.red
@@ -151,7 +151,7 @@ def Rb1_case2(tree, py):
     py.right.deficient = False 
     return w
 
-def Rb2(tree, py):
+def Rb2(py):
     # lr rotation
     v = py.get_left()
     w = py.get_left().get_right()
@@ -171,7 +171,7 @@ def Rb2(tree, py):
     return w
 
 # Rrn where n is the number of red children of v's right child w
-def Rr0(tree, py):
+def Rr0(py):
     # LL rotation
     v = py.get_left()
     v.change_color()
@@ -184,7 +184,7 @@ def Rr0(tree, py):
     return v
 
 # left node of w is red
-def Rr1_case1(tree, py):
+def Rr1_case1(py):
     # LR rotation
     v = py.get_left()
     w = py.get_left().get_right()
@@ -201,7 +201,7 @@ def Rr1_case1(tree, py):
     return w
 
 # right node of w is red
-def Rr1_case2(tree, py):
+def Rr1_case2(py):
     # rotation
     v = py.get_left()
     w = py.get_left().get_right()
@@ -218,7 +218,7 @@ def Rr1_case2(tree, py):
     py.right.deficient = False
     return w
 
-def Rr2(tree, py):
+def Rr2(py):
     # LR rotation
     v = py.get_left()
     w = py.get_left().get_right()
@@ -237,14 +237,14 @@ def Rr2(tree, py):
     return w
 
 # py is black
-def Lb0_case1(tree, py):
+def Lb0_case1(py):
     py.right.change_color()
     py.left.deficient = False # left subtree isnt deficient
     py.deficient = True # now, py is deficient
     return py
 
 # py is red
-def Lb0_case2(tree, py):
+def Lb0_case2(py):
     py.left.change_color()
     py.change_color()
     py.left.deficient = False # left subtree isnt deficient
@@ -252,7 +252,7 @@ def Lb0_case2(tree, py):
     return py
 
 # right child of v is red
-def Lb1_case1(tree, py):
+def Lb1_case1(py):
     v = py.get_right()
     v.red = py.red
 
@@ -268,7 +268,7 @@ def Lb1_case1(tree, py):
     return v
 
 # left child of v is red
-def Lb1_case2(tree, py):
+def Lb1_case2(py):
     # lr rotation
     v = py.get_right()
     v.red = py.red
@@ -287,7 +287,7 @@ def Lb1_case2(tree, py):
     py.left.deficient = False 
     return w
 
-def Lb2(tree, py):
+def Lb2(py):
 
     # lr rotation
     v = py.get_right()
@@ -309,7 +309,7 @@ def Lb2(tree, py):
     return w
 
 # Rrn where n is the number of red children of v's right child w
-def Lr0(tree, py):
+def Lr0(py):
     # LL rotation
     v = py.get_right()
     v.change_color()
@@ -322,7 +322,7 @@ def Lr0(tree, py):
     return v
 
 # left node of w is red
-def Lr1_case1(tree, py):
+def Lr1_case1(py):
     # LR rotation
     v = py.get_right()
     w = py.get_right().get_left()
@@ -339,7 +339,7 @@ def Lr1_case1(tree, py):
     return w
 
 # right node of w is red
-def Lr1_case2(tree, py):
+def Lr1_case2(py):
     # rotation
     v = py.get_right()
     w = py.get_right().get_left()
@@ -356,7 +356,7 @@ def Lr1_case2(tree, py):
     py.left.deficient = False
     return w
 
-def Lr2(tree, py):
+def Lr2(py):
     # LR rotation
     v = py.get_right()
     w = py.get_right().get_left()
