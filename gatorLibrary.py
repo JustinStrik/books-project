@@ -82,6 +82,7 @@ class Book:
     def get_null(self):
         return self.null
 
+# Null Book Creation Functions
 #declare null_book
 def make_null_book():
     null_book = Book(-1, "null_book", "null_book", False, True)
@@ -335,7 +336,7 @@ class GatorLibrary:
                 
         # check if child is deficient, that way we have access to the necessary parents and can rotate
         if (current.get_left().deficient or current.get_right().deficient):
-            current = delete_rotate(library,current) # pass in parent
+            current = delete_rotate(current) # pass in parent
 
         # just in case the root comes out red, which it shouldnt, ever, especially in my robust code, but just in case :)
         if (self.root.book_id == book_id):
