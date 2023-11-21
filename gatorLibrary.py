@@ -2,7 +2,7 @@ from enum import Enum
 from sys import argv
 # draw_tree function defined in test.py
 #import test.py
-from display import display_tree
+# from display import display_tree
 from insertrotations import insert_rotate
 from deleterotations import delete_rotate
 from reservationheap import ReservationHeap, ReservationNode
@@ -456,7 +456,6 @@ def get_input(filename):
 
 library = GatorLibrary() # only one library, so global variable
 
-
 def main():
 
     # ONLY FOR DEBUG !!
@@ -472,6 +471,7 @@ def main():
         input_file_name = argv[1]
         input_commands = get_input(argv[1])
 
+    # loop through commands and execute
     for command in input_commands:
 
         if (command[0] == Function.PrintBook):
@@ -481,7 +481,15 @@ def main():
         elif (command[0] == Function.InsertBook):
             changed_color.clear()
             library.insert_book(command[1], command[2], command[3], command[4])
-            # display_tree(library.root)
+            # change to try and catch key error, ensure that inserted node is not counted in color change, should never happen btw
+            try:
+                changed_color.pop(-1) # in case fully deleted
+            except KeyError:
+                try:
+                    changed_color.pop(command[1])
+                except KeyError:
+                    pass
+                pass
             library.color_flip_count += len(changed_color)
         elif (command[0] == Function.BorrowBook):
             library.borrow_book(command[1], command[2], command[3])
@@ -490,16 +498,17 @@ def main():
         elif (command[0] == Function.DeleteBook):
             changed_color.clear()
             library.deleted_book = make_null_book()
-            # display_tree(library.root)
             library.root = library.delete_book(library.root, command[1])
-            # display_tree(library.root)
             library.print_deletion_message()
             
-            # change to try and catch key error
+            # change to try and catch key error, ensure that deleted node is not counted in color change
             try:
                 changed_color.pop(-1) # in case fully deleted
-                changed_color.pop(command[1])
             except KeyError:
+                try:
+                    changed_color.pop(command[1])
+                except KeyError:
+                    pass
                 pass
             library.color_flip_count += len(changed_color)
         elif (command[0] == Function.FindClosestBook):
