@@ -48,6 +48,7 @@ class ReservationHeap:
 
         pos = len(self.heap) - 1
         # time shouldnt matter on an insert since it will always be the most recent
+        # if the patron priority is less than the parent, swap, and continue swapping until it is not less than the parent
         while (pos > 0 and reservation_node.patron_priority <= self.get_parent(pos).patron_priority):
             # if equal, check to see if the time is less
             if (reservation_node.patron_priority == self.get_parent(pos).patron_priority):
@@ -57,6 +58,7 @@ class ReservationHeap:
                     continue
                 else:
                     break
+                
             # not equal, just less: swap
             self.swap(pos, (pos - 1) // 2)
             pos = (pos - 1) // 2

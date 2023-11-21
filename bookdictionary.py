@@ -2,7 +2,7 @@ from enum import Enum
 from sys import argv
 # draw_tree function defined in test.py
 #import test.py
-# from display import display_tree
+from display import display_tree
 from insertrotations import insert_rotate
 from deleterotations import delete_rotate
 from reservationheap import ReservationHeap, ReservationNode
@@ -539,7 +539,9 @@ def main():
             # print("delete " + str(command[1]))
             library.store_colors(library.root)
             library.deleted_book = make_null_book()
+            # display_tree(library.root)
             library.root = library.delete_book(library.root, command[1])
+            # display_tree(library.root)
             library.print_deletion_message()
             # display_tree(library.root)
             library.count_color_changes(library.root)

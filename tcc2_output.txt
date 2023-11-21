@@ -1,5 +1,5 @@
 BookID = 48
-Title = "Popular Book: Thrilling Adventures"
+Title = "Thrilling Adventures"
 Author = "Adventure Author"
 Availability = "Yes"
 BorrowedBy = None
@@ -32,11 +32,11 @@ Book 48 Reserved by Patron 126
 Book 48 Reserved by Patron 128
 
 BookID = 48
-Title = "Popular Book: Thrilling Adventures"
+Title = "Thrilling Adventures"
 Author = "Adventure Author"
 Availability = "No"
 BorrowedBy = 142
-Reservations = [124, 126, 140, 144, 128]
+Reservations = [124, 126, 144, 140, 128]
 
 Book 48 Reserved by Patron 130
 
@@ -44,22 +44,30 @@ Book 48 Reserved by Patron 134
 
 Book 48 Reserved by Patron 136
 
+Book 48 Returned by Patron 142
+
+Book 48 Allotted to Patron 124
+
+Book 48 Returned by Patron 124
+
+Book 48 Allotted to Patron 126
+
 BookID = 48
-Title = "Popular Book: Thrilling Adventures"
+Title = "Thrilling Adventures"
 Author = "Adventure Author"
 Availability = "No"
-BorrowedBy = 142
-Reservations = [124, 126, 140, 144, 128, 130, 134, 136]
+BorrowedBy = 126
+Reservations = [144, 140, 130, 136, 128, 134]
 
 BookID = 6
-Title = "Popular Book: Historical Chronicles"
+Title = "Historical Chronicles"
 Author = "History Author"
 Availability = "Yes"
 BorrowedBy = None
 Reservations = []
 
 BookID = 12
-Title = "Popular Book: Science Fiction Odyssey"
+Title = "Science Fiction Odyssey"
 Author = "Sci-Fi Writer"
 Availability = "No"
 BorrowedBy = 138
@@ -74,7 +82,7 @@ Book 73 Borrowed by Patron 111
 Book 73 Reserved by Patron 52
 
 BookID = 73
-Title = "Popular Book: Epic Saga"
+Title = "Epic Saga"
 Author = "Epic Author"
 Availability = "No"
 BorrowedBy = 111
@@ -83,49 +91,49 @@ Reservations = [52]
 Book 25 Borrowed by Patron 153
 
 BookID = 25
-Title = "Popular Book: Fantasy Realm"
+Title = "Fantasy Realm"
 Author = "Fantasy Author"
 Availability = "No"
 BorrowedBy = 153
 Reservations = []
 
 BookID = 48
-Title = "Popular Book: Thrilling Adventures"
+Title = "Thrilling Adventures"
 Author = "Adventure Author"
 Availability = "No"
-BorrowedBy = 142
-Reservations = [124, 126, 140, 144, 128, 130, 134, 136]
+BorrowedBy = 126
+Reservations = [144, 140, 130, 136, 128, 134]
 
 BookID = 73
-Title = "Popular Book: Epic Saga"
+Title = "Epic Saga"
 Author = "Epic Author"
 Availability = "No"
 BorrowedBy = 111
 Reservations = [52]
 
 BookID = 101
-Title = "Popular Book: The Great Novel"
+Title = "The Great Novel"
 Author = "Author McAuthorface"
 Availability = "No"
 BorrowedBy = 132
 Reservations = []
 
 BookID = 115
-Title = "Popular Book: Operating Systems"
+Title = "Operating Systems"
 Author = "OS Author"
 Availability = "Yes"
 BorrowedBy = None
 Reservations = []
 
 BookID = 125
-Title = "Popular Book: Space Odyssey"
+Title = "Space Odyssey"
 Author = "Space Author"
 Availability = "Yes"
 BorrowedBy = None
 Reservations = []
 
 BookID = 132
-Title = "Popular Book: Mystery Unraveled"
+Title = "Mystery Unraveled"
 Author = "Detective Writer"
 Availability = "Yes"
 BorrowedBy = None
@@ -136,11 +144,11 @@ Book 25 Reserved by Patron 171
 Book 132 Borrowed by Patron 2
 
 BookID = 48
-Title = "Popular Book: Thrilling Adventures"
+Title = "Thrilling Adventures"
 Author = "Adventure Author"
 Availability = "No"
-BorrowedBy = 142
-Reservations = [124, 126, 140, 144, 128, 130, 134, 136]
+BorrowedBy = 126
+Reservations = [144, 140, 130, 136, 128, 134]
 
 Book 101 Reserved by Patron 18
 
@@ -149,7 +157,7 @@ Book 210 Borrowed by Patron 210
 Book 73 Reserved by Patron 43
 
 BookID = 210
-Title = "Popular Book: Machine Learning Mastery"
+Title = "Machine Learning Mastery"
 Author = "ML Author"
 Availability = "No"
 BorrowedBy = 210
