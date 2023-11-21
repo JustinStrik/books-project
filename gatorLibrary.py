@@ -81,7 +81,8 @@ class Book:
             reservation_node = ReservationNode(self, patron_id, patron_priority)
             self.reservation_heap.insert(reservation_node)
         else:
-            print("The waitlist is full!")
+            # print("The waitlist is full!") # what do if full, nothing I suppose
+            return
 
     def remove_reservation(self):
         return self.reservation_heap.remove()
@@ -254,7 +255,7 @@ class GatorLibrary:
     def delete_book(self, current, book_id):
         # nothing in tree
         if (self.root.get_null()):
-            print("no books in the library, you cant delete anything") # shouldnt run
+            # print("no books in the library, you cant delete anything") # shouldnt run
             return
         elif (current.get_null()):
             return current
@@ -462,9 +463,9 @@ def main():
     input_commands = []
     global input_file_name
     global changed_color
+    # shouldn't happen when they run the code ;), only for me to debug
     if (len(argv) < 2):
         # enter input file name
-        print("Please enter the input file name")
         input_file_name = input("Enter the input file name: ")
         input_commands = get_input(input_file_name)
     else:
