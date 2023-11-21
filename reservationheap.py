@@ -7,9 +7,6 @@ class ReservationNode:
         self.patron_priority = patron_priority
         self.time = time()
 
-    def add_child(self, node):
-        self.children.append(node)
-
 # starts at 0, so left child is 1, right child is 2, etc
 def move_left(pos):
     return pos * 2 + 1

@@ -137,7 +137,7 @@ class GatorLibrary:
         
         # check if child is invalid, that way we have access to the grandparent and can rotate
         if (current.get_left().invalid or current.get_right().invalid):
-            current = insert_rotate(library,current)
+            current = insert_rotate(current)
             current.invalid = False
 
         return current 

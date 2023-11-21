@@ -116,3 +116,35 @@ Color Flip Count: 15
 
 Program Terminated!!
 
+Book 5 Borrowed by Patron 101
+
+Book 3 Borrowed by Patron 101
+
+Book 12 is no longer available
+
+BookID = 3
+Title = "The Great Gatsby"
+Author = "Mark Johnson"
+Availability = "No"
+BorrowedBy = 101
+Reservations = []
+
+BookID = 5
+Title = "The Secret Garden"
+Author = "Jane Smith"
+Availability = "No"
+BorrowedBy = 101
+Reservations = []
+
+Book 3 is no longer available
+
+Book 5 is no longer available
+
+Book 5 not found in the library
+
+Book 22 Borrowed by Patron 104
+
+Book 22 Reserved by Patron 171
+
+Book 22 Reserved by Patron 103
+
