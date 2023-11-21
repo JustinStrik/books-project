@@ -388,9 +388,9 @@ class GatorLibrary:
         global closest_more_book
 
         # only search if not null and going in subtree will be closer to target_id
-        if (not current.get_left().get_null()):
+        if (not current.get_left().get_null() and current.book_id > target_id):
             self.find_closest_book_recursive(current.get_left(), target_id)
-        if (not current.get_right().get_null()):
+        if (not current.get_right().get_null() and current.book_id < target_id):
             self.find_closest_book_recursive(current.get_right(), target_id)
 
         current_distance = abs(current.book_id - target_id)
