@@ -3,9 +3,9 @@
 def delete_rotate(tree, node):
     left = node.get_left()
     right = node.get_right()
-            
+    
+    # series of if-else statements to determine which rotation to do
     if (right.deficient):
-        # check to see if degree 1 ?
         if (left.red):
             # RRn
             w_red_children = 0
@@ -122,7 +122,7 @@ def Rb1_case1(tree, py):
     v.red = py.red
 
     if py.red:
-        py.change_color() # ? only change color if red?
+        py.change_color() # only change color if red, it should end black
 
     py.left = v.get_right()
     v.right = py
@@ -157,8 +157,10 @@ def Rb2(tree, py):
     # lr rotation
     v = py.get_left()
     w = py.get_left().get_right()
-    if (py.red != w.red): #?
-        w.change_color() # now black
+    if (py.red != w.red): # change w to color of py
+        w.change_color()
+    py.red = False
+    py.right.deficient = False 
 
     # reassign w's children
     v.right = w.get_left()
@@ -168,7 +170,6 @@ def Rb2(tree, py):
     w.left = v
     w.right = py
 
-    py.right.deficient = False 
     return w
 
 # Rrn where n is the number of red children of v's right child w
@@ -258,7 +259,7 @@ def Lb1_case1(tree, py):
     v.red = py.red
 
     if py.red:
-        py.left.change_color() # ? only change color if red?
+        py.left.change_color() # only change color if red
 
     py.right = v.get_left()
     v.left = py
@@ -293,8 +294,11 @@ def Lb2(tree, py):
     # lr rotation
     v = py.get_right()
     w = py.get_right().get_left()
-    if (py.red != w.red): #?
+    
+    if (py.red != w.red): 
         w.change_color() # now black
+    py.left.deficient = False 
+    py.red = False
 
     # reassign w's children
     v.left = w.get_right()
@@ -304,7 +308,6 @@ def Lb2(tree, py):
     w.right = v
     w.left = py
 
-    py.left.deficient = False 
     return w
 
 # Rrn where n is the number of red children of v's right child w
