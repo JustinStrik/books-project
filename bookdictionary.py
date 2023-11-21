@@ -7,17 +7,18 @@ from insertrotations import insert_rotate
 from deleterotations import delete_rotate
 from reservationheap import ReservationHeap, ReservationNode
 
-input_file = 'input.txt' # change to sys.arg, not hard code eventually !
+input_file_name = '' # change to sys.arg, not hard code eventually !
+closest_more_book, closest_less_book = None, None # used for closest book function
 # make enum
 
 Function = Enum('Function', ['PrintBook', 'PrintBooks', 'InsertBook', 'BorrowBook', 'ReturnBook', 'DeleteBook', 'FindClosestBook', 'ColorFlipCount', 'Quit'])
 
 def output(text):
     # output file named input_file (variable) + _ + output_file.txt
-    output_file = input_file.split('.')[0] + '_output.txt'
+    output_file = input_file_name.split('.')[0] + '_output.txt'
     with open(output_file, 'a') as f:
         f.write(text + '\n\n')
-    print(text) # for debugging
+    # print(text) # for debugging
 
 # new_book = None
 class Book:
@@ -128,10 +129,6 @@ class GatorLibrary:
         pass
 
     def insert_book(self, book_id, book_name, author_name, availability):
-        # current = self.root
-        if (book_id == 165):
-            print("yo")
-            # display_tree(self.root)
         self.new_book = Book(book_id, book_name, author_name, availability, False)
 
         # nothing in tree
@@ -279,42 +276,13 @@ class GatorLibrary:
     def delete_book(self, current, book_id):
         # nothing in tree
         if (self.root.get_null()):
-            print("no books in the library, you cant delete anything")
+            print("no books in the library, you cant delete anything") # shouldnt run
             return
         elif (current.get_null()):
             return current
-        
-        # TEST TO SEE IF PARENTS PARENT CHANGES !!??
-        # parent, is_left_child = make_null_book, False
-
-        # while (not current.get_null()):
-        #     if book_id == current.book_id:
-        #         break
-        #     # return current
-        #     elif (book_id < current.book_id):
-        #         parent = current
-        #         current = current.get_left()
-        #         is_left_child = True
-        #     elif (book_id > current.book_id):
-        #         parent = current
-        #         current = current.get_right()
-        #         is_left_child = False 
-            # make recursive instead
-        
-        # if (book_id == 125):
-        #     print("yo")
-        #     display_tree(self.root)
-            # print("")
-        # if (book_id == 210):
-        #     print("yo")
-            # display_tree(self.root)
-        
 
         current.left = self.delete_book(current.get_left(), book_id)
         current.right = self.delete_book(current.get_right(), book_id)
-
-        # if (current.book_id == 6):
-        #     print("check null err")
 
         # no need to continue, all is good here
         if (not current.get_left().deficient and not current.get_right().deficient and current.book_id != book_id):
@@ -356,10 +324,6 @@ class GatorLibrary:
 
                 return current
 
-                # if (current.deficient):
-                #     # find deficiencies and rebuild tree from there
-                #     self.root = self.delete_book_recursive(self.root, book_id)
-
                 # cases:
                 # 1 black degree 2 node (replace with largest in left subtree)
                 # what after that? - make that deficient if black
@@ -398,15 +362,7 @@ class GatorLibrary:
                     node.red = not current_color
 
                 current = node # returns to be parents child
-
-                # make that deficient if black
-                # delete that node
-                # if red, make black
-                # if black, make deficient
-                # if deficient, find deficiencies and rebuild tree from there
                 
-
-        #display_tree(self.root)
 
         if (current.get_left().deficient or current.get_right().deficient):
             current = delete_rotate(library,current) # pass in parent
@@ -415,81 +371,52 @@ class GatorLibrary:
         if (self.root.book_id == book_id):
             self.root.red = False
 
-        # if (current.deficient):
-        #     # find deficiencies and rebuild tree from there
-        #     # self.root = self.delete_book_recursive(self.root, book_id)
-        #     print("deficient")
-        # if (current == None):
-        #     print("none")
         return current
 
     def find_closest_book(self, target_id):
         if (self.root.get_null()):
             return -1
         
+        global closest_less_book
+        global closest_more_book
+        closest_less_book = make_null_book()
+        closest_more_book = make_null_book()
+
         self.closest = self.root
-        books = self.find_closest_book_recursive(self.root, target_id)
+        self.find_closest_book_recursive(self.root, target_id)
+        books = [closest_less_book, closest_more_book]
 
         # if there is a tie for lowest distance, return the book with the lowest book_id
         if (len(books) == 1):
             self.print_found_book(books[0])
         elif (len(books) == 2):
-            if (books[0].book_id - target_id < books[1].book_id - target_id):
+            if (abs(books[0].book_id - target_id) < abs(books[1].book_id - target_id)):
                 self.print_found_book(books[0])
             elif (abs(books[0].book_id - target_id) == abs(books[1].book_id - target_id)):
                 self.print_found_book(books[0])
                 self.print_found_book(books[1])
             else:
                 self.print_found_book(books[1])
-        else:  # length is 3
-            if (abs(books[0].book_id - target_id) < abs(books[1].book_id - target_id) and abs(books[0].book_id - target_id) < abs(books[2].book_id - target_id)):
-                self.print_found_book(books[0])
-            elif (abs(books[1].book_id - target_id) < abs(books[0].book_id - target_id) and abs(books[1].book_id - target_id) < abs(books[2].book_id - target_id)):
-                self.print_found_book(books[1])
-            elif (abs(books[2].book_id - target_id) < abs(books[0].book_id - target_id) and abs(books[2].book_id - target_id) < abs(books[1].book_id - target_id)):
-                self.print_found_book(books[2])
-            # print smallest ones first, since thats what is in the example 3
-            elif (abs(books[0].book_id - target_id) == abs(books[1].book_id - target_id) and abs(books[0].book_id - target_id) < abs(books[2].book_id - target_id)):
-                self.print_found_book(books[0])
-                self.print_found_book(books[1])
-            elif (abs(books[0].book_id - target_id) == abs(books[2].book_id - target_id) and abs(books[0].book_id - target_id) < abs(books[1].book_id - target_id)):
-                self.print_found_book(books[0])
-                self.print_found_book(books[2])
-            elif (abs(books[1].book_id - target_id) == abs(books[2].book_id - target_id) and abs(books[1].book_id - target_id) < abs(books[0].book_id - target_id)):
-                self.print_found_book(books[1])
-                self.print_found_book(books[2])
      
     
     def find_closest_book_recursive(self, current, target_id, original=True):
         # original is to check if we are at the first call
         
-        # set to infinity
-        distance_left, distance_right = float('inf'), float('inf')
+        global closest_less_book
+        global closest_more_book
         if (not current.get_left().get_null()):
-            closest_left = self.find_closest_book_recursive(current.get_left(), target_id, False)
-            distance_left = abs(closest_left.book_id - target_id)
+            self.find_closest_book_recursive(current.get_left(), target_id, False)
         if (not current.get_right().get_null()):
-            closest_right = self.find_closest_book_recursive(current.get_right(), target_id, False)
-            distance_right = abs(closest_right.book_id - target_id)
+            self.find_closest_book_recursive(current.get_right(), target_id, False)
         current_distance = abs(current.book_id - target_id)
-        
-        if (original):
-            # return all non-null books
-            books = []
-            if (not closest_left.get_null()):
-                books.append(closest_left)
-            if (not closest_right.get_null()):
-                books.append(closest_right)
-            if (not current.get_null()):
-                books.append(current)
-            return books
             
-        if (current_distance < distance_right and current_distance < distance_left):
-            return current
-        elif (distance_right < distance_left):
-            return closest_right
-        else:
-            return closest_left
+        if (current.book_id >= target_id):
+            if (current_distance < abs(closest_more_book.book_id - target_id) or closest_more_book.get_null()):
+                closest_more_book = current
+        elif (current.book_id <= target_id):
+            if (current_distance < abs(closest_less_book.book_id - target_id) or closest_less_book.get_null()):
+                closest_less_book = current
+        
 
     def get_color_flip_count(self):
         output("Color Flip Count: " + str(self.color_flip_count))
@@ -576,23 +503,26 @@ def get_input(filename):
 
     return input_commands
 
-    # get input file name from command line
-    # input_file_name = sys.argv[1]
 
 library = GatorLibrary() # only one library, so global because why not
 
 
 def main():
-    # make new book
-    #     def __init__(self, book_id, book_name, author_name, availability, borrowed_by=None):
 
-
-    input_commands = get_input(argv[1])
+    # ONLY FOR DEBUG !!
+    input_commands = []
+    global input_file_name
+    if (len(argv) < 2):
+        # enter input file name
+        print("Please enter the input file name")
+        input_file_name = input("Enter the input file name: ")
+        input_commands = get_input(input_file_name)
+    else:
+        input_file_name = argv[1]
+        input_commands = get_input(argv[1])
 
     for command in input_commands:
-        for arg in command:
-            print(arg, end=", ")
-        print("\n")
+
         if (command[0] == Function.PrintBook):
             library.print_book(command[1])
         elif (command[0] == Function.PrintBooks):
