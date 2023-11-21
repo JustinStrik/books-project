@@ -1,29 +1,29 @@
 # LLr, RRr, LLb, RRb, LRb, RLb
-def insert_rotate(tree, node):
+def insert_rotate(node):
     left = node.left
     right = node.right
     if (left.invalid):
         if (left.left.red):
             if (right.red):
-                node = LLr(tree, node)
+                node = LLr(node)
             else:
-                node = LLb(tree, node)
+                node = LLb(node)
         elif not right.red:
-            node = LRb(tree, node)
+            node = LRb(node)
         else:
-            node = LRr(tree, node)
+            node = LRr(node)
             
     if (right.invalid):
         if (right.right.red):
             if (left.red):
-                node = RRr(tree, node)
+                node = RRr(node)
             else:
-                node = RRb(tree, node)
+                node = RRb(node)
         # right is invalid, left is red
         elif not left.red:
-            node = RLb(tree, node)
+            node = RLb(node)
         else:
-            node = RLr(tree, node)
+            node = RLr(node)
 
     left.invalid = False
     right.invalid = False
@@ -31,7 +31,7 @@ def insert_rotate(tree, node):
     
 
 # declare functions for all rotations
-def LLr(tree, gp):
+def LLr(gp):
     if not gp.is_root:
         gp.change_color() 
     gp.left.change_color()
@@ -41,7 +41,7 @@ def LLr(tree, gp):
         # will happen automatically because its recursive
     return gp
 
-def RRr(tree, gp):
+def RRr(gp):
     if not gp.is_root:
         gp.change_color()
     gp.right.change_color()
@@ -49,26 +49,24 @@ def RRr(tree, gp):
     
     return gp
 
-def LLb(tree, gp):
+def LLb(gp):
     if (gp.is_root):
         # change root
-        tree.root = gp.left
+        gp.left.is_root = True
         gp.is_root = False
-        tree.root.is_root = True
 
-    y = gp.left
+    y = gp.left # will be new root
     gp.left = y.right
     y.right = gp
     y.change_color()
     y.right.change_color() # gp
     return y
 
-def RRb(tree, gp):
+def RRb(gp):
     if (gp.is_root):
         # change root
-        tree.root = gp.right
         gp.is_root = False
-        tree.root.is_root = True
+        gp.right.is_root = True
 
     y = gp.right
     gp.right = y.left
@@ -78,18 +76,17 @@ def RRb(tree, gp):
     y.left.change_color()
     return y
 
-def LRb(tree, gp):
+def LRb(gp):
     if (gp.is_root):
         # change root
-        root = gp.left.right
+        gp.left.right.is_root = True
         gp.is_root = False
-        root.is_root = True
 
     # test to see whats variables
     # gp is z
     # reassign y's children before it gets moved up
     x = gp.left
-    y = gp.left.right
+    y = gp.left.right # will be new root
 
     x.right = y.left
     gp.left = y.right
@@ -102,15 +99,14 @@ def LRb(tree, gp):
 
 
 
-def RLb(tree, gp):
+def RLb(gp):
     if (gp.is_root):
         # change root
-        root = gp.right.left
+        gp.right.left.is_root = True
         gp.is_root = False
-        root.is_root = True
     
     x = gp.right
-    y = gp.right.left
+    y = gp.right.left # will be new root
 
     x.left = y.right
     gp.right = y.left
@@ -121,7 +117,7 @@ def RLb(tree, gp):
 
     return y
 
-def RLr(tree, gp):
+def RLr(gp):
     # no movements, change all colors
     if (not gp.is_root):
         gp.change_color()
@@ -130,7 +126,7 @@ def RLr(tree, gp):
     # gp.right.left.change_color() # remains red
     return gp
 
-def LRr(tree, gp):
+def LRr(gp):
     # no movements, change all colors
     if (not gp.is_root):
         gp.change_color()
