@@ -1,5 +1,3 @@
-# from bookdictionary import null_book
-
 def delete_rotate(tree, node):
     left = node.get_left()
     right = node.get_right()
@@ -294,7 +292,7 @@ def Lb2(tree, py):
     # lr rotation
     v = py.get_right()
     w = py.get_right().get_left()
-    
+
     if (py.red != w.red): 
         w.change_color() # now black
     py.left.deficient = False 
