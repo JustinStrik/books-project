@@ -58,7 +58,7 @@ class ReservationHeap:
                     continue
                 else:
                     break
-                
+
             # not equal, just less: swap
             self.swap(pos, (pos - 1) // 2)
             pos = (pos - 1) // 2
@@ -158,10 +158,6 @@ class ReservationHeap:
                 done_heapifying = True # if here, then did not break and is done heapifying
 
         return removed
-
-    # def print_reservations(self):
-    #     for reservation in self.heap:
-    #         print(reservation.patron_id, reservation.patron_priority)
 
             
 
