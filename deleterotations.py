@@ -117,7 +117,10 @@ def Rb0_case2(py):
 # left child of v is red
 def Rb1_case1(py):
     v = py.get_left()
-    v.red = py.red
+
+    # v.red = py.red
+    if (v.red != py.red): # change v to color of py
+        v.change_color()
 
     if py.red:
         py.change_color() # only change color if red, it should end black
@@ -127,7 +130,6 @@ def Rb1_case1(py):
 
     v.left.change_color() # no longer red
 
-
     py.right.deficient = False # right subtree isnt deficient
     return v
 
@@ -135,7 +137,9 @@ def Rb1_case1(py):
 def Rb1_case2(py):
     # lr rotation
     v = py.get_left()
-    v.red = py.red
+    #v.red = py.red
+    if (v.red != py.red):
+        v.change_color()
 
     w = py.get_left().get_right()
     w.change_color()
@@ -157,7 +161,12 @@ def Rb2(py):
     w = py.get_left().get_right()
     if (py.red != w.red): # change w to color of py
         w.change_color()
-    py.red = False
+
+
+    # py.red = False
+    if (py.red):
+        py.change_color()
+
     py.right.deficient = False 
 
     # reassign w's children
@@ -254,7 +263,10 @@ def Lb0_case2(py):
 # right child of v is red
 def Lb1_case1(py):
     v = py.get_right()
-    v.red = py.red
+
+    #v.red = py.red
+    if (v.red != py.red): # change v to color of py
+        v.change_color()
 
     if py.red:
         py.left.change_color() # only change color if red
@@ -271,7 +283,9 @@ def Lb1_case1(py):
 def Lb1_case2(py):
     # lr rotation
     v = py.get_right()
-    v.red = py.red
+    # v.red = py.red
+    if (v.red != py.red):
+        v.change_color()
 
     w = py.get_right().get_left()
     w.change_color()
@@ -296,7 +310,10 @@ def Lb2(py):
     if (py.red != w.red): 
         w.change_color() # now black
     py.left.deficient = False 
-    py.red = False
+
+    # py.red = False
+    if (py.red):
+        py.change_color()
 
     # reassign w's children
     v.left = w.get_right()

@@ -9,6 +9,7 @@ from reservationheap import ReservationHeap, ReservationNode
 
 input_file_name = '' # global variable for input file name, sys.argv[1] in main
 closest_more_book, closest_less_book = None, None # used for closest book function
+changed_color = dict() # dictionary of book_id and color, for counting color changes
 
 Function = Enum('Function', ['PrintBook', 'PrintBooks', 'InsertBook', 'BorrowBook', 'ReturnBook', 'DeleteBook', 'FindClosestBook', 'ColorFlipCount', 'Quit'])
 
@@ -67,6 +68,12 @@ class Book:
 
     def change_color(self):
         self.red = not self.red
+        # insert color change into dictionary
+        if (self.book_id in changed_color):
+            # delete from dictionary
+            del changed_color[self.book_id]
+        else:
+            changed_color[self.book_id] = self.red
         # library.color_flip_count += 1 # dead code, since thats not how they want us to count
 
     def add_reservation(self, patron_id, patron_priority):
@@ -252,9 +259,11 @@ class GatorLibrary:
         elif (current.get_null()):
             return current
 
-        # recursive depth-first calls
-        current.left = self.delete_book(current.get_left(), book_id)
-        current.right = self.delete_book(current.get_right(), book_id)
+        # recursive depth-first calls, only go if needed
+        if (book_id <= current.book_id):
+            current.left = self.delete_book(current.get_left(), book_id)
+        elif (book_id >= current.book_id):
+            current.right = self.delete_book(current.get_right(), book_id)
 
         # no need to continue, all is good here if no children are deficient
         if (not current.get_left().deficient and not current.get_right().deficient and current.book_id != book_id):
@@ -289,7 +298,7 @@ class GatorLibrary:
 
                 # if red, make black, done!
                 if (current.red):
-                    current.red = False
+                    current.change_color()
                 else:
                     # if black, make deficient
                     current.deficient = True
@@ -328,9 +337,7 @@ class GatorLibrary:
 
                 # if red red stay same, if black black stay same, if black replace red, make red, if red replace black, make black
                 if (node.red != current_color):
-                    node.red = current_color
-                else:
-                    node.red = not current_color
+                    node.change_color()
 
                 current = node # returns to be parents child
                 
@@ -340,7 +347,8 @@ class GatorLibrary:
 
         # just in case the root comes out red, which it shouldnt, ever, especially in my robust code, but just in case :)
         if (self.root.book_id == book_id):
-            self.root.red = False
+            if (self.root.red):
+                self.root.change_color() # does this count as changing a color?
 
         return current
 
@@ -353,6 +361,8 @@ class GatorLibrary:
         global closest_more_book
         closest_less_book = make_null_book()
         closest_more_book = make_null_book()
+        # set both book_ids to infinity
+        closest_less_book.book_id, closest_more_book.book_id = float('-inf'), float('inf')
 
         self.closest = self.root
         self.find_closest_book_recursive(self.root, target_id)
@@ -376,10 +386,13 @@ class GatorLibrary:
         
         global closest_less_book
         global closest_more_book
+
+        # only search if not null and going in subtree will be closer to target_id
         if (not current.get_left().get_null()):
             self.find_closest_book_recursive(current.get_left(), target_id)
         if (not current.get_right().get_null()):
             self.find_closest_book_recursive(current.get_right(), target_id)
+
         current_distance = abs(current.book_id - target_id)
             
         if (current.book_id >= target_id):
@@ -393,35 +406,6 @@ class GatorLibrary:
     def get_color_flip_count(self):
         output("Color Flip Count: " + str(self.color_flip_count))
 
-    # run before an operation to store the colors of the nodes
-    def store_colors(self, current):
-        # make an array with pairs of ID and re
-        if (current.get_null()):
-            return
-        self.colors[current.book_id] = current.red
-        self.store_colors(current.get_left())
-        self.store_colors(current.get_right())
-    
-    # run after an operation to count the color changes of the nodes upon insertion or deletion
-    def count_color_changes(self, current):
-        if current.get_null():
-            return
-        
-        self.count_color_changes(current.get_left())
-        self.count_color_changes(current.get_right())
-
-        # if not in self.colors
-        # catch key error
-        try:
-            self.colors[current.book_id] == None
-             # do nothing, new node can't change color
-        except KeyError: # newly inserted
-            return
-
-        if (current.red != self.colors[current.book_id]):
-            self.color_flip_count += 1
-
-    
 def get_input(filename):
     # read command from file
     input_file = open(filename, "r")
@@ -478,6 +462,7 @@ def main():
     # ONLY FOR DEBUG !!
     input_commands = []
     global input_file_name
+    global changed_color
     if (len(argv) < 2):
         # enter input file name
         print("Please enter the input file name")
@@ -494,19 +479,29 @@ def main():
         elif (command[0] == Function.PrintBooks):
             library.print_books(command[1], command[2], library.root)
         elif (command[0] == Function.InsertBook):
-            library.store_colors(library.root)
+            changed_color.clear()
             library.insert_book(command[1], command[2], command[3], command[4])
-            library.count_color_changes(library.root)
+            # display_tree(library.root)
+            library.color_flip_count += len(changed_color)
         elif (command[0] == Function.BorrowBook):
             library.borrow_book(command[1], command[2], command[3])
         elif (command[0] == Function.ReturnBook):
             library.return_book(command[1], command[2])
         elif (command[0] == Function.DeleteBook):
-            library.store_colors(library.root)
+            changed_color.clear()
             library.deleted_book = make_null_book()
+            # display_tree(library.root)
             library.root = library.delete_book(library.root, command[1])
+            # display_tree(library.root)
             library.print_deletion_message()
-            library.count_color_changes(library.root)
+            
+            # change to try and catch key error
+            try:
+                changed_color.pop(-1) # in case fully deleted
+                changed_color.pop(command[1])
+            except KeyError:
+                pass
+            library.color_flip_count += len(changed_color)
         elif (command[0] == Function.FindClosestBook):
             library.find_closest_book(command[1]) # includes print
         elif (command[0] == Function.ColorFlipCount):
